@@ -3,14 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ICE460 Unit 6: Requirement Engineering - Comprehensive Master Infographic</title>
+  <title>ICE460 Unit 6: Requirement Engineering - คู่มือสรุปบทเรียนและเตรียมสอบฉบับสมบูรณ์</title>
   
-  <!-- Thai & Monospace Google Fonts -->
+  <!-- Thai & Monospace Google Fonts: Sarabun (Body) & Prompt (Headings) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@400;500;600;700&family=Sarabun:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Prompt:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Sarabun:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
   
-  <!-- Tailwind CSS via Antigravity allowlist -->
+  <!-- Tailwind CSS via Antigravity Allowlist -->
   <script src="https://www.gstatic.com/antigravity/web/dev/tailwindcss.min.js"></script>
 
   <style>
@@ -21,10 +21,16 @@
     }
     body {
       font-family: var(--font-body);
-      background-color: #070e1e;
-      color: #cbd5e1;
+      background-color: #060c18;
+      color: #e2e8f0;
       line-height: 1.8;
-      font-size: 15px;
+      font-size: 17px; /* 17-18px desktop default as required */
+    }
+    @media (max-width: 768px) {
+      body {
+        font-size: 16px; /* 16-17px on mobile */
+        line-height: 1.75;
+      }
     }
     h1, h2, h3, h4, h5, .font-heading {
       font-family: var(--font-heading);
@@ -34,9 +40,9 @@
       font-family: var(--font-mono);
     }
     .board-card {
-      background: linear-gradient(160deg, #0d172e 0%, #091022 100%);
+      background: linear-gradient(165deg, #0e172a 0%, #090f1f 100%);
       border: 1px solid #1e293b;
-      box-shadow: 0 15px 35px -5px rgba(0, 0, 0, 0.5), 0 5px 15px -3px rgba(0, 0, 0, 0.3);
+      box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.6);
       position: relative;
     }
     .board-card::before {
@@ -45,28 +51,38 @@
       top: 0;
       left: 0;
       right: 0;
-      height: 3px;
+      height: 4px;
       background: linear-gradient(90deg, #0284c7, #06b6d4, #10b981);
       border-radius: 1.5rem 1.5rem 0 0;
     }
     .sub-card {
-      background: rgba(15, 23, 42, 0.7);
-      border: 1px solid rgba(51, 65, 85, 0.6);
-      transition: all 0.2s ease-in-out;
+      background: rgba(15, 23, 42, 0.75);
+      border: 1px solid rgba(51, 65, 85, 0.7);
     }
-    .sub-card:hover {
-      border-color: rgba(6, 182, 212, 0.5);
-      transform: translateY(-2px);
+    .exam-box {
+      background: linear-gradient(135deg, rgba(245, 158, 11, 0.08) 0%, rgba(180, 83, 9, 0.03) 100%);
+      border: 1px solid rgba(245, 158, 11, 0.35);
+      border-left: 5px solid #f59e0b;
+    }
+    .trap-box {
+      background: linear-gradient(135deg, rgba(239, 68, 68, 0.08) 0%, rgba(185, 28, 28, 0.03) 100%);
+      border: 1px solid rgba(239, 68, 68, 0.35);
+      border-left: 5px solid #ef4444;
+    }
+    .concept-box {
+      background: linear-gradient(135deg, rgba(6, 182, 212, 0.08) 0%, rgba(14, 116, 144, 0.03) 100%);
+      border: 1px solid rgba(6, 182, 212, 0.35);
+      border-left: 5px solid #06b6d4;
     }
     .badge {
       display: inline-flex;
       align-items: center;
       gap: 0.375rem;
-      padding: 0.25rem 0.625rem;
+      padding: 0.25rem 0.65rem;
       border-radius: 9999px;
-      font-size: 0.75rem;
+      font-size: 0.8rem;
       font-weight: 600;
-      letter-spacing: 0.025em;
+      letter-spacing: 0.02em;
     }
     .badge-cyan {
       background: rgba(6, 182, 212, 0.15);
@@ -93,31 +109,38 @@
       border: 1px solid rgba(244, 63, 94, 0.35);
       color: #fb7185;
     }
-    .highlight-text {
-      color: #38bdf8;
-      font-weight: 600;
+    details summary {
+      cursor: pointer;
+      user-select: none;
+      transition: all 0.2s ease;
+    }
+    details summary::-webkit-details-marker {
+      display: none;
+    }
+    details[open] summary .arrow-icon {
+      transform: rotate(90deg);
     }
     /* Custom Scrollbar */
     ::-webkit-scrollbar {
-      width: 8px;
-      height: 8px;
+      width: 9px;
+      height: 9px;
     }
     ::-webkit-scrollbar-track {
-      background: #091022;
+      background: #060c18;
     }
     ::-webkit-scrollbar-thumb {
       background: #1e293b;
-      border-radius: 4px;
+      border-radius: 5px;
     }
     ::-webkit-scrollbar-thumb:hover {
       background: #334155;
     }
-    /* Print Layout Configuration */
+    /* Print Layout Styling */
     @media print {
       body {
         background-color: #ffffff !important;
         color: #0f172a !important;
-        font-size: 12px !important;
+        font-size: 13px !important;
         line-height: 1.5 !important;
       }
       .no-print {
@@ -125,7 +148,7 @@
       }
       .board-card {
         background: #ffffff !important;
-        border: 2px solid #94a3b8 !important;
+        border: 2px solid #cbd5e1 !important;
         color: #0f172a !important;
         box-shadow: none !important;
         page-break-after: always;
@@ -136,11 +159,10 @@
       .board-card::before {
         display: none;
       }
-      .sub-card {
+      .sub-card, .concept-box, .exam-box, .trap-box {
         background: #f8fafc !important;
         border: 1px solid #cbd5e1 !important;
         color: #0f172a !important;
-        transform: none !important;
       }
       .text-slate-200, .text-slate-300, .text-slate-400 {
         color: #1e293b !important;
@@ -148,10 +170,11 @@
       .text-white {
         color: #000000 !important;
       }
-      .badge {
-        border: 1px solid #64748b !important;
-        color: #0f172a !important;
-        background: #e2e8f0 !important;
+      details {
+        display: block !important;
+      }
+      details[open] summary, details summary {
+        font-weight: bold;
       }
       table {
         border-color: #cbd5e1 !important;
@@ -163,10 +186,15 @@
     }
   </style>
 </head>
-<body class="selection:bg-cyan-500 selection:text-white p-3 md:p-8">
+<body class="selection:bg-cyan-500 selection:text-white p-3 md:p-6 lg:p-8">
 
-  <!-- Top Controller Bar (Sticky Navigation & Search) -->
-  <header class="no-print max-w-7xl mx-auto mb-8 bg-slate-900/95 backdrop-blur-md border border-slate-700/70 rounded-2xl p-4 md:p-6 shadow-2xl sticky top-4 z-50">
+  <!-- Floating Back to Top Button -->
+  <button id="backToTop" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="no-print fixed bottom-6 right-6 z-50 p-3.5 rounded-full bg-cyan-600 hover:bg-cyan-500 text-white shadow-2xl transition-all opacity-0 pointer-events-none hover:scale-110">
+    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 10l7-7m0 0l7 7m-7-7v18"></path></svg>
+  </button>
+
+  <!-- Sticky Header Bar: Navigation & Search -->
+  <header class="no-print max-w-7xl mx-auto mb-8 bg-slate-900/95 backdrop-blur-md border border-slate-700/80 rounded-2xl p-4 md:p-6 shadow-2xl sticky top-4 z-40">
     <div class="flex flex-col lg:flex-row items-center justify-between gap-4">
       
       <!-- Brand & Title -->
@@ -175,29 +203,27 @@
           6
         </div>
         <div>
-          <div class="flex items-center gap-2">
+          <div class="flex flex-wrap items-center gap-2">
             <span class="text-xs font-bold tracking-wider text-cyan-400 uppercase">KMUTT • ICE460 Software Engineering</span>
-            <span class="badge badge-cyan py-0.5 px-2 text-[10px]">Academic & Industry Edition</span>
+            <span class="badge badge-emerald py-0.5 px-2 text-[11px]">Exam Prep & Reference Guide</span>
           </div>
-          <h1 class="text-lg md:text-xl font-bold text-white tracking-tight font-heading">
-            Unit 6: Requirement Engineering (Master Comprehensive Infographic)
+          <h1 class="text-xl md:text-2xl font-bold text-white tracking-tight font-heading mt-0.5">
+            Unit 6: วิศวกรรมความต้องการ (Requirement Engineering)
           </h1>
-          <p class="text-xs text-slate-400 mt-0.5">
-            อ้างอิง: Ian Sommerville (10th Ed.), Roger Pressman, IEEE Std 830-1998, ISO/IEC/IEEE 29148:2018, BABOK v3
+          <p class="text-xs text-slate-400">
+            ผู้สอน: ดร.ยุวรัตน์ ศรีศุภวงศ์ • อ้างอิงสไลด์ 54 หน้า, Sommerville 10th Ed, Pressman 8th Ed, โอภาส เอี่ยมสิริวงศ์
           </p>
         </div>
       </div>
 
-      <!-- Live Search & Control Buttons -->
+      <!-- Controls: Search & Print -->
       <div class="flex flex-wrap items-center gap-2.5 w-full lg:w-auto justify-end">
-        <!-- Search Input -->
         <div class="relative w-full sm:w-64">
-          <input type="text" id="searchInput" onkeyup="searchContent()" placeholder="🔍 ค้นหาหัวข้อ, ศัพท์เทคนิค..." 
-            class="w-full bg-slate-950/80 border border-slate-700 text-xs rounded-xl px-3 py-2 pl-8 text-slate-200 placeholder-slate-500 focus:outline-none focus:border-cyan-500 transition-all">
-          <svg class="w-3.5 h-3.5 text-slate-500 absolute left-2.5 top-2.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+          <input type="text" id="searchInput" onkeyup="searchContent()" placeholder="🔍 ค้นหาหัวข้อ, ศัพท์, สรุปสอบ..." 
+            class="w-full bg-slate-950/90 border border-slate-700 text-sm rounded-xl px-3.5 py-2 pl-9 text-slate-200 placeholder-slate-500 focus:outline-none focus:border-cyan-500 transition-all">
+          <svg class="w-4 h-4 text-slate-500 absolute left-3 top-2.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
         </div>
 
-        <!-- Print PDF Button -->
         <button onclick="window.print()" class="px-4 py-2 rounded-xl text-xs font-semibold bg-emerald-600 hover:bg-emerald-500 text-white transition-all shadow-lg shadow-emerald-900/30 flex items-center gap-1.5 shrink-0">
           <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"></path></svg>
           พิมพ์ / บันทึก PDF (A4)
@@ -207,1186 +233,1659 @@
     </div>
 
     <!-- Navigation Tab Bar -->
-    <div class="flex items-center gap-1.5 mt-4 pt-3 border-t border-slate-800 overflow-x-auto pb-1">
+    <nav class="flex items-center gap-1.5 mt-4 pt-3 border-t border-slate-800 overflow-x-auto pb-1">
       <button onclick="filterBoard('all')" id="btn-all" class="tab-btn px-3.5 py-1.5 rounded-lg text-xs font-semibold transition-all bg-cyan-600 text-white shadow-md shrink-0">
-        📋 แสดงทั้ง 6 แผ่น (Master View)
+        📋 แสดงทั้งหมด (All Sections)
       </button>
       <button onclick="filterBoard(1)" id="btn-1" class="tab-btn px-3 py-1.5 rounded-lg text-xs font-medium text-slate-300 hover:text-white hover:bg-slate-800 transition-all shrink-0">
-        แผ่นที่ 1: บทนำ & SDLC
+        Board 1: บทนำ & SDLC
       </button>
       <button onclick="filterBoard(2)" id="btn-2" class="tab-btn px-3 py-1.5 rounded-lg text-xs font-medium text-slate-300 hover:text-white hover:bg-slate-800 transition-all shrink-0">
-        แผ่นที่ 2: จำแนกประเภท & ตัวชี้วัด NFR
+        Board 2: ประเภท & ตัวชี้วัด NFR
       </button>
       <button onclick="filterBoard(3)" id="btn-3" class="tab-btn px-3 py-1.5 rounded-lg text-xs font-medium text-slate-300 hover:text-white hover:bg-slate-800 transition-all shrink-0">
-        แผ่นที่ 3: กระบวนการ RE (4 ขั้นตอน)
+        Board 3: กระบวนการ RE (4 ขั้น)
       </button>
       <button onclick="filterBoard(4)" id="btn-4" class="tab-btn px-3 py-1.5 rounded-lg text-xs font-medium text-slate-300 hover:text-white hover:bg-slate-800 transition-all shrink-0">
-        แผ่นที่ 4: มาตรฐาน SRS & IEEE 830
+        Board 4: มาตรฐาน SRS & IEEE 830
       </button>
       <button onclick="filterBoard(5)" id="btn-5" class="tab-btn px-3 py-1.5 rounded-lg text-xs font-medium text-slate-300 hover:text-white hover:bg-slate-800 transition-all shrink-0">
-        แผ่นที่ 5: การตรวจทาน (Validation)
+        Board 5: การตรวจทาน (Validation)
       </button>
       <button onclick="filterBoard(6)" id="btn-6" class="tab-btn px-3 py-1.5 rounded-lg text-xs font-medium text-slate-300 hover:text-white hover:bg-slate-800 transition-all shrink-0">
-        แผ่นที่ 6: กรณีศึกษา & การแปลงสู่ระบบ
+        Board 6: กรณีศึกษาจริง 2 ระบบ
       </button>
-    </div>
+      <button onclick="filterBoard(7)" id="btn-7" class="tab-btn px-3.5 py-1.5 rounded-lg text-xs font-bold text-amber-300 bg-amber-950/60 border border-amber-500/40 hover:bg-amber-900/60 transition-all shrink-0 flex items-center gap-1">
+        ⭐ Board 7: คลังข้อสอบ & สรุปติว
+      </button>
+    </nav>
   </header>
 
-  <!-- Main Infographic Boards Container -->
+  <!-- Main Content Container -->
   <main class="max-w-7xl mx-auto space-y-12 pb-24">
 
-    <!-- ==========================================
-         BOARD 1: บทนำ นิยาม และรากฐานความต้องการ
-         ========================================== -->
+    <!-- =========================================================================
+         BOARD 1: รากฐานและนิยามความต้องการ (FOUNDATIONS & SDLC)
+         ========================================================================= -->
     <article id="board-1" class="board-card rounded-3xl p-6 md:p-10">
       
       <!-- Board Header -->
       <div class="flex flex-wrap items-center justify-between pb-6 mb-8 border-b border-slate-800 gap-4">
         <div>
-          <div class="flex items-center gap-3">
+          <div class="flex items-center gap-2.5">
             <span class="badge badge-cyan">BOARD 01 / 06</span>
-            <span class="text-xs text-slate-400 font-mono">SOMMERVILLE CH.4 • SDLC PHASES</span>
+            <span class="text-xs text-slate-400 font-mono">อ้างอิงสไลด์: 1 - 10</span>
           </div>
-          <h2 class="text-2xl md:text-3xl font-bold text-white mt-1">
-            บทนำและรากฐานวิศวกรรมความต้องการ (Foundations of Requirements Engineering)
+          <h2 class="text-2xl md:text-3xl font-bold text-white mt-1.5 font-heading">
+            บทนำและรากฐานวิศวกรรมความต้องการ (Foundations of Requirement Engineering)
           </h2>
         </div>
         <div class="text-right text-xs text-slate-400">
-          <div>สไลด์อ้างอิง: <strong>1 - 10</strong></div>
-          <div class="text-emerald-400">จุดเริ่มต้นของความสำเร็จ/ล้มเหลวของซอฟต์แวร์</div>
+          <div>หัวใจ: <strong>จุดเริ่มต้นการพัฒนาระบบ</strong></div>
+          <div class="text-cyan-400">ทำความเข้าใจปัญหาจริงของผู้ใช้ ก่อนเริ่มโค้ด</div>
         </div>
       </div>
 
-      <!-- Executive Overview Banner -->
-      <div class="p-6 rounded-2xl bg-gradient-to-r from-blue-950/60 via-slate-900 to-cyan-950/40 border border-cyan-800/50 mb-8">
-        <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
-          <div class="space-y-2">
-            <div class="flex items-center gap-2">
-              <span class="badge badge-emerald">Formal Definition</span>
-              <span class="text-xs text-slate-400">IEEE Standard 610.12 & Ian Sommerville</span>
-            </div>
-            <h3 class="text-base font-bold text-cyan-300">
-              วิศวกรรมความต้องการ (Requirements Engineering - RE) คืออะไร?
-            </h3>
-            <p class="text-sm text-slate-200 leading-relaxed max-w-4xl">
-              กระบวนการที่เป็นระบบ (Systematic Process) ในการ<strong>ค้นหา (Discover), สกัด (Elicit), วิเคราะห์ (Analyze), จัดทำข้อกำหนด (Specify), ตรวจทาน (Validate)</strong> และ<strong>บริหารจัดการ (Manage)</strong> บริการต่างๆ ที่ระบบจำเป็นต้องส่งมอบ พร้อมทั้งเงื่อนไขและข้อจำกัดในการดำเนินงาน เพื่อเป็นพิมพ์เขียวเดียวที่แปลงความต้องการทางธุรกิจของมนุษย์ให้กลายเป็นแบบแปลนซอฟต์แวร์ที่พัฒนาและตรวจรับได้จริง
-            </p>
-          </div>
-          <div class="p-4 rounded-xl bg-slate-900/90 border border-slate-700/80 shrink-0 text-center w-full md:w-56">
-            <div class="text-2xl font-bold text-rose-400 font-mono">40% - 50%</div>
-            <div class="text-xs text-slate-300 font-medium mt-0.5">ของข้อผิดพลาดในระบบ</div>
-            <div class="text-[11px] text-slate-400 mt-1">มีสาเหตุมาจากขั้นตอน Requirement (CHAOS Report)</div>
-          </div>
+      <!-- Pedagogical Concept Box: What & Why -->
+      <div class="concept-box p-6 rounded-2xl mb-8 space-y-3">
+        <div class="flex items-center gap-2">
+          <span class="badge badge-cyan text-xs">นิยามเข้าใจง่าย (Simple Definition)</span>
+          <span class="text-xs text-slate-400">สไลด์หน้า 5</span>
         </div>
+        <p class="text-slate-100 font-medium">
+          <strong>วิศวกรรมความต้องการ (Requirement Engineering)</strong> คือ กระบวนการที่ทีมวิศวกรซอฟต์แวร์ใช้ในการ <strong>"ค้นหา ทำความเข้าใจ สกัดข้อกำหนด และตรวจสอบความต้องการของลูกค้า"</strong> เพื่อนำมาสร้างเป็นเอกสารข้อกำหนดความต้องการ (SRS) สำหรับเป็นแบบแปลนในการสร้างระบบต่อไป
+        </p>
+        <p class="text-sm text-slate-300">
+          <strong>ทำไมถึงสำคัญมาก? (Why It Matters):</strong> ซอฟต์แวร์ส่วนใหญ่ไม่ได้พังเพราะเขียนโปรแกรมไม่เก่ง แต่พังเพราะ <em>"สร้างผิดระบบตั้งแต่แรก (Building the wrong system)"</em> การทำ Requirement ที่ดีคือการรับประกันว่า เรากำลังแก้ปัญหาที่ถูกต้องของลูกค้า
+        </p>
       </div>
 
-      <!-- Grid: SDLC vs 3 Levels of Requirements -->
+      <!-- SDLC vs AS-IS / TO-BE Grid -->
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-8">
         
-        <!-- Left: SDLC Position (5 cols) -->
-        <div class="lg:col-span-5 sub-card rounded-2xl p-6">
-          <h4 class="text-sm font-bold text-white uppercase tracking-wider mb-4 flex items-center gap-2">
-            <span class="w-2.5 h-2.5 rounded-full bg-cyan-400"></span>
-            RE ในวัฏจักรการพัฒนาซอฟต์แวร์ (SDLC)
-          </h4>
-          <p class="text-xs text-slate-300 mb-5 leading-relaxed">
-            ในโมเดล SDLC แบบดั้งเดิม (Waterfall) และแบบ Agile (Iterative), RE ทำหน้าที่เป็น "สะพานเชื่อม" ระหว่างปัญหาทางธุรกิจสู่การสร้างระบบ:
+        <!-- Left: SDLC 7 Steps (Slide 3) -->
+        <div class="lg:col-span-6 sub-card rounded-2xl p-6">
+          <div class="flex items-center justify-between mb-4">
+            <h3 class="text-base font-bold text-white font-heading flex items-center gap-2">
+              <span class="w-2.5 h-2.5 rounded-full bg-cyan-400"></span>
+              RE ในวัฏจักรการพัฒนาซอฟต์แวร์ (SDLC 7 ขั้นตอน)
+            </h3>
+            <span class="text-xs text-slate-400 font-mono">สไลด์หน้า 3 (สุวรรณี, 2561)</span>
+          </div>
+          <p class="text-sm text-slate-300 mb-5">
+            ตามสไลด์ของวิชา SDLC ประกอบด้วย 7 ขั้นตอน โดย Requirement อยู่ใน<strong>ขั้นตอนที่ 3</strong>:
           </p>
 
-          <div class="space-y-3">
-            <div class="flex items-center gap-3 p-3 rounded-xl bg-slate-900/60 border border-slate-800">
-              <span class="w-7 h-7 rounded-lg bg-slate-800 text-slate-400 font-bold text-xs flex items-center justify-center font-mono">01</span>
+          <ol class="space-y-2.5 text-sm">
+            <li class="flex items-center gap-3 p-2.5 rounded-xl bg-slate-900/70 border border-slate-800">
+              <span class="w-6 h-6 rounded-full bg-slate-800 text-slate-300 font-bold text-xs flex items-center justify-center font-mono">1</span>
+              <span><strong>การกำหนดปัญหา (Problem Definition):</strong> กำหนดขอบเขตปัญหาที่ต้องการแก้ไข</span>
+            </li>
+            <li class="flex items-center gap-3 p-2.5 rounded-xl bg-slate-900/70 border border-slate-800">
+              <span class="w-6 h-6 rounded-full bg-slate-800 text-slate-300 font-bold text-xs flex items-center justify-center font-mono">2</span>
+              <span><strong>การศึกษาความเป็นไปได้ (Feasibility Study):</strong> เทคโนโลยี, งบประมาณ, ความคุ้มค่า</span>
+            </li>
+            <li class="flex items-center gap-3 p-3 rounded-xl bg-cyan-950/80 border-2 border-cyan-500 shadow-md">
+              <span class="w-6 h-6 rounded-full bg-cyan-500 text-slate-950 font-bold text-xs flex items-center justify-center font-mono">3</span>
               <div>
-                <div class="text-xs font-semibold text-slate-300">การกำหนดปัญหา (Problem Definition)</div>
-                <div class="text-[11px] text-slate-500">ระบุ Pain Point และเป้าหมายขององค์กร</div>
+                <span class="font-bold text-cyan-300">ความต้องการของผู้ใช้ (User Requirement) ★</span>
+                <div class="text-xs text-cyan-400/90">หัวใจของ Unit 6: แปลงความต้องการของผู้ใช้สู่สเปกระบบ</div>
               </div>
-            </div>
-
-            <div class="flex items-center gap-3 p-3 rounded-xl bg-slate-900/60 border border-slate-800">
-              <span class="w-7 h-7 rounded-lg bg-slate-800 text-slate-400 font-bold text-xs flex items-center justify-center font-mono">02</span>
-              <div>
-                <div class="text-xs font-semibold text-slate-300">ศึกษาความเป็นไปได้ (Feasibility Study)</div>
-                <div class="text-[11px] text-slate-500">คุ้มค่าด้านงบประมาณ, เทคโนโลยี, และเวลาหรือไม่</div>
-              </div>
-            </div>
-
-            <div class="flex items-center gap-3 p-3.5 rounded-xl bg-cyan-950/70 border-2 border-cyan-500/70 shadow-lg shadow-cyan-950/50">
-              <span class="w-7 h-7 rounded-lg bg-cyan-500 text-slate-950 font-bold text-xs flex items-center justify-center font-mono">03</span>
-              <div>
-                <div class="text-xs font-bold text-cyan-300 flex items-center gap-1.5">
-                  ความต้องการของซอฟต์แวร์ (Requirement Engineering) ★
-                </div>
-                <div class="text-[11px] text-cyan-400/90">จุดตั้งต้นที่แปลงวิสัยทัศน์ผู้ใช้ให้เป็นสเปกของระบบ</div>
-              </div>
-            </div>
-
-            <div class="flex items-center gap-3 p-3 rounded-xl bg-slate-900/60 border border-slate-800">
-              <span class="w-7 h-7 rounded-lg bg-slate-800 text-slate-400 font-bold text-xs flex items-center justify-center font-mono">04</span>
-              <div>
-                <div class="text-xs font-semibold text-slate-300">การวิเคราะห์และออกแบบ (Analysis & Design)</div>
-                <div class="text-[11px] text-slate-500">สร้างแบบจำลองสถาปัตยกรรม (Architecture & UI)</div>
-              </div>
-            </div>
-
-            <div class="flex items-center gap-3 p-3 rounded-xl bg-slate-900/60 border border-slate-800">
-              <span class="w-7 h-7 rounded-lg bg-slate-800 text-slate-400 font-bold text-xs flex items-center justify-center font-mono">05</span>
-              <div>
-                <div class="text-xs font-semibold text-slate-300">การพัฒนาและการทดสอบ (Coding & Testing)</div>
-                <div class="text-[11px] text-slate-500">เขียนโปรแกรมและตรวจรับงานเทียบกับ Requirement</div>
-              </div>
-            </div>
-          </div>
+            </li>
+            <li class="flex items-center gap-3 p-2.5 rounded-xl bg-slate-900/70 border border-slate-800">
+              <span class="w-6 h-6 rounded-full bg-slate-800 text-slate-300 font-bold text-xs flex items-center justify-center font-mono">4</span>
+              <span><strong>การวิเคราะห์และออกแบบระบบ (System Analysis and Design):</strong> DFD, ERD, UML</span>
+            </li>
+            <li class="flex items-center gap-3 p-2.5 rounded-xl bg-slate-900/70 border border-slate-800">
+              <span class="w-6 h-6 rounded-full bg-slate-800 text-slate-300 font-bold text-xs flex items-center justify-center font-mono">5</span>
+              <span><strong>การเขียนโปรแกรม (Programming):</strong> ลงมือเขียนโค้ดตามผลการออกแบบ</span>
+            </li>
+            <li class="flex items-center gap-3 p-2.5 rounded-xl bg-slate-900/70 border border-slate-800">
+              <span class="w-6 h-6 rounded-full bg-slate-800 text-slate-300 font-bold text-xs flex items-center justify-center font-mono">6</span>
+              <span><strong>การทดสอบโปรแกรม (Testing):</strong> ตรวจสอบว่าโปรแกรมทำงานตามสเปกหรือไม่</span>
+            </li>
+            <li class="flex items-center gap-3 p-2.5 rounded-xl bg-slate-900/70 border border-slate-800">
+              <span class="w-6 h-6 rounded-full bg-slate-800 text-slate-300 font-bold text-xs flex items-center justify-center font-mono">7</span>
+              <span><strong>การบำรุงรักษาโปรแกรม (Software Maintenance):</strong> ปรับปรุง แก้ไขบั๊กตามการใช้งาน</span>
+            </li>
+          </ol>
         </div>
 
-        <!-- Right: The 3 Layers Hierarchy of Requirements (7 cols) -->
-        <div class="lg:col-span-7 sub-card rounded-2xl p-6 flex flex-col justify-between">
+        <!-- Right: AS-IS vs TO-BE Concept (Slide 6) -->
+        <div class="lg:col-span-6 sub-card rounded-2xl p-6 flex flex-col justify-between">
           <div>
-            <h4 class="text-sm font-bold text-white uppercase tracking-wider mb-4 flex items-center gap-2">
-              <span class="w-2.5 h-2.5 rounded-full bg-amber-400"></span>
-              ลำดับชั้น 3 ระดับของความต้องการ (Hierarchy of Requirements)
-            </h4>
-            <p class="text-xs text-slate-300 mb-5 leading-relaxed">
-              ตามหลักสากล (BABOK & Sommerville) ความต้องการถูกแบ่งออกเป็น 3 ระดับ เพื่อสื่อสารกับผู้มีส่วนได้ส่วนเสียที่ต่างกัน:
+            <div class="flex items-center justify-between mb-4">
+              <h3 class="text-base font-bold text-white font-heading flex items-center gap-2">
+                <span class="w-2.5 h-2.5 rounded-full bg-amber-400"></span>
+                การเชื่อมต่อระบบเดิมสู่ระบบใหม่: AS-IS vs. TO-BE
+              </h3>
+              <span class="text-xs text-slate-400 font-mono">สไลด์หน้า 6</span>
+            </div>
+            <p class="text-sm text-slate-300 mb-4">
+              การเก็บ Requirement ไม่ใช่การนั่งเทียนคิดระบบใหม่จากความว่างเปล่า แต่ต้องผ่าน 3 สเต็ป:
             </p>
 
-            <div class="space-y-3.5">
-              <!-- Level 1: Business Req -->
-              <div class="p-3.5 rounded-xl bg-slate-900/80 border border-amber-500/30">
-                <div class="flex items-center justify-between mb-1">
-                  <span class="text-xs font-bold text-amber-300">1. ความต้องการทางธุรกิจ (Business Requirements)</span>
-                  <span class="badge badge-amber text-[10px]">ระดับผู้บริหาร / องค์กร</span>
-                </div>
-                <p class="text-xs text-slate-300">
-                  เป้าหมายระดับสูงขององค์กร เหตุผลทางธุรกิจที่ต้องสร้างระบบ เช่น <em>"ต้องการลดต้นทุนการประมวลผลเอกสารลง 40% ภายใน 1 ปี"</em> หรือ <em>"เพิ่มยอดขายผ่านช่องทางออนไลน์"</em>
-                </p>
+            <div class="space-y-3.5 mb-6">
+              <div class="p-3.5 rounded-xl bg-slate-900/80 border border-slate-700">
+                <span class="text-xs font-bold text-amber-400 uppercase font-mono">Step 1 • AS-IS System</span>
+                <h4 class="text-sm font-bold text-white mt-0.5">ทำความเข้าใจระบบปัจจุบัน (Understand the existing system)</h4>
+                <p class="text-xs text-slate-300 mt-1">ศึกษาว่าปัจจุบันผู้ใช้ทำงานอย่างไร ใช้กระดาษหรือระบบเดิมตรงไหน มีปัญหาอุปสรรคอะไรบ้าง</p>
               </div>
 
-              <!-- Level 2: User Req -->
-              <div class="p-3.5 rounded-xl bg-slate-900/80 border border-cyan-500/30">
-                <div class="flex items-center justify-between mb-1">
-                  <span class="text-xs font-bold text-cyan-300">2. ความต้องการของผู้ใช้ (User Requirements)</span>
-                  <span class="badge badge-cyan text-[10px]">ระดับผู้ใช้งานจริง</span>
-                </div>
-                <p class="text-xs text-slate-300">
-                  สิ่งที่ผู้ใช้งานคาดหวังว่าจะทำได้ผ่านระบบ เขียนด้วยภาษาธรรมชาติที่เข้าใจง่าย ไม่มีศัพท์เทคนิคคอมพิวเตอร์ เช่น <em>"เจ้าหน้าที่ต้องการค้นหาประวัติการซื้อของลูกค้าได้ทันทีเมื่อรับสายโทรศัพท์"</em>
-                </p>
+              <div class="p-3.5 rounded-xl bg-slate-900/80 border border-slate-700">
+                <span class="text-xs font-bold text-cyan-400 uppercase font-mono">Step 2 • Identify Improvement</span>
+                <h4 class="text-sm font-bold text-white mt-0.5">ระบุจุดที่ต้องการปรับปรุงแก้ไข</h4>
+                <p class="text-xs text-slate-300 mt-1">วิเคราะห์ว่ามีจุดใดที่ล่าช้า ผิดพลาดบ่อย หรือมีต้นทุนสูงเกินไป</p>
               </div>
 
-              <!-- Level 3: System Req -->
-              <div class="p-3.5 rounded-xl bg-slate-900/80 border border-emerald-500/30">
-                <div class="flex items-center justify-between mb-1">
-                  <span class="text-xs font-bold text-emerald-300">3. ความต้องการของระบบ (System Requirements)</span>
-                  <span class="badge badge-emerald text-[10px]">ระดับทีมพัฒนา / วิศวกร</span>
-                </div>
-                <p class="text-xs text-slate-300">
-                  คำอธิบายเชิงโครงสร้างอย่างละเอียดถึงฟังก์ชันการทำงาน, อินพุต, เอาต์พุต, ฐานข้อมูล, และข้อจำกัดทางเทคนิค เช่น <em>"ระบบต้องรองรับการค้นหาด้วย Customer_ID และแสดงผลลัพธ์ผ่านหน้า UI ภายในเวลาไม่เกิน 1.5 วินาที"</em>
-                </p>
+              <div class="p-3.5 rounded-xl bg-slate-900/80 border border-emerald-500/50 bg-emerald-950/20">
+                <span class="text-xs font-bold text-emerald-400 uppercase font-mono">Step 3 • TO-BE System</span>
+                <h4 class="text-sm font-bold text-white mt-0.5">กำหนดความต้องการของระบบใหม่ (Define Requirements for new system)</h4>
+                <p class="text-xs text-slate-300 mt-1">ออกแบบระบบใหม่ที่จะเข้ามาทดแทนหรือเสริมการทำงานให้มีประสิทธิภาพสูงสุด</p>
               </div>
             </div>
           </div>
 
-          <div class="mt-4 p-3 rounded-xl bg-slate-950/60 border border-slate-800 text-xs text-slate-400">
-            📌 <strong>บันทึกสำคัญ:</strong> เอกสาร <strong>SRS</strong> ที่สมบูรณ์ จะแปลง User Requirements ในชั้นที่ 2 ออกมาเป็น System Requirements ในชั้นที่ 3 อย่างละเอียดและครบถ้วน
+          <div class="p-3.5 rounded-xl bg-slate-950/70 border border-slate-800 text-xs text-slate-300">
+            💡 <strong>ตัวอย่างเชื่อมโยง:</strong> ระบบลงทะเบียนเรียนเดิม (AS-IS) ให้นักศึกษากรอกกระดาษแล้วต่อคิวที่ทะเบียน &rarr; จุดปรับปรุง: คิวยาว ตรวจสอบวิชาพรีไม่ทัน &rarr; ระบบใหม่ (TO-BE): ลงทะเบียนผ่านเว็บออนไลน์พร้อมตรวจสอบเงื่อนไขวิชาอัตโนมัติ
           </div>
         </div>
+
       </div>
 
-      <!-- Deep Dive Comparison Table: User Requirements vs. System Requirements -->
-      <div class="sub-card rounded-2xl p-6">
-        <h4 class="text-sm font-bold text-white uppercase tracking-wider mb-4 flex items-center gap-2">
-          <svg class="w-4 h-4 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M3 14h18m-9-4v8m-7 4h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
-          ตารางเปรียบเทียบเชิงลึก: User Requirements vs. System Requirements
-        </h4>
+      <!-- Core Comparison Table: User Requirements vs. System Requirements (Slides 8, 9, 10) -->
+      <div class="sub-card rounded-2xl p-6 mb-8">
+        <div class="flex flex-wrap items-center justify-between mb-4 gap-2">
+          <h3 class="text-base font-bold text-white font-heading flex items-center gap-2">
+            <svg class="w-5 h-5 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M3 14h18m-9-4v8m-7 4h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+            ตารางเปรียบเทียบ: User Requirements vs. System Requirements (สไลด์หน้า 8 - 10)
+          </h3>
+          <span class="badge badge-amber text-xs">ข้อสอบออกบ่อยมาก! ★</span>
+        </div>
+        <p class="text-sm text-slate-300 mb-4">
+          ความต้องการด้านซอฟต์แวร์ถูกแบ่งออกเป็น <strong>2 ระดับความต้องการ (2 Levels of Requirements)</strong> เพื่อสื่อสารกับคนที่แตกต่างกัน:
+        </p>
+
         <div class="overflow-x-auto">
-          <table class="w-full text-left text-xs border-collapse">
+          <table class="w-full text-left text-sm border-collapse min-w-[650px]">
             <thead>
-              <tr class="border-b border-slate-700 bg-slate-900/80 text-slate-300">
-                <th class="py-3 px-4 font-bold text-slate-400 w-1/5">มิติการเปรียบเทียบ</th>
-                <th class="py-3 px-4 font-bold text-cyan-300 w-2/5">User Requirements (ความต้องการของผู้ใช้)</th>
-                <th class="py-3 px-4 font-bold text-emerald-300 w-2/5">System Requirements (ความต้องการของระบบ)</th>
+              <tr class="border-b border-slate-700 bg-slate-900/90 text-slate-300">
+                <th class="py-3.5 px-4 font-bold text-slate-400 w-1/4">ประเด็นการเปรียบเทียบ</th>
+                <th class="py-3.5 px-4 font-bold text-cyan-300 w-3/8">1. ความต้องการของผู้ใช้ (User Requirements)</th>
+                <th class="py-3.5 px-4 font-bold text-emerald-300 w-3/8">2. ความต้องการด้านระบบ (System Requirements)</th>
               </tr>
             </thead>
-            <tbody class="divide-y divide-slate-800/80 text-slate-300">
+            <tbody class="divide-y divide-slate-800 text-slate-300">
               <tr>
-                <td class="py-3 px-4 font-semibold text-slate-400">จุดมุ่งหมายหลัก (Primary Purpose)</td>
-                <td class="py-3 px-4">อธิบายภาพรวมว่า "ผู้ใช้ต้องการทำอะไรและได้ประโยชน์อะไร"</td>
-                <td class="py-3 px-4">ระบุอย่างชัดเจนว่า "ซอฟต์แวร์ต้องทำงานอย่างไร ต้องมีฟังก์ชันใดรองรับ"</td>
+                <td class="py-3.5 px-4 font-semibold text-slate-400">นิยาม (Definition)</td>
+                <td class="py-3.5 px-4">ความต้องการหรือความคาดหวังที่ผู้ใช้คาดว่าจะได้รับจากซอฟต์แวร์ตามเงื่อนไขการทำงาน</td>
+                <td class="py-3.5 px-4">ความต้องการของระบบในระดับรายละเอียดการทำงาน ฟังก์ชัน และบริการเพื่อตอบสนองผู้ใช้</td>
               </tr>
               <tr>
-                <td class="py-3 px-4 font-semibold text-slate-400">ภาษาและรูปแบบ (Language & Notation)</td>
-                <td class="py-3 px-4">ภาษาธรรมชาติทั่วไป (Natural Language), แผนภาพง่ายๆ, User Stories</td>
-                <td class="py-3 px-4">ภาษาเทคนิคที่มีโครงสร้างทางการ (Structured English), Data Dictionaries, UML Diagrams</td>
+                <td class="py-3.5 px-4 font-semibold text-slate-400">ภาษาที่ใช้ (Language)</td>
+                <td class="py-3.5 px-4 font-medium text-cyan-400">ภาษาธรรมชาติ (Natural Language) เข้าใจง่าย ไม่ระบุรายละเอียดทางเทคนิค</td>
+                <td class="py-3.5 px-4 font-medium text-emerald-400">ภาษาเชิงเทคนิค มีโครงสร้างมาตรฐาน ไม่อธิบายด้วยภาษาธรรมชาติแบบผู้ใช้</td>
               </tr>
               <tr>
-                <td class="py-3 px-4 font-semibold text-slate-400">กลุ่มผู้อ่านหลัก (Target Audience)</td>
-                <td class="py-3 px-4">ลูกค้าผู้ว่าจ้าง, ผู้บริหารระดับสูง, ผู้ใช้งานระบบในชีวิตประจำวัน</td>
-                <td class="py-3 px-4">Software Engineers, Solution Architects, Developers, System Testers</td>
+                <td class="py-3.5 px-4 font-semibold text-slate-400">กลุ่มผู้อ่าน (Target Audience)</td>
+                <td class="py-3.5 px-4">ผู้ใช้งานระบบ, ผู้ว่าจ้าง, ผู้บริหาร</td>
+                <td class="py-3.5 px-4">วิศวกรซอฟต์แวร์, โปรแกรมเมอร์, ผู้ทดสอบระบบ (Testers)</td>
               </tr>
               <tr>
-                <td class="py-3 px-4 font-semibold text-slate-400">ระดับความละเอียด (Detail Level)</td>
-                <td class="py-3 px-4">เชิงนามธรรม (Abstract), มุ่งเน้นกระบวนการทำงานระดับธุรกิจ (Business Flow)</td>
-                <td class="py-3 px-4">ละเอียดสูง (Concrete), ระบุฟิลด์ข้อมูล, รหัสข้อผิดพลาด, ข้อจำกัดเวลา</td>
+                <td class="py-3.5 px-4 font-semibold text-slate-400">ระดับรายละเอียด (Detail Level)</td>
+                <td class="py-3.5 px-4">ภาพรวมฟังก์ชัน หน้าตาระบบ และความสามารถหลัก</td>
+                <td class="py-3.5 px-4">ลงลึกในรายละเอียดว่า "อะไรควรทำ อะไรไม่ควรทำ อะไรคือข้อยกเว้นและเงื่อนไข"</td>
               </tr>
               <tr>
-                <td class="py-3 px-4 font-semibold text-slate-400">ตัวอย่างในระบบสุขภาพ</td>
-                <td class="py-3 px-4 text-cyan-300">"แพทย์ต้องสามารถดูประวัติการจ่ายยาของผู้ป่วยย้อนหลัง 5 ปีได้"</td>
-                <td class="py-3 px-4 text-emerald-300">"ระบบต้องดึงข้อมูลจากตาราง Medication_History ผ่าน REST API และส่งคืน JSON ไม่เกิน 500ms"</td>
+                <td class="py-3.5 px-4 font-semibold text-slate-400">เอกสารที่บันทึก (Document)</td>
+                <td class="py-3.5 px-4">Requirement Specification (User Requirement Document)</td>
+                <td class="py-3.5 px-4">System Requirement Specification (SRS)</td>
+              </tr>
+              <tr>
+                <td class="py-3.5 px-4 font-semibold text-slate-400">ตัวอย่างระบบ Call Center</td>
+                <td class="py-3.5 px-4 text-cyan-300">"พนักงานต้องการดูข้อมูลผู้โทรมาร้องเรียนได้อย่างรวดเร็ว"</td>
+                <td class="py-3.5 px-4 text-emerald-300">"ระบบต้องดึงประวัติการโทรจากตาราง Complaints ด้วยเบอร์โทรเข้า และแสดงผลภายใน 1 วินาที"</td>
               </tr>
             </tbody>
           </table>
         </div>
       </div>
 
+      <!-- Exam Summary & Trap Box for Board 1 -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div class="exam-box p-4 rounded-xl">
+          <div class="flex items-center gap-2 text-amber-400 font-bold text-sm mb-1">
+            <span>📝</span> จำไปสอบ (Board 1)
+          </div>
+          <ul class="text-xs text-slate-300 space-y-1 list-disc list-inside">
+            <li>SDLC มี 7 ขั้นตอน: Requirement อยู่ใน<strong>ขั้นตอนที่ 3</strong></li>
+            <li>เป้าหมายของ RE คือ <strong>"สร้างและบำรุงรักษาเอกสารข้อกำหนดความต้องการที่มีคุณภาพ"</strong></li>
+            <li>User Requirement = ภาษาธรรมชาติ / ผู้ใช้อ่าน vs System Requirement = ภาษาเทคนิค / Dev อ่าน</li>
+          </ul>
+        </div>
+
+        <div class="trap-box p-4 rounded-xl">
+          <div class="flex items-center gap-2 text-rose-400 font-bold text-sm mb-1">
+            <span>⚠️</span> จุดที่ข้อสอบชอบหลอก (Exam Trap)
+          </div>
+          <p class="text-xs text-slate-300">
+            <strong>ระวัง:</strong> ข้อสอบมักถามว่า <em>"System Requirement ควรเขียนด้วยภาษาธรรมชาติเพื่อให้ทุกคนเข้าใจตรงกันใช่หรือไม่?"</em> &rarr; <strong>ตอบ: ไม่ใช่!</strong> ภาษาธรรมชาติใช้กับ User Requirement ส่วน System Requirement ต้องใช้ภาษาเทคนิคที่มีโครงสร้างทางการชัดเจนเพื่อไม่ให้กำกวม
+          </p>
+        </div>
+      </div>
+
     </article>
 
 
-    <!-- ==========================================
-         BOARD 2: การจำแนกประเภทและตัวชี้วัดความต้องการ
-         ========================================== -->
+    <!-- =========================================================================
+         BOARD 2: ประเภทของความต้องการและตัวชี้วัด (TAXONOMY & METRICS)
+         ========================================================================= -->
     <article id="board-2" class="board-card rounded-3xl p-6 md:p-10">
       
       <!-- Board Header -->
       <div class="flex flex-wrap items-center justify-between pb-6 mb-8 border-b border-slate-800 gap-4">
         <div>
-          <div class="flex items-center gap-3">
+          <div class="flex items-center gap-2.5">
             <span class="badge badge-amber">BOARD 02 / 06</span>
-            <span class="text-xs text-slate-400 font-mono">SOMMERVILLE TAXONOMY • ISO 25010</span>
+            <span class="text-xs text-slate-400 font-mono">อ้างอิงสไลด์: 11 - 16</span>
           </div>
-          <h2 class="text-2xl md:text-3xl font-bold text-white mt-1">
-            การจำแนกประเภทความต้องการและตัวชี้วัด (Requirements Taxonomy & Quantitative Metrics)
+          <h2 class="text-2xl md:text-3xl font-bold text-white mt-1.5 font-heading">
+            3 ประเภทของความต้องการด้านซอฟต์แวร์ระบบ และตัวชี้วัด NFR (Taxonomy & Metrics)
           </h2>
         </div>
         <div class="text-right text-xs text-slate-400">
-          <div>สไลด์อ้างอิง: <strong>11 - 16</strong></div>
-          <div class="text-amber-400">การวัดผลเชิงคุณภาพสู่ตัวเลขเชิงวิศวกรรม</div>
+          <div>หัวใจ: <strong>การแปลงคุณภาพเป็นตัวเลขที่วัดได้</strong></div>
+          <div class="text-amber-400">สไลด์หน้า 11 ระบุชัดว่ามี 3 ประเภท</div>
         </div>
       </div>
 
-      <!-- Functional vs Non-Functional vs Domain Cards -->
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-        
-        <!-- 1. Functional Requirements -->
-        <div class="sub-card rounded-2xl p-6 border-t-2 border-t-cyan-500">
-          <div class="flex items-center justify-between mb-3">
-            <span class="badge badge-cyan">ฟังก์ชันการทำงาน</span>
-            <span class="text-xs text-slate-500 font-mono">WHAT IT DOES</span>
-          </div>
-          <h3 class="text-base font-bold text-white mb-2">1. Functional Requirements</h3>
-          <p class="text-xs text-slate-300 leading-relaxed mb-4">
-            ข้อกำหนดที่ระบุว่า<strong>ระบบต้องให้บริการอะไร (Services)</strong> ต้องตอบสนองต่อสิ่งเร้าหรืออินพุตอย่างไร และในสภาวะจำเพาะระบบต้องทำอะไรหรือไม่ทำอะไร
-          </p>
-          <div class="space-y-2 text-xs">
-            <div class="p-2.5 rounded-lg bg-slate-900/80 text-slate-300 border border-slate-800">
-              <strong class="text-cyan-400">• คำนวณภาษี:</strong> ระบบต้องคำนวณภาษีมูลค่าเพิ่ม 7% จากยอดรวมก่อนหักส่วนลด
-            </div>
-            <div class="p-2.5 rounded-lg bg-slate-900/80 text-slate-300 border border-slate-800">
-              <strong class="text-cyan-400">• ยืนยันตัวตน:</strong> ระบบต้องส่ง OTP ทาง SMS เมื่อมีการล็อกอินจากอุปกรณ์ใหม่
-            </div>
-          </div>
+      <!-- Core Taxonomy: 3 Types from Slide 11 -->
+      <div class="mb-8">
+        <div class="flex items-center justify-between mb-4">
+          <h3 class="text-base font-bold text-white font-heading flex items-center gap-2">
+            <span class="w-2.5 h-2.5 rounded-full bg-amber-400"></span>
+            3 ประเภทของความต้องการด้านซอฟต์แวร์ระบบ (ตามสไลด์หน้า 9 และ 11)
+          </h3>
+          <span class="badge badge-cyan text-xs">เนื้อหาทางการจากสไลด์</span>
         </div>
 
-        <!-- 2. Non-Functional Requirements -->
-        <div class="sub-card rounded-2xl p-6 border-t-2 border-t-amber-500">
-          <div class="flex items-center justify-between mb-3">
-            <span class="badge badge-amber">คุณสมบัติและข้อจำกัด</span>
-            <span class="text-xs text-slate-500 font-mono">HOW WELL IT DOES</span>
-          </div>
-          <h3 class="text-base font-bold text-white mb-2">2. Non-Functional (NFR)</h3>
-          <p class="text-xs text-slate-300 leading-relaxed mb-4">
-            ข้อจำกัดด้านคุณภาพและมาตรฐานการดำเนินงาน (Constraints) เช่น ความเร็ว ความจุ ความปลอดภัย หาก NFR ไม่ผ่าน แม้ฟังก์ชันจะทำงานได้ <strong>ระบบก็อาจล้มเหลวทั้งระบบ</strong>
-          </p>
-          <div class="space-y-2 text-xs">
-            <div class="p-2.5 rounded-lg bg-slate-900/80 text-slate-300 border border-slate-800">
-              <strong class="text-amber-400">• ประสิทธิภาพ:</strong> รองรับผู้ใช้พร้อมกัน 10,000 คน โดยระบบไม่ล่ม
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          
+          <!-- Type 1: Functional -->
+          <div class="sub-card rounded-2xl p-6 border-t-4 border-t-cyan-500">
+            <div class="flex items-center justify-between mb-2">
+              <span class="badge badge-cyan text-xs">หน้าที่หลัก</span>
+              <span class="text-xs text-slate-500 font-mono">TYPE 1</span>
             </div>
-            <div class="p-2.5 rounded-lg bg-slate-900/80 text-slate-300 border border-slate-800">
-              <strong class="text-amber-400">• ความปลอดภัย:</strong> รหัสผ่านต้องเข้ารหัสด้วย bcrypt salt rounds $\ge 12$
+            <h4 class="text-base font-bold text-white mb-2">1. ความต้องการเชิงฟังก์ชัน (Functional Requirement)</h4>
+            <p class="text-xs text-slate-300 leading-relaxed mb-4">
+              ความต้องการที่ให้ซอฟต์แวร์ระบบ<strong>ทำหน้าที่ตามที่กำหนด ซึ่งเป็นหน้าที่หลักที่ซอฟต์แวร์นั้นๆ ควรมี</strong> (What the system should do)
+            </p>
+            <div class="p-3 rounded-xl bg-slate-900/90 border border-slate-800 text-xs text-slate-300">
+              <strong class="text-cyan-400">• ตัวอย่าง:</strong> บันทึกรายละเอียดลูกค้า, ค้นหาข้อมูลสินค้า, คำนวณยอดเงินรวม, ส่งข้อความเตือน
             </div>
           </div>
-        </div>
 
-        <!-- 3. Domain Requirements -->
-        <div class="sub-card rounded-2xl p-6 border-t-2 border-t-purple-500">
-          <div class="flex items-center justify-between mb-3">
-            <span class="badge badge-purple">ข้อกำหนดเฉพาะทาง</span>
-            <span class="text-xs text-slate-500 font-mono">DOMAIN RULES</span>
-          </div>
-          <h3 class="text-base font-bold text-white mb-2">3. Domain Requirements</h3>
-          <p class="text-xs text-slate-300 leading-relaxed mb-4">
-            ความต้องการที่เกิดจาก<strong>บริบทของสาขาวิชาชีพหรือกฎเกณฑ์เฉพาะทาง (Domain Context)</strong> เช่น การแพทย์ การเงิน หรือการบิน ซึ่งนักพัฒนาต้องปฏิบัติตามอย่างเคร่งครัด
-          </p>
-          <div class="space-y-2 text-xs">
-            <div class="p-2.5 rounded-lg bg-slate-900/80 text-slate-300 border border-slate-800">
-              <strong class="text-purple-400">• กฎหมายการเงิน:</strong> ระบบบัญชีต้องไม่ยอมให้ลบ Transaction แต่ใช้บันทึก Reversal แทน
+          <!-- Type 2: Non-Functional -->
+          <div class="sub-card rounded-2xl p-6 border-t-4 border-t-amber-500">
+            <div class="flex items-center justify-between mb-2">
+              <span class="badge badge-amber text-xs">คุณสมบัติส่งเสริม</span>
+              <span class="text-xs text-slate-500 font-mono">TYPE 2</span>
             </div>
-            <div class="p-2.5 rounded-lg bg-slate-900/80 text-slate-300 border border-slate-800">
-              <strong class="text-purple-400">• อัตราเบรกของรถไฟ:</strong> ต้องใช้สูตรคำนวณตามมาตรฐานความปลอดภัย UIC
+            <h4 class="text-base font-bold text-white mb-2">2. ความต้องการที่ไม่เป็นฟังก์ชัน (Non-Functional Requirement)</h4>
+            <p class="text-xs text-slate-300 leading-relaxed mb-4">
+              ความต้องการที่<strong>ไม่ได้เกี่ยวกับหน้าที่หลักโดยตรง แต่เกี่ยวข้องทางอ้อมเพื่อส่งเสริมให้ระบบทำงานได้มีประสิทธิภาพมากขึ้น</strong> เช่น น่าเชื่อถือ ปลอดภัย รวดเร็ว ถูกกฎหมาย
+            </p>
+            <div class="p-3 rounded-xl bg-slate-900/90 border border-slate-800 text-xs text-slate-300">
+              <strong class="text-amber-400">• ตัวอย่าง:</strong> ตอบสนองภายใน 1 วินาที, รองรับคนพร้อมกัน 5,000 คน, เข้ารหัสผ่านตามมาตรฐาน
             </div>
           </div>
-        </div>
 
+          <!-- Type 3: Business Requirement -->
+          <div class="sub-card rounded-2xl p-6 border-t-4 border-t-emerald-500">
+            <div class="flex items-center justify-between mb-2">
+              <span class="badge badge-emerald text-xs">เฉพาะธุรกิจ</span>
+              <span class="text-xs text-slate-500 font-mono">TYPE 3</span>
+            </div>
+            <h4 class="text-base font-bold text-white mb-2">3. ความต้องการด้านธุรกิจ (Business Requirement)</h4>
+            <p class="text-xs text-slate-300 leading-relaxed mb-4">
+              ความต้องการที่<strong>เกี่ยวข้องกับงานหลักของระบบธุรกิจ ซึ่งเป็นความต้องการเฉพาะของธุรกิจนั้นๆ</strong> ที่นำซอฟต์แวร์มาสนับสนุน <em>(เป็นได้ทั้งเชิงฟังก์ชันและไม่เป็นฟังก์ชัน)</em>
+            </p>
+            <div class="p-3 rounded-xl bg-slate-900/90 border border-slate-800 text-xs text-slate-300">
+              <strong class="text-emerald-400">• ตัวอย่าง:</strong> ลดขั้นตอนการเคลมประกันเหลือ 1 วัน, โปรโมชันลดราคาเฉพาะเทศบาล 12.12
+            </div>
+          </div>
+
+        </div>
       </div>
 
-      <!-- The 3 Pillars of Non-Functional Requirements (Sommerville Framework) -->
+      <!-- Sommerville's 3 NFR Categories (Slide 11-12) -->
       <div class="sub-card rounded-2xl p-6 mb-8">
-        <h4 class="text-sm font-bold text-white uppercase tracking-wider mb-4 flex items-center gap-2">
-          <span class="w-2.5 h-2.5 rounded-full bg-amber-400"></span>
-          โครงสร้าง 3 เสาหลักของความต้องการที่ไม่เป็นฟังก์ชัน (Sommerville NFR Classification)
-        </h4>
+        <div class="flex items-center justify-between mb-4">
+          <h3 class="text-base font-bold text-white font-heading flex items-center gap-2">
+            <span class="w-2.5 h-2.5 rounded-full bg-cyan-400"></span>
+            3 กลุ่มย่อยของ Non-Functional Requirements (ตาม Sommerville สไลด์หน้า 11 - 12)
+          </h3>
+          <span class="text-xs text-slate-400 font-mono">Sommerville (2016) 10th Ed.</span>
+        </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-xs">
-          <!-- Pillar 1: Product -->
-          <div class="p-4 rounded-xl bg-slate-900/90 border border-slate-800">
-            <div class="text-sm font-bold text-amber-300 mb-2 flex items-center gap-1.5">
-              📦 Product Requirements (ข้อกำหนดด้านผลิตภัณฑ์)
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-sm">
+          
+          <div class="p-4 rounded-xl bg-slate-900/90 border border-slate-800 space-y-2">
+            <div class="font-bold text-cyan-300 flex items-center gap-1.5">
+              📦 1. ด้านผลิตภัณฑ์ (Product Requirement)
             </div>
-            <p class="text-slate-300 mb-3">ระบุพฤติกรรมของตัวซอฟต์แวร์ที่ส่งมอบโดยตรง ประกอบด้วย:</p>
-            <ul class="space-y-1.5 text-slate-400 list-disc list-inside">
-              <li><strong>Usability:</strong> ใช้งานง่าย เรียนรู้เร็ว หน้าตาไม่ซับซ้อน</li>
-              <li><strong>Efficiency:</strong> ความเร็ว (Performance) และการใช้หน่วยความจำ (Space)</li>
-              <li><strong>Reliability:</strong> อัตราการเกิดข้อผิดพลาดต่ำ (MTTF)</li>
-              <li><strong>Portability:</strong> ทำงานได้ข้ามแพลตฟอร์ม (Windows, Mac, Linux, Mobile)</li>
+            <p class="text-xs text-slate-300">ข้อกำหนดด้านพฤติกรรมของตัวซอฟต์แวร์โดยตรง ประกอบด้วย:</p>
+            <ul class="text-xs text-slate-400 space-y-1 list-disc list-inside">
+              <li><strong>ประสิทธิภาพ (Performance):</strong> ระยะเวลาตอบสนอง, ขนาดหน่วยความจำ</li>
+              <li><strong>ความน่าเชื่อถือ (Reliability):</strong> อัตราความผิดพลาดที่ยอมรับได้</li>
+              <li><strong>การทำงานข้ามแพลตฟอร์ม (Portability):</strong> ใช้งานบนอุปกรณ์/ระบบที่ต่างกัน</li>
+              <li><strong>ใช้งานง่าย (Usability):</strong> ความสะดวกในการเรียนรู้และใช้งาน</li>
             </ul>
           </div>
 
-          <!-- Pillar 2: Organizational -->
-          <div class="p-4 rounded-xl bg-slate-900/90 border border-slate-800">
-            <div class="text-sm font-bold text-cyan-300 mb-2 flex items-center gap-1.5">
-              🏢 Organizational Requirements (ข้อกำหนดด้านองค์กร)
+          <div class="p-4 rounded-xl bg-slate-900/90 border border-slate-800 space-y-2">
+            <div class="font-bold text-amber-300 flex items-center gap-1.5">
+              🏢 2. ความต้องการองค์กร (Organizational Requirement)
             </div>
-            <p class="text-slate-300 mb-3">ระบุนโยบายและขั้นตอนปฏิบัติภายในองค์กรของผู้ว่าจ้างหรือผู้พัฒนา:</p>
-            <ul class="space-y-1.5 text-slate-400 list-disc list-inside">
-              <li><strong>Environmental:</strong> ต้องรันบน Cloud Infrastructure ขององค์กร (เช่น AWS KMUTT)</li>
-              <li><strong>Operational:</strong> ต้องเข้ากันได้กับระบบจัดการอัตลักษณ์เดิม (Active Directory)</li>
-              <li><strong>Development:</strong> ต้องเขียนด้วยภาษา TypeScript และใช้ Git ในการคุมเวอร์ชัน</li>
+            <p class="text-xs text-slate-300">ข้อตกลงระหว่างองค์กรกับผู้พัฒนา เพื่อให้เป็นแนวทางตรงกัน:</p>
+            <ul class="text-xs text-slate-400 space-y-1 list-disc list-inside">
+              <li><strong>มาตรฐานการพัฒนา (Standards):</strong> วิธีการเขียนโค้ด, การออกแบบสถาปัตยกรรม</li>
+              <li><strong>ภาษาและเทคโนโลยี:</strong> ภาษาโปรแกรมหรือเฟรมเวิร์กที่องค์กรกำหนด</li>
+              <li><strong>กระบวนการส่งมอบ (Delivery):</strong> กำหนดการส่งมอบงาน, แผนการอบรมบุคลากร</li>
             </ul>
           </div>
 
-          <!-- Pillar 3: External -->
-          <div class="p-4 rounded-xl bg-slate-900/90 border border-slate-800">
-            <div class="text-sm font-bold text-emerald-300 mb-2 flex items-center gap-1.5">
-              ⚖️ External Requirements (ข้อกำหนดด้านภายนอก)
+          <div class="p-4 rounded-xl bg-slate-900/90 border border-slate-800 space-y-2">
+            <div class="font-bold text-emerald-300 flex items-center gap-1.5">
+              ⚖️ 3. ปัจจัยภายนอก (External Requirement)
             </div>
-            <p class="text-slate-300 mb-3">ปัจจัยภายนอกระบบและองค์กรที่ไม่สามารถหลีกเลี่ยงได้:</p>
-            <ul class="space-y-1.5 text-slate-400 list-disc list-inside">
-              <li><strong>Regulatory & Legislative:</strong> กฎหมายคุ้มครองข้อมูลส่วนบุคคล (PDPA / GDPR)</li>
-              <li><strong>Accounting:</strong> กฎเกณฑ์การบันทึกบัญชีของกรมสรรพากร</li>
-              <li><strong>Safety & Ethical:</strong> มาตรฐานความปลอดภัยในชีวิตและทรัพย์สิน จริยธรรมการใช้งานข้อมูล</li>
+            <p class="text-xs text-slate-300">ปัจจัยภายนอกที่ส่งผลกระทบต่อกระบวนการพัฒนา:</p>
+            <ul class="text-xs text-slate-400 space-y-1 list-disc list-inside">
+              <li><strong>การทำงานร่วมกัน (Interoperability):</strong> การเชื่อมต่อกับระบบภายนอกอื่นๆ</li>
+              <li><strong>ข้อกำหนดทางกฎหมาย (Legislative):</strong> ไม่ละเมิดลิขสิทธิ์, ไม่ขัดหลัก <strong>PDPA</strong></li>
+              <li><strong>หลักจริยธรรม (Ethical Requirements):</strong> เป็นที่ยอมรับได้ของผู้ใช้และสังคม</li>
             </ul>
           </div>
+
         </div>
       </div>
 
-      <!-- Master Quantitative Metrics Table (Sommerville Slide 13 + Industry Extended) -->
-      <div class="sub-card rounded-2xl p-6">
-        <div class="flex flex-wrap items-center justify-between mb-4 gap-2">
-          <h4 class="text-sm font-bold text-white uppercase tracking-wider flex items-center gap-2">
-            <svg class="w-4 h-4 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path></svg>
-            ตารางตัวชี้วัดเชิงปริมาณสำหรับ NFR (Quantitative Metrics for Verifiability)
-          </h4>
-          <span class="badge badge-emerald text-[11px]">เกณฑ์วัดที่ทดสอบได้จริง (Verifiable)</span>
+      <!-- Master NFR Metrics Table (Exact Slide 13 Reproduction) -->
+      <div class="sub-card rounded-2xl p-6 mb-8">
+        <div class="flex flex-wrap items-center justify-between mb-3 gap-2">
+          <h3 class="text-base font-bold text-white font-heading flex items-center gap-2">
+            <svg class="w-5 h-5 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"></path></svg>
+            ตัวชี้วัดสำหรับความต้องการที่ไม่เป็นฟังก์ชัน (NFR Metrics Table - สไลด์หน้า 13)
+          </h3>
+          <span class="badge badge-emerald text-xs">ต้องจำหน่วยวัดไปสอบ! ★★★</span>
         </div>
         <p class="text-xs text-slate-400 mb-4">
-          ข้อกำหนด NFR ที่ดี<strong>ต้องไม่ใช้คำคุณศัพท์ที่เลื่อนลอย</strong> (เช่น "ต้องเร็ว", "ต้องใช้งานง่าย") แต่ต้องระบุเป็นหน่วยวัดเชิงปริมาณที่ตรวจสอบได้ดังตารางนี้:
+          *คัดลอกนิยามคุณลักษณะและหน่วยวัดตรงตามสไลด์หน้า 13 ของอาจารย์แบบ 100%:
         </p>
 
         <div class="overflow-x-auto">
-          <table class="w-full text-left text-xs border-collapse">
+          <table class="w-full text-left text-xs border-collapse min-w-[700px]">
             <thead>
               <tr class="border-b border-slate-700 bg-slate-900 text-slate-300">
-                <th class="py-3 px-4 font-bold text-cyan-300 w-1/6">คุณลักษณะ (Property)</th>
-                <th class="py-3 px-4 font-bold text-amber-300 w-1/3">ตัวชี้วัด / มาตรวัด (Metric Specification)</th>
-                <th class="py-3 px-4 font-bold text-emerald-300 w-1/4">หน่วยวัดเชิงปริมาณ (Unit)</th>
-                <th class="py-3 px-4 font-bold text-slate-300 w-1/4">ตัวอย่างการเขียนสเปกจริง</th>
+                <th class="py-3 px-4 font-bold text-cyan-300 w-1/4">คุณลักษณะ (Property)</th>
+                <th class="py-3 px-4 font-bold text-emerald-300 w-3/4">หน่วยวัดตามสไลด์อาจารย์ (Measurement Units)</th>
               </tr>
             </thead>
             <tbody class="divide-y divide-slate-800 text-slate-300">
               <tr>
                 <td class="py-3 px-4 font-bold text-white">ความเร็ว (Speed)</td>
                 <td class="py-3 px-4">
-                  • จำนวนรายการประมวลผลต่อวินาที (Throughput)<br>
-                  • ระยะเวลาตอบสนองต่อคำสั่งผู้ใช้ (User Response Time)<br>
-                  • เวลาในการรีเฟรชหน้าจอ (Screen Refresh Time)
+                  • การประมวลผลรายการข้อมูล (หน่วยนับ: วินาที) (Processed transactions/second)<br>
+                  • ระยะเวลาตอบสนอง (User/event response time)<br>
+                  • เวลาในการเปลี่ยนข้อมูลบนจอภาพ (Screen refresh time)
                 </td>
-                <td class="py-3 px-4 text-emerald-400 font-mono">วินาที (s), มิลลิวินาที (ms), Transactions/sec (TPS)</td>
-                <td class="py-3 px-4 text-slate-400">"การประมวลผลคำสั่งค้นหาต้องแสดงผลภายในเวลา &le; 2 วินาที ที่ 95th Percentile"</td>
               </tr>
               <tr>
                 <td class="py-3 px-4 font-bold text-white">ขนาด (Size)</td>
                 <td class="py-3 px-4">
-                  • ขนาดพื้นที่ RAM / Storage ที่โปรแกรมใช้งาน<br>
-                  • ขนาดของ Application Binary หลังติดตั้ง<br>
-                  • จำนวนชิป ROM / Cache
+                  • ขนาด MB (Megabytes), GB etc.<br>
+                  • จำนวน Memory (Number of ROM chips)
                 </td>
-                <td class="py-3 px-4 text-emerald-400 font-mono">KiloBytes (KB), MegaBytes (MB), GigaBytes (GB)</td>
-                <td class="py-3 px-4 text-slate-400">"ตัวติดตั้งระบบต้องมีขนาดไม่เกิน 50 MB บนอุปกรณ์พกพา"</td>
               </tr>
               <tr>
-                <td class="py-3 px-4 font-bold text-white">ความง่ายในการใช้งาน (Ease of Use)</td>
+                <td class="py-3 px-4 font-bold text-white">ใช้งานง่าย (Ease of use)</td>
                 <td class="py-3 px-4">
-                  • ระยะเวลาในการฝึกอบรมผู้ใช้ใหม่ให้เริ่มงานได้ (Training Time)<br>
-                  • จำนวนหน้าจอส่วนช่วยเหลือ (Help Frames)<br>
-                  • อัตราข้อผิดพลาดที่เกิดจากมนุษย์ (User Error Rate)
+                  • ระยะเวลาที่ใช้ในการอบรมสำหรับการใช้งาน (Training time)<br>
+                  • จำนวนของส่วนช่วยเหลือ (Number of help frames)
                 </td>
-                <td class="py-3 px-4 text-emerald-400 font-mono">ชั่วโมง (Hours), วัน (Days), สัดส่วนข้อผิดพลาด (%)</td>
-                <td class="py-3 px-4 text-slate-400">"พนักงานใหม่ต้องสามารถสร้างใบสั่งซื้อได้ถูกต้องหลังอบรมไม่เกิน 2 ชั่วโมง"</td>
               </tr>
               <tr>
                 <td class="py-3 px-4 font-bold text-white">ความน่าเชื่อถือ (Reliability)</td>
                 <td class="py-3 px-4">
-                  • ช่วงเวลาเฉลี่ยก่อนระบบขัดข้อง (MTTF - Mean Time To Failure)<br>
-                  • อัตราความพร้อมใช้งานของระบบ (Availability Rate)<br>
-                  • ความน่าจะเป็นที่ระบบล้มเหลวตามความต้องการ (POFOD)
+                  • ค่าเฉลี่ยของข้อผิดพลาดที่เกิดขึ้น (Mean time to failure)<br>
+                  • ความน่าจะเป็นของระบบที่ไม่สามารถใช้งานได้ (Probability of unavailability)<br>
+                  • อัตราการเกิดข้อผิดพลาด (Rate of failure occurrence)<br>
+                  • อัตราที่ระบบใช้งานได้ (Availability)
                 </td>
-                <td class="py-3 px-4 text-emerald-400 font-mono">ชั่วโมง/วัน (Hours), อัตราความพร้อมใช้งาน (%)</td>
-                <td class="py-3 px-4 text-slate-400">"ระบบต้องมีความพร้อมใช้งาน (Uptime) ไม่น้อยกว่า 99.95% ตลอด 24/7 (ล่มไม่เกิน 4.38 ชม./ปี)"</td>
               </tr>
               <tr>
                 <td class="py-3 px-4 font-bold text-white">ความทนทาน (Robustness)</td>
                 <td class="py-3 px-4">
-                  • เวลาเฉลี่ยที่ใช้ในการกู้ระบบกลับคืน (MTTR - Mean Time To Repair)<br>
-                  • สัดส่วนข้อมูลที่สูญหายหลังเซิร์ฟเวอร์ไฟดับกะทันหัน
+                  • จำนวนครั้งที่รีสตาร์ทหลังจากเกิดความล้มเหลว (Time to restart after failure)<br>
+                  • เปอร์เซ็นต์ของเหตุการณ์ที่ทำให้เกิดความล้มเหลว (Percentage of events causing failure)<br>
+                  • ความน่าจะเป็นของความเสียหายของข้อมูลเมื่อล้มเหลว (Probability of data corruption on failure)
                 </td>
-                <td class="py-3 px-4 text-emerald-400 font-mono">นาที (Minutes to restart), % Data Loss</td>
-                <td class="py-3 px-4 text-slate-400">"กรณีระบบหยุดทำงาน ต้องรีสตาร์ตและกลับมาให้บริการได้ภายใน 5 นาทีโดยไม่มีข้อมูลสูญหาย"</td>
               </tr>
               <tr>
-                <td class="py-3 px-4 font-bold text-white">การย้ายระบบ (Portability)</td>
+                <td class="py-3 px-4 font-bold text-white">ความสามารถในการทำงานข้ามระบบ (Portability)</td>
                 <td class="py-3 px-4">
-                  • สัดส่วนโค้ดที่สามารถนำไปรันบนระบบอื่นได้ทันที<br>
-                  • จำนวนระบบปฏิบัติการเป้าหมาย (Target Platforms)
+                  • เปอร์เซ็นต์ของระบบที่ขึ้นต่อกัน (Percentage of target dependent statement)<br>
+                  • จำนวนของระบบอื่นๆ ที่สามารถทำงานร่วมกันได้ (Number of target systems)
                 </td>
-                <td class="py-3 px-4 text-emerald-400 font-mono">สัดส่วนร้อยละ (%), จำนวนระบบเป้าหมาย</td>
-                <td class="py-3 px-4 text-slate-400">"ระบบต้องคอมไพล์และทำงานได้อย่างสมบูรณ์บนทั้ง Ubuntu 22.04 LTS และ Windows Server 2022"</td>
               </tr>
             </tbody>
           </table>
         </div>
       </div>
 
+      <!-- Real Slides Examples: Customer Data & Call Center (Slides 15 & 16) -->
+      <div class="sub-card rounded-2xl p-6 mb-8">
+        <h3 class="text-base font-bold text-white font-heading mb-4 flex items-center gap-2">
+          <span>📋</span> ตัวอย่างจริงในสไลด์: เปรียบเทียบ Functional vs. Non-Functional (สไลด์ 15 และ 16)
+        </h3>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 text-xs">
+          
+          <!-- Example 1: Customer Data (Slide 15) -->
+          <div class="p-4 rounded-xl bg-slate-900 border border-slate-800">
+            <div class="font-bold text-cyan-300 text-sm mb-2">ตัวอย่างที่ 1: ระบบ "การจัดเก็บข้อมูลลูกค้า" (สไลด์ 15)</div>
+            <div class="space-y-3">
+              <div class="p-2.5 rounded-lg bg-slate-800/60">
+                <span class="text-cyan-400 font-bold block mb-1">Functional Requirements (หน้าที่หลัก):</span>
+                <ol class="list-decimal list-inside space-y-1 text-slate-300">
+                  <li>มีหน้าจอให้ลูกค้าบันทึกรายละเอียดประจำตัวบุคคล/นิติบุคคล ได้ด้วยตนเอง</li>
+                  <li>ลูกค้าสามารถใช้งานผ่านเครือข่าย Internet ได้</li>
+                  <li>ระบบยืนยันตัวตนคนไทย/นิติบุคคล ผ่านระบบภาครัฐ (สพร. / DGA)</li>
+                  <li>เชื่อมต่อฐานข้อมูลบัตรประชาชนกับกรมการปกครอง เพื่อดึงข้อมูลที่จำเป็น</li>
+                </ol>
+              </div>
+              <div class="p-2.5 rounded-lg bg-slate-800/60">
+                <span class="text-amber-400 font-bold block mb-1">Non-Functional Requirements (เงื่อนไขเสริม):</span>
+                <ol class="list-decimal list-inside space-y-1 text-slate-300">
+                  <li>หลีกเลี่ยงการจัดเก็บข้อมูลที่ไม่จำเป็น และไม่ขัดกับ <strong>พรบ. คุ้มครองข้อมูลส่วนบุคคล (PDPA)</strong></li>
+                  <li>ให้ลูกค้าคีย์ข้อมูลให้น้อยที่สุดเพื่อลดความผิดพลาด (ใช้ Dropdown ตัวเลือก)</li>
+                  <li>ออกแบบเผื่อการเชื่อมโยงแลกเปลี่ยนข้อมูลกับหน่วยงานอื่นในอนาคต</li>
+                  <li>หากเครือข่ายขัดข้อง ต้องสรุปปัญหาพร้อมแนวทางแก้ไข<strong>ภายใน 2 ชั่วโมง</strong></li>
+                </ol>
+              </div>
+            </div>
+          </div>
+
+          <!-- Example 2: Call Center (Slide 16) -->
+          <div class="p-4 rounded-xl bg-slate-900 border border-slate-800">
+            <div class="font-bold text-amber-300 text-sm mb-2">ตัวอย่างที่ 2: ความต้องการ "ระบบ Call Center" (สไลด์ 16)</div>
+            <div class="space-y-3">
+              <div class="p-2.5 rounded-lg bg-slate-800/60">
+                <span class="text-cyan-400 font-bold block mb-1">Functional Requirements (หน้าที่หลัก):</span>
+                <ol class="list-decimal list-inside space-y-1 text-slate-300">
+                  <li>จัดการสิทธิ์ผู้ใช้งานหลายระดับ: Supervisor, Agent, Super Admin, Admin, User, Guest</li>
+                  <li>รับเรื่องร้องเรียนได้หลายช่องทาง: Social Network, SMS, Phone call, Voice, FB, Line</li>
+                  <li>รวบรวมเรื่องร้องเรียน จัดกลุ่ม และจัดหมวดหมู่ลงระบบ</li>
+                  <li>จัดทำรายงานตามกลุ่ม, ช่วงวัน, อายุผู้ร้อง, จังหวัด, จำนวนเรื่อง</li>
+                </ol>
+              </div>
+              <div class="p-2.5 rounded-lg bg-slate-800/60">
+                <span class="text-amber-400 font-bold block mb-1">Non-Functional Requirements (เงื่อนไขเสริม):</span>
+                <ol class="list-decimal list-inside space-y-1 text-slate-300">
+                  <li>ช่องทางร้องเรียนต้องแสดง <strong>ICON</strong> ให้สังเกตง่าย (เช่น รูปโทรศัพท์มือถือ/บ้าน)</li>
+                  <li>รายงานยาวเกิน 1 หน้า ให้แสดงข้อความ <strong>"หน้าที่ 1/จำนวนทั้งหมด"</strong></li>
+                  <li>เชื่อมต่อการรับเรื่องจากช่องทางต่างๆ ได้ถูกต้องและใช้เวลาน้อย</li>
+                  <li>รายงานเรื่องร้องเรียนต้องอ่านง่ายและเป็นระเบียบ</li>
+                </ol>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Exam Summary & Trap Box for Board 2 -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div class="exam-box p-4 rounded-xl">
+          <div class="flex items-center gap-2 text-amber-400 font-bold text-sm mb-1">
+            <span>📝</span> จำไปสอบ (Board 2)
+          </div>
+          <ul class="text-xs text-slate-300 space-y-1 list-disc list-inside">
+            <li>ความต้องการด้านซอฟต์แวร์ระบบมี <strong>3 ประเภท:</strong> Functional, Non-Functional, และ<strong>ความต้องการด้านธุรกิจ</strong></li>
+            <li>NFR แบ่งเป็น 3 หมวด: <strong>Product</strong> (ความเร็ว, ใช้ง่าย), <strong>Organizational</strong> (มาตรฐานภาษา), <strong>External</strong> (PDPA, กฎหมาย)</li>
+            <li>Ease of Use วัดจาก <strong>Training time</strong> และ <strong>Number of help frames</strong></li>
+          </ul>
+        </div>
+
+        <div class="trap-box p-4 rounded-xl">
+          <div class="flex items-center gap-2 text-rose-400 font-bold text-sm mb-1">
+            <span>⚠️</span> จุดที่ข้อสอบชอบหลอก (Exam Trap)
+          </div>
+          <p class="text-xs text-slate-300">
+            <strong>ระวัง:</strong> การแสดง "ICON รูปโทรศัพท์" หรือข้อความ "หน้าที่ 1/จำนวนทั้งหมด" เป็น <strong>Non-Functional Requirement</strong> (ด้านความสะดวกและหน้าตา UI) ไม่ใช่ Functional Requirement อย่าสับสน!
+          </p>
+        </div>
+      </div>
+
     </article>
 
 
-    <!-- ==========================================
-         BOARD 3: กระบวนการวิศวกรรมความต้องการ (RE Process)
-         ========================================== -->
+    <!-- =========================================================================
+         BOARD 3: กระบวนการวิศวกรรมความต้องการ (RE PROCESS)
+         ========================================================================= -->
     <article id="board-3" class="board-card rounded-3xl p-6 md:p-10">
       
       <!-- Board Header -->
       <div class="flex flex-wrap items-center justify-between pb-6 mb-8 border-b border-slate-800 gap-4">
         <div>
-          <div class="flex items-center gap-3">
+          <div class="flex items-center gap-2.5">
             <span class="badge badge-purple">BOARD 03 / 06</span>
-            <span class="text-xs text-slate-400 font-mono">RE SPIRAL PROCESS • BABOK V3</span>
+            <span class="text-xs text-slate-400 font-mono">อ้างอิงสไลด์: 17 - 23</span>
           </div>
-          <h2 class="text-2xl md:text-3xl font-bold text-white mt-1">
-            กระบวนการวิศวกรรมความต้องการ (The 4-Stage RE Process: Elicitation & Analysis)
+          <h2 class="text-2xl md:text-3xl font-bold text-white mt-1.5 font-heading">
+            กระบวนการวิศวกรรมความต้องการ 4 ขั้นตอน (Requirement Engineering Process)
           </h2>
         </div>
         <div class="text-right text-xs text-slate-400">
-          <div>สไลด์อ้างอิง: <strong>17 - 23</strong></div>
-          <div class="text-purple-400">วงจรเกลียวสกัดและวิเคราะห์ความต้องการ</div>
+          <div>หัวใจ: <strong>Elicitation & Analysis</strong></div>
+          <div class="text-purple-400">7 เทคนิคการสกัด + 5W1H + การวิเคราะห์ 4 กิจกรรม</div>
         </div>
       </div>
 
-      <!-- Sommerville's 4-Phase Stepper -->
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
-        <div class="p-5 rounded-2xl bg-slate-900 border border-purple-500/40 relative">
-          <div class="flex items-center justify-between mb-2">
-            <span class="text-2xl font-black text-purple-400 font-mono">01</span>
-            <span class="badge badge-purple text-[10px]">Discovery</span>
-          </div>
-          <div class="text-sm font-bold text-white font-heading">1. การสกัดความต้องการ (Elicitation)</div>
-          <p class="text-xs text-slate-400 mt-2">
-            รวบรวมความต้องการจากผู้ใช้ ลูกค้า และสภาพแวดล้อม ด้วยการสัมภาษณ์ สังเกตการณ์ และเวิร์กช็อป
-          </p>
+      <!-- The 4 Process Stages in Sequence (Slide 18) -->
+      <div class="mb-8">
+        <div class="flex items-center justify-between mb-3">
+          <h3 class="text-base font-bold text-white font-heading">
+            ลำดับ 4 ขั้นตอนหลักของกระบวนการวิศวกรรมความต้องการ (สไลด์หน้า 18)
+          </h3>
+          <span class="badge badge-purple text-xs">ต้องท่องลำดับให้ถูก</span>
         </div>
-
-        <div class="p-5 rounded-2xl bg-slate-900 border border-cyan-500/40 relative">
-          <div class="flex items-center justify-between mb-2">
-            <span class="text-2xl font-black text-cyan-400 font-mono">02</span>
-            <span class="badge badge-cyan text-[10px]">Refinement</span>
-          </div>
-          <div class="text-sm font-bold text-white font-heading">2. การวิเคราะห์ความต้องการ (Analysis)</div>
-          <p class="text-xs text-slate-400 mt-2">
-            กลั่นกรอง ตรวจสอบความขัดแย้ง จัดลำดับความสำคัญ และแปลงเป็นโมเดลแนวคิด (DFD/ERD/UML)
-          </p>
-        </div>
-
-        <div class="p-5 rounded-2xl bg-slate-900 border border-amber-500/40 relative">
-          <div class="flex items-center justify-between mb-2">
-            <span class="text-2xl font-black text-amber-400 font-mono">03</span>
-            <span class="badge badge-amber text-[10px]">Documentation</span>
-          </div>
-          <div class="text-sm font-bold text-white font-heading">3. การจัดทำข้อกำหนด (Specification)</div>
-          <p class="text-xs text-slate-400 mt-2">
-            บันทึกเป็นเอกสารทางการตามมาตรฐาน <strong>IEEE 830 / ISO 29148 (SRS)</strong> ให้ชัดเจนและไม่กำกวม
-          </p>
-        </div>
-
-        <div class="p-5 rounded-2xl bg-slate-900 border border-emerald-500/40 relative">
-          <div class="flex items-center justify-between mb-2">
-            <span class="text-2xl font-black text-emerald-400 font-mono">04</span>
-            <span class="badge badge-emerald text-[10px]">Quality Gate</span>
-          </div>
-          <div class="text-sm font-bold text-white font-heading">4. การตรวจทานความต้องการ (Validation)</div>
-          <p class="text-xs text-slate-400 mt-2">
-            ตรวจสอบความถูกต้อง ครบถ้วน สอดคล้อง และเป็นไปได้จริง ร่วมกับลูกค้าก่อนเริ่มเขียนโค้ด
-          </p>
-        </div>
-      </div>
-
-      <!-- Deep Dive: Phase 1 Elicitation -->
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
         
-        <!-- Left: Elicitation Techniques & Pitfalls -->
-        <div class="sub-card rounded-2xl p-6">
-          <h4 class="text-sm font-bold text-purple-400 uppercase tracking-wider mb-3 flex items-center gap-2">
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
-            เทคนิคการสกัดข้อมูล (Elicitation Techniques) ตามมาตรฐาน BABOK
-          </h4>
-          <p class="text-xs text-slate-300 mb-4">
-            การสกัดความต้องการไม่ได้หมายถึงแค่ "การถามแล้วจด" แต่ต้องใช้เครื่องมือผสมผสานเพื่อเจาะลึกความต้องการที่แท้จริง:
-          </p>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 text-xs">
+          <div class="p-4 rounded-2xl bg-slate-900 border-2 border-purple-500/60 shadow-lg">
+            <div class="text-2xl font-black text-purple-400 font-mono mb-1">01</div>
+            <div class="font-bold text-white text-sm">1. Requirement Elicitation</div>
+            <div class="text-purple-300 font-medium mb-1">การสกัดความต้องการ</div>
+            <p class="text-slate-400 leading-relaxed">
+              รวบรวมและค้นหาความต้องการ ทำความเข้าใจปัญหาที่เกิดขึ้น กำหนดกลุ่มบุคคลที่เกี่ยวข้อง และรวบรวมด้วยเทคนิคต่างๆ
+            </p>
+          </div>
 
-          <div class="space-y-2.5 text-xs">
-            <div class="p-3 rounded-xl bg-slate-900/80 border border-slate-800">
-              <strong class="text-cyan-300">1. การสัมภาษณ์ (Interviews):</strong>
-              <span class="text-slate-400 block mt-0.5">
-                • <em>Closed Interviews:</em> ถามตอบตามลิสต์คำถามที่กำหนดไว้ล่วงหน้าเพื่อเก็บข้อเท็จจริง<br>
-                • <em>Open Interviews:</em> คุยแบบปลายเปิดเพื่อให้ผู้ใช้บรรยายปัญหาและขั้นตอนการทำงานโดยละเอียด
-              </span>
-            </div>
+          <div class="p-4 rounded-2xl bg-slate-900 border-2 border-cyan-500/60 shadow-lg">
+            <div class="text-2xl font-black text-cyan-400 font-mono mb-1">02</div>
+            <div class="font-bold text-white text-sm">2. Requirement Analysis</div>
+            <div class="text-cyan-300 font-medium mb-1">การวิเคราะห์ความต้องการ</div>
+            <p class="text-slate-400 leading-relaxed">
+              ประเมินความต้องการ จัดกลุ่ม จัดลำดับความสำคัญ สร้างแบบจำลองแนวคิด (Conceptual Model) และนำเสนอเพื่อขอการยอมรับ
+            </p>
+          </div>
 
-            <div class="p-3 rounded-xl bg-slate-900/80 border border-slate-800">
-              <strong class="text-cyan-300">2. แบบสอบถามและการสำรวจ (Questionnaires & Surveys):</strong>
-              <span class="text-slate-400 block mt-0.5">
-                เหมาะสำหรับระบบที่มีผู้ใช้งานจำนวนมาก กระจายตัวหลายสาขา ช่วยเก็บข้อมูลทางสถิติและลำดับความต้องการ
-              </span>
-            </div>
+          <div class="p-4 rounded-2xl bg-slate-900 border-2 border-amber-500/60 shadow-lg">
+            <div class="text-2xl font-black text-amber-400 font-mono mb-1">03</div>
+            <div class="font-bold text-white text-sm">3. Requirement Specification</div>
+            <div class="text-amber-300 font-medium mb-1">การจัดทำข้อกำหนดความต้องการ</div>
+            <p class="text-slate-400 leading-relaxed">
+              หลังจากแบบจำลองได้รับการยอมรับ นำมาจัดทำเป็นเอกสารข้อกำหนดความต้องการอย่างเป็นทางการ (SRS ตามมาตรฐาน IEEE 830)
+            </p>
+          </div>
 
-            <div class="p-3 rounded-xl bg-slate-900/80 border border-slate-800">
-              <strong class="text-cyan-300">3. การสังเกตการณ์หน้างาน (Ethnography / Observation):</strong>
-              <span class="text-slate-400 block mt-0.5">
-                ไปนั่งสังเกตพฤติกรรมการทำงานจริงของพนักงาน เพื่อค้นหา "ขั้นตอนแฝง (Implicit Tasks)" ที่ผู้ใช้มักลืมเล่าในห้องสัมภาษณ์
-              </span>
-            </div>
+          <div class="p-4 rounded-2xl bg-slate-900 border-2 border-emerald-500/60 shadow-lg">
+            <div class="text-2xl font-black text-emerald-400 font-mono mb-1">04</div>
+            <div class="font-bold text-white text-sm">4. System Requirement Validation</div>
+            <div class="text-emerald-300 font-medium mb-1">การตรวจทานความต้องการ</div>
+            <p class="text-slate-400 leading-relaxed">
+              ทบทวนและตรวจสอบเอกสารทั้งหมด เพื่อความเที่ยงตรง สอดคล้อง สมบูรณ์ เป็นไปได้จริง และพิสูจน์ได้ตามเป้าหมาย
+            </p>
+          </div>
+        </div>
+      </div>
 
-            <div class="p-3 rounded-xl bg-slate-900/80 border border-slate-800">
-              <strong class="text-cyan-300">4. เวิร์กช็อปและการระดมสมอง (JAD Workshops / Brainstorming):</strong>
-              <span class="text-slate-400 block mt-0.5">
-                ดึงทั้งผู้ใช้งาน ผู้บริหาร และนักพัฒนามาร่วมกันกำหนดขอบเขตระบบในห้องเดียวกัน เพื่อหาข้อสรุปอย่างรวดเร็ว
-              </span>
-            </div>
+      <!-- All 7 Elicitation Techniques (Slides 19 - 20) -->
+      <div class="sub-card rounded-2xl p-6 mb-8">
+        <div class="flex items-center justify-between mb-3">
+          <h3 class="text-base font-bold text-white font-heading flex items-center gap-2">
+            <span class="w-2.5 h-2.5 rounded-full bg-purple-400"></span>
+            7 เทคนิคในการสกัด/เก็บรวบรวมความต้องการ (สไลด์หน้า 19 - 20)
+          </h3>
+          <span class="badge badge-purple text-xs">ออกข้อสอบทั้ง 7 ข้อ</span>
+        </div>
+        <p class="text-sm text-slate-300 mb-5">
+          ในสไลด์ของอาจารย์ระบุเทคนิคการสกัดข้อมูลไว้ทั้งหมด <strong>7 วิธี</strong> ดังนี้:
+        </p>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 text-xs">
+          
+          <div class="p-3.5 rounded-xl bg-slate-900 border border-slate-800">
+            <div class="font-bold text-cyan-300 text-sm mb-1">1. การสัมภาษณ์ (Interview)</div>
+            <p class="text-slate-300">เป็นวิธีที่<strong>ดั้งเดิมและนิยมใช้มากที่สุด</strong>วิธีหนึ่ง เป็นการสอบถาม พูดคุยระหว่างทีมพัฒนากับผู้ใช้ (สิ่งสำคัญ: ผู้สัมภาษณ์ต้องเปิดใจรับฟัง)</p>
+          </div>
+
+          <div class="p-3.5 rounded-xl bg-slate-900 border border-slate-800">
+            <div class="font-bold text-cyan-300 text-sm mb-1">2. ลำดับเหตุการณ์ (Scenario)</div>
+            <p class="text-slate-300">เตรียมคำถามตามลำดับงาน เช่น <em>"จะเกิดอะไรขึ้นถ้า... และจะทำเช่นไร อย่างไร"</em> เชื่อมโยงสู่แบบจำลองลักษณะ <strong>Use Case</strong></p>
+          </div>
+
+          <div class="p-3.5 rounded-xl bg-slate-900 border border-slate-800">
+            <div class="font-bold text-cyan-300 text-sm mb-1">3. ต้นแบบ (Prototype)</div>
+            <p class="text-slate-300">ทำให้ผู้ใช้เข้าใจระบบงานได้ง่าย ออกแบบบนกระดาษ โปรแกรม หรือโมเดลจำลอง เพื่อทดสอบการยอมรับของความต้องการในเบื้องต้น</p>
+          </div>
+
+          <div class="p-3.5 rounded-xl bg-slate-900 border border-slate-800">
+            <div class="font-bold text-cyan-300 text-sm mb-1">4. การประชุม (Facilitated Meeting)</div>
+            <p class="text-slate-300">ประชุมกลุ่มผู้เกี่ยวข้องเพื่อระดมความคิดเมื่อพบข้อขัดแย้ง <strong>วิธีนี้ได้ข้อมูลคุณภาพสูงมาก</strong> แต่ต้องระวังความขัดแย้งระหว่างบุคคลหรือทีม</p>
+          </div>
+
+          <div class="p-3.5 rounded-xl bg-slate-900 border border-slate-800">
+            <div class="font-bold text-cyan-300 text-sm mb-1">5. การสังเกต (Observation)</div>
+            <p class="text-slate-300">ตรวจสอบสภาพแวดล้อม ปัญหา อุปสรรค และวิธีแก้ไขจริงของผู้ใช้ระบบเดิม (ข้อควรระวัง: <strong>มีค่าใช้จ่ายสูงมากกว่าวิธีอื่น</strong>)</p>
+          </div>
+
+          <div class="p-3.5 rounded-xl bg-slate-900 border border-slate-800">
+            <div class="font-bold text-cyan-300 text-sm mb-1">6. เอกสารเดิม (Existing Documents)</div>
+            <p class="text-slate-300">วิเคราะห์จากเอกสาร แบบฟอร์ม ฐานข้อมูลเดิม ผังงาน รายงาน และคู่มือระบบเดิมที่องค์กรมีอยู่</p>
+          </div>
+
+          <div class="p-3.5 rounded-xl bg-slate-900 border border-slate-800 md:col-span-2 lg:col-span-1">
+            <div class="font-bold text-cyan-300 text-sm mb-1">7. แบบสอบถาม (Questionnaire)</div>
+            <p class="text-slate-300">ใช้รวบรวมข้อมูลจากคนจำนวนมาก ประกอบด้วยคำถามปลายเปิดและคำถามปลายปิด</p>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- 5W1H Framework Table (Slide 21) & Analysis 4 Activities (Slide 23) -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-8">
+        
+        <!-- Left: 5W1H Questions (7 cols) -->
+        <div class="lg:col-span-7 sub-card rounded-2xl p-6">
+          <div class="flex items-center justify-between mb-3">
+            <h3 class="text-base font-bold text-white font-heading">
+              กรอบการตั้งคำถาม 5W1H: ระบบปัจจุบัน vs ระบบใหม่ (สไลด์หน้า 21)
+            </h3>
+            <span class="text-xs text-slate-400 font-mono">โอภาส เอี่ยมสิริวงศ์ (2566)</span>
+          </div>
+
+          <div class="overflow-x-auto">
+            <table class="w-full text-left text-xs border-collapse">
+              <thead>
+                <tr class="border-b border-slate-700 bg-slate-900 text-slate-300">
+                  <th class="py-2.5 px-3 font-bold text-cyan-300">คำถาม</th>
+                  <th class="py-2.5 px-3 font-bold text-amber-300">ระบบปัจจุบัน (AS-IS)</th>
+                  <th class="py-2.5 px-3 font-bold text-emerald-300">ระบบใหม่ (TO-BE)</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-slate-800 text-slate-300">
+                <tr>
+                  <td class="py-2.5 px-3 font-bold text-white">Who? (ใคร)</td>
+                  <td class="py-2.5 px-3">ใครเป็นผู้ทำ? แล้วทำไมบุคคลนี้ถึงเป็นผู้ทำ?</td>
+                  <td class="py-2.5 px-3 text-emerald-400">ผู้สมควรทำ... ควรเป็นใคร?</td>
+                </tr>
+                <tr>
+                  <td class="py-2.5 px-3 font-bold text-white">What? (อะไร)</td>
+                  <td class="py-2.5 px-3">ทำอะไร? แล้วทำไปทำไม?</td>
+                  <td class="py-2.5 px-3 text-emerald-400">สิ่งที่ควรทำ มีอะไรบ้าง?</td>
+                </tr>
+                <tr>
+                  <td class="py-2.5 px-3 font-bold text-white">Where? (ที่ไหน)</td>
+                  <td class="py-2.5 px-3">ทำที่ไหน? แล้วทำไมจึงต้องทำที่นั่น?</td>
+                  <td class="py-2.5 px-3 text-emerald-400">ควรจะทำที่ไหน?</td>
+                </tr>
+                <tr>
+                  <td class="py-2.5 px-3 font-bold text-white">When? (เมื่อไหร่)</td>
+                  <td class="py-2.5 px-3">ทำเมื่อไหร่? แล้วทำไมต้องทำ?</td>
+                  <td class="py-2.5 px-3 text-emerald-400">ควรจะทำเมื่อไหร่?</td>
+                </tr>
+                <tr>
+                  <td class="py-2.5 px-3 font-bold text-white">How? (อย่างไร)</td>
+                  <td class="py-2.5 px-3">ทำอย่างไร? แล้วทำไมต้องทำแบบนั้น?</td>
+                  <td class="py-2.5 px-3 text-emerald-400">ควรจะทำอย่างไร?</td>
+                </tr>
+                <tr>
+                  <td class="py-2.5 px-3 font-bold text-white">Why? (ทำไม)</td>
+                  <td class="py-2.5 px-3" colspan="2">ทำไมคิดว่าระบบใหม่จะช่วยแก้ปัญหาได้?</td>
+                </tr>
+              </tbody>
+            </table>
           </div>
         </div>
 
-        <!-- Right: 5W1H Framework & Interview Template -->
-        <div class="sub-card rounded-2xl p-6 flex flex-col justify-between">
+        <!-- Right: 4 Activities in Analysis (5 cols - Slide 23) -->
+        <div class="lg:col-span-5 sub-card rounded-2xl p-6 flex flex-col justify-between">
           <div>
-            <h4 class="text-sm font-bold text-cyan-400 uppercase tracking-wider mb-3 flex items-center gap-2">
-              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"></path></svg>
-              กรอบการตั้งคำถาม 5W1H และตัวอย่างรายงานการสัมภาษณ์
-            </h4>
+            <div class="flex items-center justify-between mb-3">
+              <h3 class="text-base font-bold text-white font-heading">
+                4 กิจกรรมย่อยในการวิเคราะห์ (สไลด์หน้า 23)
+              </h3>
+              <span class="badge badge-cyan text-xs">Analysis Activities</span>
+            </div>
             
-            <!-- 5W1H Grid -->
-            <div class="grid grid-cols-3 gap-2 text-xs mb-4">
-              <div class="p-2.5 rounded-lg bg-slate-900 border border-slate-800">
-                <span class="text-cyan-400 font-bold block">WHO (ใคร)</span>
-                <span class="text-[11px] text-slate-400">ใครใช้งาน? ใครได้ประโยชน์? ใครเป็นคนอนุมัติ?</span>
+            <div class="space-y-2.5 text-xs">
+              <div class="p-2.5 rounded-xl bg-slate-900 border border-slate-800">
+                <strong class="text-cyan-300">2.1 จัดกลุ่มความต้องการ (Classification):</strong>
+                <p class="text-slate-400 mt-0.5">แยก Functional vs Non-Functional, จัดลำดับ (จำเป็น/ปรารถนาสูง/ปานกลาง/ละเว้นได้), ขอบเขตกว้าง vs แคบ</p>
               </div>
-              <div class="p-2.5 rounded-lg bg-slate-900 border border-slate-800">
-                <span class="text-cyan-400 font-bold block">WHAT (อะไร)</span>
-                <span class="text-[11px] text-slate-400">ระบบต้องทำอะไร? ข้อมูลเข้า-ออกคืออะไร?</span>
+
+              <div class="p-2.5 rounded-xl bg-slate-900 border border-slate-800">
+                <strong class="text-cyan-300">2.2 สร้างแบบจำลองแนวคิด (Conceptual Model):</strong>
+                <p class="text-slate-400 mt-0.5">สร้าง DFD, ERD, UML, Use Case Diagram, Class/Object Diagram เพื่อสื่อสารกับผู้ใช้</p>
               </div>
-              <div class="p-2.5 rounded-lg bg-slate-900 border border-slate-800">
-                <span class="text-cyan-400 font-bold block">WHERE (ที่ไหน)</span>
-                <span class="text-[11px] text-slate-400">ใช้งานที่สำนักงาน? มือถือ? หรือในโรงงาน?</span>
+
+              <div class="p-2.5 rounded-xl bg-slate-900 border border-slate-800">
+                <strong class="text-cyan-300">2.4 ออกแบบสถาปัตยกรรมและจัดสรร (Allocation):</strong>
+                <p class="text-slate-400 mt-0.5">จัดสรรความต้องการ (Requirement Allocation) เข้ากับสถาปัตยกรรมซอฟต์แวร์</p>
               </div>
-              <div class="p-2.5 rounded-lg bg-slate-900 border border-slate-800">
-                <span class="text-cyan-400 font-bold block">WHEN (เมื่อไร)</span>
-                <span class="text-[11px] text-slate-400">เกิดเหตุการณ์เมื่อใด? กำหนดส่งมอบเมื่อไร?</span>
-              </div>
-              <div class="p-2.5 rounded-lg bg-slate-900 border border-slate-800">
-                <span class="text-cyan-400 font-bold block">WHY (ทำไม)</span>
-                <span class="text-[11px] text-slate-400">ทำไมฟังก์ชันนี้จึงจำเป็น? ถ้าไม่มีจะเกิดอะไรขึ้น?</span>
-              </div>
-              <div class="p-2.5 rounded-lg bg-slate-900 border border-slate-800">
-                <span class="text-cyan-400 font-bold block">HOW (อย่างไร)</span>
-                <span class="text-[11px] text-slate-400">ขั้นตอนทำงานอย่างไร? วัดความสำเร็จอย่างไร?</span>
+
+              <div class="p-2.5 rounded-xl bg-slate-900 border border-slate-800">
+                <strong class="text-cyan-300">2.5 เจรจาต่อรองความต้องการ (Negotiation):</strong>
+                <p class="text-slate-400 mt-0.5">แก้ไขข้อขัดแย้ง (Conflict Resolution) เมื่อผู้มีส่วนได้ส่วนเสียต้องการไม่ตรงกัน หรือทรัพยากรไม่เพียงพอ</p>
               </div>
             </div>
-
-            <!-- Sample Interview Report Box (Slide 22) -->
-            <div class="p-3.5 rounded-xl bg-slate-950/80 border border-slate-700/80 text-xs font-mono">
-              <div class="text-emerald-400 font-bold mb-1">// ตัวอย่างรายงานบันทึกการสัมภาษณ์ (Interview Log)</div>
-              <div class="text-slate-300 space-y-1 text-[11px]">
-                <div><span class="text-slate-500">วันที่:</span> 29 ตุลาคม 2569 | <span class="text-slate-500">ผู้ให้ข้อมูล:</span> หัวหน้าฝ่ายบริการลูกค้า</div>
-                <div><span class="text-slate-500">หัวข้อ:</span> ระบบ Call Center และการค้นหาข้อมูลลูกค้า</div>
-                <div><span class="text-slate-500">ปัญหาปัจจุบัน:</span> พนักงานต้องเปิด 3 หน้าต่างสลับไปมา ใช้เวลาเฉลี่ย 45 วินาที/สาย</div>
-                <div><span class="text-cyan-400 font-semibold">ความต้องการ:</span> รวมหน้าจอเดียว (Single Pane) ค้นหาจากเบอร์โทรที่โทรเข้าได้อัตโนมัติภายใน 2 วินาที</div>
-              </div>
-            </div>
-          </div>
-
-          <div class="mt-4 p-3 rounded-xl bg-purple-950/30 border border-purple-500/30 text-xs text-purple-200">
-            💡 <strong>กฎเหล็กของ Elicitation:</strong> ผู้ใช้มักบอกสิ่งที่เขา "คิดว่าต้องการ" แต่วิศวกรซอฟต์แวร์ต้องขุดให้เจอสิ่งที่เขา "จำเป็นต้องใช้จริงๆ" (Wants vs. Needs)
           </div>
         </div>
 
       </div>
 
-      <!-- Deep Dive: Phase 2 Analysis & Prioritization Techniques -->
-      <div class="sub-card rounded-2xl p-6">
-        <h4 class="text-sm font-bold text-white uppercase tracking-wider mb-4 flex items-center gap-2">
-          <span class="w-2.5 h-2.5 rounded-full bg-cyan-400"></span>
-          การวิเคราะห์ความต้องการและการจัดลำดับความสำคัญ (MoSCoW & Conceptual Modeling)
-        </h4>
-
-        <div class="grid grid-cols-1 md:grid-cols-4 gap-4 text-xs mb-4">
-          <div class="p-3.5 rounded-xl bg-slate-900 border-l-4 border-l-rose-500 border border-slate-800">
-            <div class="font-bold text-rose-400 text-sm mb-1">M - Must Have</div>
-            <p class="text-slate-300">ฟังก์ชันวิกฤติ ขาดไม่ได้เด็ดขาด ถ้าไม่มีระบบจะไม่สามารถส่งมอบหรือใช้งานได้</p>
+      <!-- Exam Summary & Trap Box for Board 3 -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div class="exam-box p-4 rounded-xl">
+          <div class="flex items-center gap-2 text-amber-400 font-bold text-sm mb-1">
+            <span>📝</span> จำไปสอบ (Board 3)
           </div>
-          <div class="p-3.5 rounded-xl bg-slate-900 border-l-4 border-l-amber-500 border border-slate-800">
-            <div class="font-bold text-amber-400 text-sm mb-1">S - Should Have</div>
-            <p class="text-slate-300">ฟังก์ชันสำคัญ ควรมีใน Release แรก แต่ถ้าเวลาไม่พอสามารถหาทางออกชั่วคราวแทนได้</p>
-          </div>
-          <div class="p-3.5 rounded-xl bg-slate-900 border-l-4 border-l-cyan-500 border border-slate-800">
-            <div class="font-bold text-cyan-400 text-sm mb-1">C - Could Have</div>
-            <p class="text-slate-300">ฟังก์ชันเสริม มีแล้วจะดีขึ้น (Nice-to-have) พัฒนาเมื่อเหลืองบประมาณและเวลา</p>
-          </div>
-          <div class="p-3.5 rounded-xl bg-slate-900 border-l-4 border-l-slate-500 border border-slate-800">
-            <div class="font-bold text-slate-400 text-sm mb-1">W - Won't Have</div>
-            <p class="text-slate-300">ฟังก์ชันที่ตกลงร่วมกันว่าจะยังไม่ทำในรอบนี้ เก็บไว้พิจารณาในโครงการเฟสถัดไป</p>
-          </div>
+          <ul class="text-xs text-slate-300 space-y-1 list-disc list-inside">
+            <li>เทคนิคที่นิยมและดั้งเดิมที่สุด = <strong>การสัมภาษณ์ (Interview)</strong></li>
+            <li>เทคนิคที่คุณภาพสูงแต่ระวังขัดแย้ง = <strong>การประชุม (Facilitated Meeting)</strong></li>
+            <li>เทคนิคที่มีค่าใช้จ่ายสูงกว่าวิธีอื่น = <strong>การสังเกตการณ์ (Observation)</strong></li>
+            <li>การวิเคราะห์ต้องทำ <strong>Conflict Resolution</strong> และสร้าง <strong>Conceptual Model</strong></li>
+          </ul>
         </div>
 
-        <div class="p-4 rounded-xl bg-slate-900/60 border border-slate-800 text-xs text-slate-300 flex flex-wrap items-center justify-between gap-4">
-          <div>
-            <strong class="text-white">เครื่องมือสร้างแบบจำลองแนวคิด (Conceptual Modeling Tools):</strong>
-            <span class="text-slate-400 ml-2">DFD (Data Flow), ERD (Data Modeling), UML Use Case Diagram, Activity Diagram, State Machine Diagram</span>
+        <div class="trap-box p-4 rounded-xl">
+          <div class="flex items-center gap-2 text-rose-400 font-bold text-sm mb-1">
+            <span>⚠️</span> จุดที่ข้อสอบชอบหลอก (Exam Trap)
           </div>
-          <span class="badge badge-cyan">Visual Modeling</span>
+          <p class="text-xs text-slate-300">
+            <strong>ระวัง:</strong> อย่าสับสนระหว่าง <strong>Elicitation</strong> (การไปค้นหา/รวบรวมข้อมูลมา) กับ <strong>Analysis</strong> (การนำข้อมูลที่ได้มาจัดกลุ่ม แก้ข้อขัดแย้ง และทำแบบจำลอง) สองขั้นนี้คนละขั้นตอนกัน!
+          </p>
         </div>
       </div>
 
     </article>
 
 
-    <!-- ==========================================
-         BOARD 4: การจัดทำเอกสารและมาตรฐาน IEEE 830 / ISO 29148
-         ========================================== -->
+    <!-- =========================================================================
+         BOARD 4: เอกสาร SRS และมาตรฐาน IEEE 830 (SPECIFICATION)
+         ========================================================================= -->
     <article id="board-4" class="board-card rounded-3xl p-6 md:p-10">
       
       <!-- Board Header -->
       <div class="flex flex-wrap items-center justify-between pb-6 mb-8 border-b border-slate-800 gap-4">
         <div>
-          <div class="flex items-center gap-3">
+          <div class="flex items-center gap-2.5">
             <span class="badge badge-emerald">BOARD 04 / 06</span>
-            <span class="text-xs text-slate-400 font-mono">IEEE STD 830-1998 • ISO/IEC/IEEE 29148</span>
+            <span class="text-xs text-slate-400 font-mono">อ้างอิงสไลด์: 24 - 41</span>
           </div>
-          <h2 class="text-2xl md:text-3xl font-bold text-white mt-1">
-            การจัดทำเอกสารข้อกำหนดความต้องการและมาตรฐาน IEEE 830 (SRS & Guidelines)
+          <h2 class="text-2xl md:text-3xl font-bold text-white mt-1.5 font-heading">
+            การจัดทำข้อกำหนดความต้องการและมาตรฐาน IEEE 830 (SRS & Guidelines)
           </h2>
         </div>
         <div class="text-right text-xs text-slate-400">
-          <div>สไลด์อ้างอิง: <strong>24 - 41</strong></div>
-          <div class="text-emerald-400">สัญญาข้อตกลงและพิมพ์เขียวการพัฒนา</div>
+          <div>หัวใจ: <strong>สัญญาข้อตกลงและพิมพ์เขียว</strong></div>
+          <div class="text-emerald-400">โครงสร้าง IEEE 830 + 8 คุณลักษณะ + Functional Spec Form</div>
         </div>
       </div>
 
-      <!-- Standards Transition Banner -->
-      <div class="p-5 rounded-2xl bg-slate-900/90 border border-emerald-500/30 mb-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
-        <div class="space-y-1">
-          <div class="flex items-center gap-2">
-            <span class="badge badge-emerald text-xs">Standard Evolution</span>
-            <span class="text-xs text-slate-400">จาก IEEE Std 830 สู่มาตรฐานสากลสมัยใหม่</span>
-          </div>
-          <h3 class="text-sm font-bold text-white">
-            เอกสารข้อกำหนดความต้องการด้านซอฟต์แวร์ (Software Requirements Specification - SRS)
-          </h3>
-          <p class="text-xs text-slate-300 max-w-4xl">
-            SRS เป็นเอกสารอย่างเป็นทางการที่บันทึกข้อตกลงร่วมกันระหว่างลูกค้าและทีมพัฒนา <strong>IEEE 830-1998</strong> เป็นมาตรฐานโครงสร้างเอกสารคลาสสิกที่ใช้สอนในมหาวิทยาลัยทั่วโลก และในปัจจุบันได้ถูกรวมเป็นมาตรฐานร่วมสากล <strong>ISO/IEC/IEEE 29148:2018</strong>
-          </p>
-        </div>
-      </div>
-
-      <!-- Grid: 4 Core Sections of IEEE 830 -->
-      <div class="sub-card rounded-2xl p-6 mb-8">
-        <h4 class="text-sm font-bold text-white uppercase tracking-wider mb-4 flex items-center gap-2">
-          <svg class="w-4 h-4 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
-          โครงสร้างมาตรฐานของเอกสาร SRS ตาม IEEE 830 (Standard Outline)
-        </h4>
-
-        <div class="grid grid-cols-1 md:grid-cols-4 gap-4 text-xs">
-          <!-- 1. Introduction -->
-          <div class="p-4 rounded-xl bg-slate-900/90 border border-slate-800">
-            <div class="text-cyan-400 font-bold text-sm mb-2">1. บทนำ (Introduction)</div>
-            <ul class="space-y-1 text-slate-300">
-              <li>1.1 วัตถุประสงค์ของเอกสาร (Purpose)</li>
-              <li>1.2 ขอบเขตผลิตภัณฑ์ (Scope)</li>
-              <li>1.3 นิยามและอักษรย่อ (Definitions)</li>
-              <li>1.4 เอกสารอ้างอิง (References)</li>
-              <li>1.5 ภาพรวมส่วนอื่นๆ (Overview)</li>
-            </ul>
-          </div>
-
-          <!-- 2. Overall Description -->
-          <div class="p-4 rounded-xl bg-slate-900/90 border border-slate-800">
-            <div class="text-cyan-400 font-bold text-sm mb-2">2. รายละเอียดทั่วไป (Overall)</div>
-            <ul class="space-y-1 text-slate-300">
-              <li>2.1 มุมมองผลิตภัณฑ์ (Perspective)</li>
-              <li>2.2 ฟังก์ชันหลัก (Functions)</li>
-              <li>2.3 คุณลักษณะผู้ใช้ (User Classes)</li>
-              <li>2.4 ข้อจำกัดทั่วไป (Constraints)</li>
-              <li>2.5 สมมติฐาน (Assumptions)</li>
-            </ul>
-          </div>
-
-          <!-- 3. Specific Requirements -->
-          <div class="p-4 rounded-xl bg-slate-900/90 border border-cyan-500/50 shadow-md">
-            <div class="text-cyan-300 font-bold text-sm mb-2">3. ข้อกำหนดเฉพาะ (Specific) ★</div>
-            <ul class="space-y-1 text-slate-200">
-              <li>• ฟังก์ชันการทำงานทั้งหมด (Functional)</li>
-              <li>• ข้อกำหนดประสิทธิภาพ (NFR)</li>
-              <li>• การออกแบบฐานข้อมูล (Database)</li>
-              <li>• ส่วนต่อประสาน (UI & Hardware)</li>
-              <li>• ความปลอดภัย (Security / Safety)</li>
-            </ul>
-          </div>
-
-          <!-- 4. Appendices -->
-          <div class="p-4 rounded-xl bg-slate-900/90 border border-slate-800">
-            <div class="text-cyan-400 font-bold text-sm mb-2">4. ภาคผนวก (Appendices)</div>
-            <ul class="space-y-1 text-slate-300">
-              <li>• ตารางแสดงผลการทดลอง</li>
-              <li>• รายละเอียดเชิงเทคนิคเฉพาะฮาร์ดแวร์</li>
-              <li>• ผังงานการไหลของข้อมูลส่วนขยาย</li>
-              <li>• ดัชนีคำค้นหา (Index)</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-
-      <!-- 8 Characteristics of Good SRS & Matrix of Users -->
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
+      <!-- 3 Types of Documents (Slide 24) -->
+      <div class="p-5 rounded-2xl bg-slate-900 border border-emerald-500/40 mb-8">
+        <h3 class="text-sm font-bold text-emerald-300 uppercase tracking-wider mb-2">
+          เอกสาร 3 ชนิดในขั้นตอนการจัดทำข้อกำหนด (สไลด์หน้า 24)
+        </h3>
+        <p class="text-xs text-slate-300 mb-4">
+          ในระบบขนาดใหญ่ที่มีความซับซ้อนสูง จะประกอบด้วยเอกสาร 3 ชนิด:
+        </p>
         
-        <!-- Left: 8 Characteristics of Good Requirements -->
-        <div class="sub-card rounded-2xl p-6">
-          <h4 class="text-sm font-bold text-amber-400 uppercase tracking-wider mb-4 flex items-center gap-2">
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-            8 คุณลักษณะของข้อกำหนดความต้องการที่ดี (Good SRS Criteria)
-          </h4>
-          <div class="grid grid-cols-2 gap-3 text-xs">
-            <div class="p-2.5 rounded-lg bg-slate-900 border border-slate-800">
-              <strong class="text-white block">1. Correct (ถูกต้อง)</strong>
-              <span class="text-slate-400 text-[11px]">ตรงกับความต้องการจริงของผู้ใช้ทุกประการ</span>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs">
+          <div class="p-3 rounded-xl bg-slate-800/80 border border-slate-700">
+            <strong class="text-cyan-300 block mb-1">1. เอกสารนิยามระบบ (System Definition):</strong>
+            <span class="text-slate-400">หรือ User Requirement Document บันทึกความต้องการของผู้ใช้ ใช้ภาษาที่เข้าใจง่าย ไม่เน้นเทคนิค</span>
+          </div>
+          <div class="p-3 rounded-xl bg-slate-800/80 border border-slate-700">
+            <strong class="text-amber-300 block mb-1">2. ข้อกำหนดด้านระบบ (System Req Spec):</strong>
+            <span class="text-slate-400">อธิบายการดำเนินการด้านวิศวกรรมระบบ ถูกกำหนดก่อนและแยกออกจากเอกสารซอฟต์แวร์</span>
+          </div>
+          <div class="p-3 rounded-xl bg-slate-800/80 border border-slate-700">
+            <strong class="text-emerald-300 block mb-1">3. ข้อกำหนดซอฟต์แวร์ (SRS) ตาม IEEE 830:</strong>
+            <span class="text-slate-400">ระบุหน้าที่ของซอฟต์แวร์ เป็นข้อตกลงพื้นฐานระหว่างทีมพัฒนากับผู้ใช้งาน (ถ้าระบบไม่ซับซ้อน อาจมีแค่ SRS อย่างเดียว)</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- IEEE 830 Structure & 8 Good Characteristics -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-8">
+        
+        <!-- Left: IEEE 830 Outline (6 cols - Slide 26) -->
+        <div class="lg:col-span-6 sub-card rounded-2xl p-6">
+          <div class="flex items-center justify-between mb-3">
+            <h3 class="text-base font-bold text-white font-heading">
+              โครงสร้างมาตรฐาน SRS ตาม IEEE 830 (สไลด์หน้า 26)
+            </h3>
+            <span class="badge badge-emerald text-xs">IEEE 830 Outline</span>
+          </div>
+
+          <div class="space-y-3 text-xs">
+            <div class="p-3 rounded-xl bg-slate-900 border border-slate-800">
+              <strong class="text-cyan-300 text-sm block mb-1">1. บทนำ (Introduction)</strong>
+              <div class="text-slate-400 pl-2 space-y-0.5">
+                <div>1.1 วัตถุประสงค์ของเอกสาร (Purpose)</div>
+                <div>1.2 ขอบเขตของผลิตภัณฑ์ (Scope)</div>
+                <div>1.3 นิยาม คำย่อ หรืออักษรย่อ (Definitions, Acronyms)</div>
+                <div>1.4 เอกสารอ้างอิง (References)</div>
+                <div>1.5 สรุปส่วนอื่นๆ ของเอกสาร (Overview)</div>
+              </div>
             </div>
-            <div class="p-2.5 rounded-lg bg-slate-900 border border-slate-800">
-              <strong class="text-white block">2. Unambiguous (ไม่กำกวม)</strong>
-              <span class="text-slate-400 text-[11px]">ทุกคนอ่านแล้วเข้าใจความหมายตรงกันทางเดียว</span>
+
+            <div class="p-3 rounded-xl bg-slate-900 border border-slate-800">
+              <strong class="text-amber-300 text-sm block mb-1">2. รายละเอียดทั่วไป (Overall Description)</strong>
+              <div class="text-slate-400 pl-2 space-y-0.5">
+                <div>2.1 มุมมองเกี่ยวกับผลิตภัณฑ์ (Product Perspective)</div>
+                <div>2.2 ฟังก์ชันของผลิตภัณฑ์ (Product Functions)</div>
+                <div>2.3 คุณสมบัติของผู้ใช้ (User Characteristics)</div>
+                <div>2.4 ข้อบังคับทั่วไป (General Constraints)</div>
+                <div>2.5 สมมุติฐานและส่วนเพิ่มเติม (Assumptions & Dependencies)</div>
+              </div>
             </div>
-            <div class="p-2.5 rounded-lg bg-slate-900 border border-slate-800">
-              <strong class="text-white block">3. Complete (ครบถ้วน)</strong>
-              <span class="text-slate-400 text-[11px]">ระบุทุกฟังก์ชัน ข้อจำกัด และการดักจับ Error</span>
+
+            <div class="p-3 rounded-xl bg-slate-900 border border-slate-800">
+              <strong class="text-emerald-300 text-sm block mb-1">3. ข้อกำหนดความต้องการ (Specific Requirements) ★</strong>
+              <div class="text-slate-400 pl-2 space-y-0.5">
+                <div>• ความต้องการที่เป็นฟังก์ชันหลักและไม่ใช่ฟังก์ชันหลัก (Functional & Non-Functional)</div>
+                <div>• ความต้องการด้านฐานข้อมูล (Database Requirements)</div>
+                <div>• การออกแบบ Hardware & Software, ฟังก์ชัน, และการแสดงผลหน้าจอ</div>
+              </div>
             </div>
-            <div class="p-2.5 rounded-lg bg-slate-900 border border-slate-800">
-              <strong class="text-white block">4. Consistent (สอดคล้องกัน)</strong>
-              <span class="text-slate-400 text-[11px]">ไม่มีข้อกำหนดใดในเอกสารที่ขัดแย้งกันเอง</span>
-            </div>
-            <div class="p-2.5 rounded-lg bg-slate-900 border border-slate-800">
-              <strong class="text-white block">5. Ranked (จัดลำดับได้)</strong>
-              <span class="text-slate-400 text-[11px]">บอกได้ว่าสิ่งใดสำคัญและเร่งด่วนกว่า</span>
-            </div>
-            <div class="p-2.5 rounded-lg bg-slate-900 border border-slate-800">
-              <strong class="text-white block">6. Verifiable (พิสูจน์ได้)</strong>
-              <span class="text-slate-400 text-[11px]">มีตัวชี้วัดที่สร้างแบบทดสอบ (Test Case) ตรวจได้</span>
-            </div>
-            <div class="p-2.5 rounded-lg bg-slate-900 border border-slate-800">
-              <strong class="text-white block">7. Modifiable (แก้ไขได้ง่าย)</strong>
-              <span class="text-slate-400 text-[11px]">โครงสร้างเป็นระบบ แก้จุดหนึ่งไม่ทำจุดอื่นพัง</span>
-            </div>
-            <div class="p-2.5 rounded-lg bg-slate-900 border border-slate-800">
-              <strong class="text-white block">8. Traceable (สืบย้อนได้)</strong>
-              <span class="text-slate-400 text-[11px]">ตามรอยได้ว่าแต่ละข้อมาจากใครและแปลงเป็นโค้ดใด</span>
+
+            <div class="p-2.5 rounded-xl bg-slate-900/60 border border-slate-800 text-slate-400">
+              <strong>ภาคผนวก (Appendices)</strong> และ <strong>ดัชนี (Index)</strong>
             </div>
           </div>
         </div>
 
-        <!-- Right: Who uses the SRS? Matrix (Slide 32) -->
-        <div class="sub-card rounded-2xl p-6 flex flex-col justify-between">
+        <!-- Right: 8 Characteristics of Good SRS (6 cols - Slide 27) -->
+        <div class="lg:col-span-6 sub-card rounded-2xl p-6 flex flex-col justify-between">
           <div>
-            <h4 class="text-sm font-bold text-emerald-400 uppercase tracking-wider mb-4 flex items-center gap-2">
-              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
-              ผู้มีส่วนเกี่ยวข้องกับการใช้ SRS (SRS Users Matrix)
-            </h4>
-            
-            <div class="space-y-2.5 text-xs">
-              <div class="flex items-start gap-3 p-2.5 rounded-xl bg-slate-900 border border-slate-800">
-                <span class="badge badge-emerald shrink-0 text-[10px] w-20 justify-center">ลูกค้า</span>
-                <span class="text-slate-300">ใช้ระบุความต้องการ และตรวจสอบว่าตรงกับที่ให้ไว้หรือไม่ หากไม่ตรงสั่งแก้ไขทันที</span>
+            <div class="flex items-center justify-between mb-3">
+              <h3 class="text-base font-bold text-white font-heading">
+                8 คุณลักษณะของข้อกำหนดความต้องการที่ดี (สไลด์หน้า 27)
+              </h3>
+              <span class="badge badge-amber text-xs">ต้องท่องจำ 8 ข้อ</span>
+            </div>
+            <p class="text-xs text-slate-400 mb-4">ตามมาตรฐาน IEEE 830 ข้อกำหนดที่ดีต้องมีครบทั้ง 8 ข้อ:</p>
+
+            <div class="grid grid-cols-2 gap-2.5 text-xs">
+              <div class="p-2.5 rounded-xl bg-slate-900 border border-slate-800">
+                <strong class="text-white block font-mono">1. Correct (ถูกต้อง)</strong>
+                <span class="text-slate-400">ตรงกับความต้องการจริงของผู้ใช้</span>
               </div>
-              <div class="flex items-start gap-3 p-2.5 rounded-xl bg-slate-900 border border-slate-800">
-                <span class="badge badge-cyan shrink-0 text-[10px] w-20 justify-center">ผู้จัดการ (PM)</span>
-                <span class="text-slate-300">ใช้ประเมินงบประมาณ วางแผนตารางการทำงาน (Gantt Chart) และจัดสรรทีมงาน</span>
+              <div class="p-2.5 rounded-xl bg-slate-900 border border-slate-800">
+                <strong class="text-white block font-mono">2. Unambiguous (ไม่กำกวม)</strong>
+                <span class="text-slate-400">มีความหมายเดียว ตีความเป็นอื่นไม่ได้</span>
               </div>
-              <div class="flex items-start gap-3 p-2.5 rounded-xl bg-slate-900 border border-slate-800">
-                <span class="badge badge-purple shrink-0 text-[10px] w-20 justify-center">วิศวกรระบบ</span>
-                <span class="text-slate-300">ใช้ทำความเข้าใจภาพรวมและสถาปัตยกรรมระบบ เพื่อจัดแบ่งโมดูลการทำงาน</span>
+              <div class="p-2.5 rounded-xl bg-slate-900 border border-slate-800">
+                <strong class="text-white block font-mono">3. Complete (ครบถ้วน)</strong>
+                <span class="text-slate-400">มีทุกฟังก์ชัน ข้อจำกัด และดักจับ Error</span>
               </div>
-              <div class="flex items-start gap-3 p-2.5 rounded-xl bg-slate-900 border border-slate-800">
-                <span class="badge badge-amber shrink-0 text-[10px] w-20 justify-center">โปรแกรมเมอร์</span>
-                <span class="text-slate-300">ใช้เป็นพิมพ์เขียวในการเขียนโปรแกรมและออกแบบฐานข้อมูลให้ตรงตามข้อกำหนด</span>
+              <div class="p-2.5 rounded-xl bg-slate-900 border border-slate-800">
+                <strong class="text-white block font-mono">4. Consistent (สอดคล้องกัน)</strong>
+                <span class="text-slate-400">ไม่มีข้อกำหนดใดในเอกสารที่ขัดแย้งกัน</span>
               </div>
-              <div class="flex items-start gap-3 p-2.5 rounded-xl bg-slate-900 border border-slate-800">
-                <span class="badge badge-rose shrink-0 text-[10px] w-20 justify-center">ผู้ทดสอบระบบ</span>
-                <span class="text-slate-300">ใช้สร้างกรณีทดสอบ (Test Cases) เพื่อยืนยันว่าระบบทำงานถูกต้องตามสเปก</span>
+              <div class="p-2.5 rounded-xl bg-slate-900 border border-slate-800">
+                <strong class="text-white block font-mono">5. Ranked (จัดลำดับได้)</strong>
+                <span class="text-slate-400">บอกได้ว่าข้อใดสำคัญ/จำเป็นกว่า</span>
               </div>
+              <div class="p-2.5 rounded-xl bg-slate-900 border border-slate-800">
+                <strong class="text-white block font-mono">6. Verifiable (พิสูจน์ได้)</strong>
+                <span class="text-slate-400">มีวิธีทดสอบที่บอกผล Pass/Fail ชัดเจน</span>
+              </div>
+              <div class="p-2.5 rounded-xl bg-slate-900 border border-slate-800">
+                <strong class="text-white block font-mono">7. Modifiable (แก้ไขได้ง่าย)</strong>
+                <span class="text-slate-400">แก้จุดหนึ่ง ไม่กระทบให้จุดอื่นพัง</span>
+              </div>
+              <div class="p-2.5 rounded-xl bg-slate-900 border border-slate-800">
+                <strong class="text-white block font-mono">8. Traceable (สืบย้อนได้)</strong>
+                <span class="text-slate-400">สืบย้อนหาที่มาและโมดูลโค้ดได้</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-4 p-3 rounded-xl bg-amber-950/40 border border-amber-500/30 text-xs text-amber-200">
+            ⚠️ <strong>ระวังอย่าสับสน:</strong> 8 ข้อนี้คือ <em>"คุณลักษณะของข้อกำหนดที่ดีตาม IEEE 830"</em> ส่วนใน Board 5 จะเป็น <em>"7 คุณลักษณะในการตรวจทาน (Validation Criteria)"</em> ซึ่งใกล้เคียงกันแต่อยู่คนละสไลด์!
+          </div>
+        </div>
+
+      </div>
+
+      <!-- SRS Users Matrix (Slide 32) & Functional Spec Form (Slides 33-41) -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-8">
+        
+        <!-- SRS Users (Slide 32 - Sommerville 2016) -->
+        <div class="lg:col-span-5 sub-card rounded-2xl p-6">
+          <div class="flex items-center justify-between mb-3">
+            <h3 class="text-base font-bold text-white font-heading">
+              ผู้มีส่วนเกี่ยวข้องกับการใช้ SRS (สไลด์หน้า 32)
+            </h3>
+            <span class="text-xs text-slate-400 font-mono">Sommerville (2016)</span>
+          </div>
+          
+          <div class="space-y-2 text-xs">
+            <div class="p-2.5 rounded-xl bg-slate-900 border border-slate-800">
+              <strong class="text-emerald-300 block">ลูกค้า / ผู้ใช้งาน (Customers):</strong>
+              <span class="text-slate-300">ใช้ระบุความต้องการ และตรวจสอบว่าตรงกับที่ให้ไว้หรือไม่ ถ้าไม่ตรงแจ้งแก้ไข</span>
+            </div>
+            <div class="p-2.5 rounded-xl bg-slate-900 border border-slate-800">
+              <strong class="text-cyan-300 block">นักพัฒนา / โปรแกรมเมอร์ (Developers):</strong>
+              <span class="text-slate-300">ใช้เพื่อให้เข้าใจความต้องการ ว่าจะต้องพัฒนาอะไรให้กับระบบบ้าง</span>
+            </div>
+            <div class="p-2.5 rounded-xl bg-slate-900 border border-slate-800">
+              <strong class="text-amber-300 block">ผู้จัดการโครงการ (Project Managers):</strong>
+              <span class="text-slate-300">ใช้เพื่อวางแผนระบบ และวางแผนกระบวนการพัฒนาระบบ (งบประมาณและเวลา)</span>
+            </div>
+            <div class="p-2.5 rounded-xl bg-slate-900 border border-slate-800">
+              <strong class="text-rose-300 block">ผู้ทดสอบระบบ (Testers / QA):</strong>
+              <span class="text-slate-300">ใช้เพื่อตรวจทาน/ตรวจสอบความถูกต้องของระบบที่พัฒนาขึ้น (ทำ Test Cases)</span>
+            </div>
+            <div class="p-2.5 rounded-xl bg-slate-900 border border-slate-800">
+              <strong class="text-purple-300 block">ฝ่ายบำรุงรักษา / วิศวกรระบบ (Maintenance):</strong>
+              <span class="text-slate-300">ใช้ประกอบความเข้าใจในระบบ และทราบถึงความสัมพันธ์ในแต่ละส่วนเพื่อดูแลต่อ</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Functional Spec Form Components (Slides 33-41) -->
+        <div class="lg:col-span-7 sub-card rounded-2xl p-6">
+          <div class="flex items-center justify-between mb-3">
+            <h3 class="text-base font-bold text-white font-heading">
+              องค์ประกอบของ Functional Specification Form (สไลด์หน้า 34 - 41)
+            </h3>
+            <span class="text-xs text-slate-400 font-mono">โอภาส เอี่ยมสิริวงศ์ (2566)</span>
+          </div>
+
+          <div class="grid grid-cols-2 gap-2 text-xs mb-4">
+            <div class="p-2 rounded bg-slate-900 border border-slate-800"><strong>Function:</strong> ชื่อฟังก์ชันการทำงาน</div>
+            <div class="p-2 rounded bg-slate-900 border border-slate-800"><strong>Brief Description:</strong> คำอธิบายโดยย่อ</div>
+            <div class="p-2 rounded bg-slate-900 border border-slate-800"><strong>Input:</strong> ข้อมูลเข้า</div>
+            <div class="p-2 rounded bg-slate-900 border border-slate-800"><strong>Source:</strong> แหล่งที่มาของข้อมูล</div>
+            <div class="p-2 rounded bg-slate-900 border border-slate-800"><strong>Output:</strong> ผลลัพธ์ที่ได้</div>
+            <div class="p-2 rounded bg-slate-900 border border-slate-800"><strong>Requires:</strong> ความต้องการที่จำเป็น</div>
+            <div class="p-2 rounded bg-slate-900 border border-slate-800"><strong>Stakeholders:</strong> ผู้มีส่วนได้ส่วนเสีย</div>
+            <div class="p-2 rounded bg-slate-900 border border-slate-800"><strong>Preconditions:</strong> เงื่อนไขก่อนเริ่ม</div>
+            <div class="p-2 rounded bg-slate-900 border border-slate-800"><strong>Postcondition:</strong> เงื่อนไขหลังเสร็จ</div>
+            <div class="p-2 rounded bg-slate-900 border border-slate-800"><strong>Main Flow:</strong> ขั้นตอนการทำงานหลัก</div>
+            <div class="p-2 rounded bg-slate-900 border border-slate-800 col-span-2"><strong>Exception Conditions:</strong> เงื่อนไขข้อยกเว้นต่างๆ</div>
+          </div>
+
+          <!-- Agile User Story vs Approvals (Slides 39 & 41) -->
+          <div class="space-y-2 text-xs">
+            <div class="p-2.5 rounded-xl bg-purple-950/40 border border-purple-500/30">
+              <strong class="text-purple-300">รูปแบบ User Story ใน Agile (สไลด์หน้า 39):</strong>
+              <div class="font-mono text-slate-200 mt-1">
+                "ในฐานะ [บทบาท], ฉันต้องการ [พฤติกรรม/ฟีเจอร์] เพื่อที่ [เหตุผล/คุณค่าที่ได้รับ]"
+              </div>
+            </div>
+
+            <div class="p-2.5 rounded-xl bg-slate-900 border border-slate-800 flex items-center justify-between">
+              <div>
+                <strong class="text-white">การอนุมัติ (Approvals - สไลด์หน้า 41):</strong>
+                <span class="text-slate-400 block mt-0.5">การลงนามอย่างเป็นทางการของผู้มีส่วนได้ส่วนเสียหลัก: <strong>SA, หัวหน้าทีมพัฒนา, หัวหน้าทีม QA</strong></span>
+              </div>
+              <span class="badge badge-emerald shrink-0">Sign-off</span>
             </div>
           </div>
         </div>
 
       </div>
 
-      <!-- Functional Specification Form Components -->
-      <div class="sub-card rounded-2xl p-6">
-        <h4 class="text-sm font-bold text-white uppercase tracking-wider mb-3">
-          องค์ประกอบสำคัญในแบบฟอร์มข้อกำหนดเชิงฟังก์ชัน (Functional Specification Form)
-        </h4>
-        <div class="grid grid-cols-1 md:grid-cols-4 gap-3 text-xs">
-          <div class="p-3 rounded-xl bg-slate-900 border border-slate-800">
-            <div class="font-bold text-cyan-300 mb-1">1. User Stories / Use Cases</div>
-            <div class="text-slate-400">ระบุผู้ใช้, เงื่อนไขก่อนเริ่ม (Pre-condition), ลำดับเหตุการณ์ปกติ, และเส้นทางสำรอง (Alternate Flow)</div>
+      <!-- Exam Summary & Trap Box for Board 4 -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div class="exam-box p-4 rounded-xl">
+          <div class="flex items-center gap-2 text-amber-400 font-bold text-sm mb-1">
+            <span>📝</span> จำไปสอบ (Board 4)
           </div>
-          <div class="p-3 rounded-xl bg-slate-900 border border-slate-800">
-            <div class="font-bold text-cyan-300 mb-1">2. UI Requirements</div>
-            <div class="text-slate-400">ภาพจำลองหน้าจอ (Mockup/Wireframe), ฟิลด์ข้อมูลที่ต้องกรอก, Validation Rules</div>
+          <ul class="text-xs text-slate-300 space-y-1 list-disc list-inside">
+            <li>SRS Outline: 1. Introduction &rarr; 2. Overall Description &rarr; 3. Specific Requirements &rarr; Appendices &rarr; Index</li>
+            <li>ส่วนที่ 3 (Specific Requirements) คือส่วนที่บันทึกทั้ง Functional และ Non-Functional ทั้งหมด</li>
+            <li>ผู้ที่ต้องลงนามอนุมัติ (Approvals) ในสไลด์คือ <strong>SA, Lead Developer, และ QA Lead</strong></li>
+          </ul>
+        </div>
+
+        <div class="trap-box p-4 rounded-xl">
+          <div class="flex items-center gap-2 text-rose-400 font-bold text-sm mb-1">
+            <span>⚠️</span> จุดที่ข้อสอบชอบหลอก (Exam Trap)
           </div>
-          <div class="p-3 rounded-xl bg-slate-900 border border-slate-800">
-            <div class="font-bold text-cyan-300 mb-1">3. Non-Functional Criteria</div>
-            <div class="text-slate-400">เวลาในการประมวลผลสูงสุดที่ยอมรับได้, สิทธิ์การเข้าถึง (RBAC), การเข้ารหัสข้อมูล</div>
-          </div>
-          <div class="p-3 rounded-xl bg-slate-900 border border-slate-800">
-            <div class="font-bold text-cyan-300 mb-1">4. การอนุมัติ (Approvals)</div>
-            <div class="text-slate-400">ลงลายมือชื่อยืนยันระหว่างผู้ว่าจ้างและทีมพัฒนา เพื่อป้องกันปัญหา Scope Creep</div>
-          </div>
+          <p class="text-xs text-slate-300">
+            <strong>ระวัง:</strong> ผู้ใช้ SRS ไม่ได้มีแค่นักพัฒนา (Dev) แต่มีถึง 5 กลุ่ม รวมถึง <strong>"ฝ่ายบำรุงรักษา (Maintenance)"</strong> และ <strong>"ลูกค้า (Customers)"</strong> ด้วย
+          </p>
         </div>
       </div>
 
     </article>
 
 
-    <!-- ==========================================
-         BOARD 5: การตรวจทานความต้องการ (Validation)
-         ========================================== -->
+    <!-- =========================================================================
+         BOARD 5: การตรวจทานความต้องการ (VALIDATION)
+         ========================================================================= -->
     <article id="board-5" class="board-card rounded-3xl p-6 md:p-10">
       
       <!-- Board Header -->
       <div class="flex flex-wrap items-center justify-between pb-6 mb-8 border-b border-slate-800 gap-4">
         <div>
-          <div class="flex items-center gap-3">
+          <div class="flex items-center gap-2.5">
             <span class="badge badge-rose">BOARD 05 / 06</span>
-            <span class="text-xs text-slate-400 font-mono">QUALITY GATES • COST ESCALATION</span>
+            <span class="text-xs text-slate-400 font-mono">อ้างอิงสไลด์: 42 - 43</span>
           </div>
-          <h2 class="text-2xl md:text-3xl font-bold text-white mt-1">
-            การตรวจทานความต้องการ (Requirement Validation & Quality Gates)
+          <h2 class="text-2xl md:text-3xl font-bold text-white mt-1.5 font-heading">
+            การตรวจทานความต้องการและเกณฑ์คุณภาพ (System Requirements Validation)
           </h2>
         </div>
         <div class="text-right text-xs text-slate-400">
-          <div>สไลด์อ้างอิง: <strong>42 - 43</strong></div>
-          <div class="text-rose-400">การสกัดจับจุดผิดพลาดก่อนต้นทุนพุ่งทะยาน</div>
+          <div>หัวใจ: <strong>7 เกณฑ์ตรวจสอบ + 3 เทคนิคตรวจทาน</strong></div>
+          <div class="text-rose-400">สไลด์หน้า 42 และ 43</div>
         </div>
       </div>
 
-      <!-- Cost of Fix: Boehm's Curve -->
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-8">
-        
-        <!-- Left: Cost of Error Correction (7 cols) -->
-        <div class="lg:col-span-7 sub-card rounded-2xl p-6">
-          <h4 class="text-sm font-bold text-rose-400 uppercase tracking-wider mb-3 flex items-center gap-2">
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path></svg>
-            ทำไมต้องตรวจทานตั้งแต่ช่วงแรก? (The Cost-of-Fix Escalation Curve)
-          </h4>
-          <p class="text-xs text-slate-300 mb-6 leading-relaxed">
-            งานวิจัยของ <strong>Barry Boehm</strong> และ <strong>IBM Systems Sciences Institute</strong> ยืนยันว่า ยิ่งค้นพบและแก้ไขข้อผิดพลาดของ Requirement ช้าลงไปในเฟสท้ายๆ ต้นทุนในการแก้ไขจะพุ่งสูงขึ้นแบบก้าวกระโดด (Exponential):
-          </p>
-
-          <div class="space-y-4">
-            <div>
-              <div class="flex justify-between text-xs mb-1">
-                <span class="font-bold text-emerald-400">1. ขั้นตอน Requirement (ต้นทุนต่ำสุด: 1x)</span>
-                <span class="text-slate-400 font-mono">ค่าใช้จ่าย: แก้ไขคำในเอกสาร SRS</span>
-              </div>
-              <div class="w-full bg-slate-900 h-3 rounded-full overflow-hidden p-0.5 border border-slate-800">
-                <div class="bg-emerald-500 h-full rounded-full" style="width: 8%"></div>
-              </div>
-            </div>
-
-            <div>
-              <div class="flex justify-between text-xs mb-1">
-                <span class="font-bold text-cyan-400">2. ขั้นตอน Design & Architecture (5x)</span>
-                <span class="text-slate-400 font-mono">ค่าใช้จ่าย: แก้ผังฐานข้อมูลและ UML</span>
-              </div>
-              <div class="w-full bg-slate-900 h-3 rounded-full overflow-hidden p-0.5 border border-slate-800">
-                <div class="bg-cyan-500 h-full rounded-full" style="width: 25%"></div>
-              </div>
-            </div>
-
-            <div>
-              <div class="flex justify-between text-xs mb-1">
-                <span class="font-bold text-amber-400">3. ขั้นตอน Coding & Implementation (10x - 20x)</span>
-                <span class="text-slate-400 font-mono">ค่าใช้จ่าย: รื้อเขียนโค้ดและ Migrations</span>
-              </div>
-              <div class="w-full bg-slate-900 h-3 rounded-full overflow-hidden p-0.5 border border-slate-800">
-                <div class="bg-amber-500 h-full rounded-full" style="width: 50%"></div>
-              </div>
-            </div>
-
-            <div>
-              <div class="flex justify-between text-xs mb-1">
-                <span class="font-bold text-rose-400">4. ขั้นตอน Production & Maintenance (50x - 100x+)</span>
-                <span class="text-rose-400 font-mono font-bold">ค่าใช้จ่าย: ระบบล่ม ลูกค้าฟ้อง เสียชื่อเสียง</span>
-              </div>
-              <div class="w-full bg-slate-900 h-3 rounded-full overflow-hidden p-0.5 border border-slate-800">
-                <div class="bg-gradient-to-r from-amber-500 to-rose-600 h-full rounded-full" style="width: 100%"></div>
-              </div>
-            </div>
-          </div>
+      <!-- Validation Concept Box (Slide 42) -->
+      <div class="concept-box p-5 rounded-2xl mb-8 space-y-2">
+        <div class="flex items-center gap-2">
+          <span class="badge badge-rose text-xs">นิยามการตรวจทาน (Slide 42)</span>
+          <span class="text-xs text-slate-400">System Requirements Validation</span>
         </div>
-
-        <!-- Right: 3 Validation Techniques (5 cols) -->
-        <div class="lg:col-span-5 sub-card rounded-2xl p-6 flex flex-col justify-between">
-          <div>
-            <h4 class="text-sm font-bold text-cyan-400 uppercase tracking-wider mb-4 flex items-center gap-2">
-              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"></path></svg>
-              3 เทคนิคหลักในการตรวจทานความต้องการ
-            </h4>
-            
-            <div class="space-y-3 text-xs">
-              <div class="p-3.5 rounded-xl bg-slate-900 border border-slate-800">
-                <strong class="text-cyan-300 block mb-1">1. การทบทวนความต้องการ (Requirement Reviews)</strong>
-                <span class="text-slate-400">
-                  ทีมผู้เชี่ยวชาญตรวจสอบเอกสารอย่างเป็นทางการ (Formal Fagan Inspection) และไม่เป็นทางการ (Peer Desk Check) เพื่อค้นหาความขัดแย้ง
-                </span>
-              </div>
-
-              <div class="p-3.5 rounded-xl bg-slate-900 border border-slate-800">
-                <strong class="text-cyan-300 block mb-1">2. การสร้างต้นแบบ (Prototyping)</strong>
-                <span class="text-slate-400">
-                  สร้างหน้าจอจำลอง (Mockup/Clickable Prototype) ให้ผู้ใช้ลองกดเล่นจริง เพื่อตรวจสอบว่าความเข้าใจตรงกันหรือไม่ก่อนลงมือเขียนโปรแกรม
-                </span>
-              </div>
-
-              <div class="p-3.5 rounded-xl bg-slate-900 border border-slate-800">
-                <strong class="text-cyan-300 block mb-1">3. การสร้างกรณีทดสอบ (Test-Case Generation)</strong>
-                <span class="text-slate-400">
-                  ออกแบบกรณีทดสอบล่วงหน้าตามแนวคิด Extreme Programming (XP) หากข้อกำหนดข้อใดไม่สามารถเขียน Test Case ได้ แสดงว่าข้อนั้นยังไม่ชัดเจน!
-                </span>
-              </div>
-            </div>
-          </div>
-        </div>
-
+        <p class="text-slate-100 text-sm">
+          <strong>การตรวจทานความต้องการ</strong> คือ <em>"การทบทวนและตรวจสอบข้อกำหนดความต้องการในเอกสารทั้งหมด เพื่อความเที่ยงตรง สอดคล้อง สมบูรณ์ เป็นไปได้ และพิสูจน์ได้ตามเป้าหมาย"</em> เพื่อให้มั่นใจว่าระบบจะตรงกับความต้องการจริงของผู้ใช้ก่อนเข้าสู่ขั้นตอนการออกแบบระบบ (System Design)
+        </p>
       </div>
 
-      <!-- 7 Quality Validation Checks (Slide 42 Deep Dive) -->
-      <div class="sub-card rounded-2xl p-6">
-        <h4 class="text-sm font-bold text-white uppercase tracking-wider mb-4 flex items-center gap-2">
-          <span class="w-2.5 h-2.5 rounded-full bg-emerald-400"></span>
-          7 มิติการตรวจทานความถูกต้องของความต้องการ (Validation Checks Checklist)
-        </h4>
+      <!-- 7 Validation Criteria (Exact Slide 42 Definitions) -->
+      <div class="sub-card rounded-2xl p-6 mb-8">
+        <div class="flex items-center justify-between mb-4">
+          <h3 class="text-base font-bold text-white font-heading flex items-center gap-2">
+            <span class="w-2.5 h-2.5 rounded-full bg-rose-400"></span>
+            7 ด้านที่ต้องตรวจสอบในการตรวจทานความต้องการ (สไลด์หน้า 42)
+          </h3>
+          <span class="badge badge-rose text-xs">จำนิยามภาษาไทยให้แม่น! ★</span>
+        </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3 text-xs">
-          <div class="p-3.5 rounded-xl bg-slate-900/90 border border-slate-800">
-            <div class="font-bold text-emerald-300 mb-1">1. Correctness (ความถูกต้อง)</div>
-            <p class="text-slate-400">ระบบตรงกับความต้องการที่แท้จริงของผู้ใช้หรือไม่ ผู้ใช้เห็นพ้องกับสเปกทั้งหมดหรือไม่</p>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 text-xs">
+          
+          <div class="p-3.5 rounded-xl bg-slate-900 border border-slate-800 space-y-1">
+            <div class="font-bold text-rose-300 text-sm">1. Correctness (ความถูกต้อง)</div>
+            <p class="text-slate-300">ความต้องการสามารถ<strong>แสดงมุมมองของผู้ใช้งานระบบที่ตรงกัน</strong></p>
           </div>
 
-          <div class="p-3.5 rounded-xl bg-slate-900/90 border border-slate-800">
-            <div class="font-bold text-emerald-300 mb-1">2. Consistency (ความสอดคล้อง)</div>
-            <p class="text-slate-400">ไม่มีข้อกำหนดใดขัดแย้งกัน เช่น หน้าหนึ่งบอกให้ส่ง SMS แต่อีกหน้าบอกไม่ให้ใช้เบอร์โทรศัพท์</p>
+          <div class="p-3.5 rounded-xl bg-slate-900 border border-slate-800 space-y-1">
+            <div class="font-bold text-rose-300 text-sm">2. Consistency (ความต้องกัน / สอดคล้อง)</div>
+            <p class="text-slate-300">ความต้องการทั้งเชิงฟังก์ชันและไม่เป็นฟังก์ชันในเอกสาร<strong>ไม่ทับซ้อนกัน ไม่ขัดแย้ง ต้องเป็นไปในแนวทางเดียวกันทั่วทั้งเอกสาร</strong></p>
           </div>
 
-          <div class="p-3.5 rounded-xl bg-slate-900/90 border border-slate-800">
-            <div class="font-bold text-emerald-300 mb-1">3. Completeness (ความครบถ้วน)</div>
-            <p class="text-slate-400">ระบุครบทุกสถานการณ์ รวมถึงสภาวะผิดปกติ (Error Handling) และกรณีเน็ตเวิร์กหลุด</p>
+          <div class="p-3.5 rounded-xl bg-slate-900 border border-slate-800 space-y-1">
+            <div class="font-bold text-rose-300 text-sm">3. Completeness (ความครบถ้วนสมบูรณ์)</div>
+            <p class="text-slate-300">ต้อง<strong>ระบุรายละเอียดฟังก์ชันและความต้องการอย่างครบถ้วนไม่ตกหล่น</strong> และครอบคลุมความต้องการผู้ใช้</p>
           </div>
 
-          <div class="p-3.5 rounded-xl bg-slate-900/90 border border-slate-800">
-            <div class="font-bold text-emerald-300 mb-1">4. Realism (ความเป็นไปได้)</div>
-            <p class="text-slate-400">สามารถพัฒนาได้จริงภายใต้งบประมาณ เทคโนโลยี และกรอบเวลาที่โครงการกำหนด</p>
+          <div class="p-3.5 rounded-xl bg-slate-900 border border-slate-800 space-y-1">
+            <div class="font-bold text-rose-300 text-sm">4. Realism (ความเป็นจริง)</div>
+            <p class="text-slate-300">ความต้องการ<strong>ถูกนำไปสร้างได้จริง</strong>ตามความต้องการของผู้ใช้งานระบบ (เทคโนโลยี, เวลา, งบประมาณ)</p>
           </div>
 
-          <div class="p-3.5 rounded-xl bg-slate-900/90 border border-slate-800">
-            <div class="font-bold text-emerald-300 mb-1">5. Verifiability (พิสูจน์ได้)</div>
-            <p class="text-slate-400">สามารถออกแบบชุดทดสอบที่ให้ผลลัพธ์เป็น Pass/Fail ได้ชัดเจน ไม่เป็นความรู้สึกส่วนตัว</p>
+          <div class="p-3.5 rounded-xl bg-slate-900 border border-slate-800 space-y-1">
+            <div class="font-bold text-rose-300 text-sm">5. Verifiability (สามารถพิสูจน์ได้)</div>
+            <p class="text-slate-300">ความต้องการนั้น<strong>ต้องพิสูจน์เพื่อหาความจริงได้ คือทดสอบ/ทดลองได้</strong> เพื่อลดข้อโต้แย้งระหว่างทั้ง 2 ฝ่าย</p>
           </div>
 
-          <div class="p-3.5 rounded-xl bg-slate-900/90 border border-slate-800">
-            <div class="font-bold text-emerald-300 mb-1">6. Clarity (ความชัดเจน)</div>
-            <p class="text-slate-400">ภาษาที่ใช้เขียนเรียบง่าย ตรงประเด็น ไม่ใช้คำศัพท์กำกวมที่ทำให้คนอ่านตีความได้หลายทาง</p>
+          <div class="p-3.5 rounded-xl bg-slate-900 border border-slate-800 space-y-1">
+            <div class="font-bold text-rose-300 text-sm">6. Clarity (ความชัดเจน)</div>
+            <p class="text-slate-300">ความต้องการ<strong>ไม่คลุมเครือ ไม่กำกวม</strong></p>
           </div>
 
-          <div class="p-3.5 rounded-xl bg-slate-900/90 border border-slate-800">
-            <div class="font-bold text-emerald-300 mb-1">7. Traceability (ตรวจติดตามได้)</div>
-            <p class="text-slate-400">ทุกข้อกำหนดมีรหัส ID กำกับ (เช่น [REQ-01]) เพื่อสืบย้อนหาแหล่งที่มาและโมดูลโค้ดได้</p>
+          <div class="p-3.5 rounded-xl bg-slate-900 border border-slate-800 space-y-1">
+            <div class="font-bold text-rose-300 text-sm">7. Traceability (การตรวจติดตาม)</div>
+            <p class="text-slate-300">สามารถ<strong>สืบย้อนหาแหล่งที่มา</strong>และติดตามความสัมพันธ์ของข้อกำหนดได้</p>
           </div>
 
           <div class="p-3.5 rounded-xl bg-rose-950/40 border border-rose-500/40 flex items-center justify-center text-center">
-            <div class="text-[11px] text-rose-200">
-              ⚡ <strong>เมื่อพบข้อผิดพลาด:</strong><br>ส่งกลับทีมวิเคราะห์แก้ไขทันที ห้ามปล่อยให้เริ่มงาน Design & Code เด็ดขาด!
+            <div class="text-rose-200">
+              <strong class="block mb-1">กฎเหล็ก (Slide 43):</strong>
+              หากพบข้อผิดพลาด ต้อง<strong>ส่งกลับให้ทีมพัฒนาแก้ไขให้เรียบร้อย</strong> ก่อนนำไปสู่ออกแบบ!
             </div>
           </div>
+
+        </div>
+      </div>
+
+      <!-- 3 Validation Techniques (Slide 43) -->
+      <div class="sub-card rounded-2xl p-6 mb-8">
+        <div class="flex items-center justify-between mb-3">
+          <h3 class="text-base font-bold text-white font-heading">
+            3 เทคนิคที่ใช้ในการตรวจทานความต้องการ (สไลด์หน้า 43)
+          </h3>
+          <span class="badge badge-cyan text-xs">Validation Techniques</span>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-sm">
+          
+          <div class="p-4 rounded-xl bg-slate-900 border border-slate-800 space-y-2">
+            <div class="font-bold text-cyan-300 text-base">1. การทบทวนความต้องการ (Requirement Review)</div>
+            <p class="text-xs text-slate-300 leading-relaxed">
+              ตรวจสอบเอกสารอย่างละเอียด เพื่อค้นหาจุดผิดพลาดไม่ตรงตามข้อกำหนด แบ่งเป็น:
+            </p>
+            <ul class="text-xs text-slate-400 space-y-1 list-disc list-inside">
+              <li><strong>แบบทางการ (Formal Review):</strong> ตั้งคณะกรรมการตรวจสอบตามวาระอย่างเป็นระบบ</li>
+              <li><strong>แบบไม่เป็นทางการ (Informal Review):</strong> เพื่อนร่วมทีมช่วยตรวจทาน (Peer Review)</li>
+            </ul>
+          </div>
+
+          <div class="p-4 rounded-xl bg-slate-900 border border-slate-800 space-y-2">
+            <div class="font-bold text-amber-300 text-base">2. การจัดทำต้นแบบ (Prototyping)</div>
+            <p class="text-xs text-slate-300 leading-relaxed">
+              สร้างระบบจำลองหรือ Mockup หน้าจอขึ้นมา <strong>"เพื่อสาธิตให้ผู้ใช้ระบบเห็นภาพ หรือให้ทดลองใช้ด้วยตนเอง"</strong> ช่วยจับจุดที่เข้าใจไม่ตรงกันได้ดีที่สุด
+            </p>
+          </div>
+
+          <div class="p-4 rounded-xl bg-slate-900 border border-slate-800 space-y-2">
+            <div class="font-bold text-emerald-300 text-base">3. การสร้างกรณีทดสอบ (Test-Case Generation)</div>
+            <p class="text-xs text-slate-300 leading-relaxed">
+              จำลองเหตุการณ์หรือข้อมูลเพื่อการทดสอบเป็นรายกรณี (Case) โดยสไลด์ระบุว่า <strong>"ใช้เทคนิค Extreme Programming (XP)"</strong>
+            </p>
+            <div class="text-xs text-slate-400 p-2 rounded bg-slate-800/60 mt-2">
+              💡 ถ้า Requirement ข้อไหนไม่สามารถเขียน Test Case ได้ แสดงว่าข้อนั้นยังไม่ชัดเจนหรือพิสูจน์ไม่ได้!
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Vague vs Verifiable Rewriting Example (Pedagogical Enhancement) -->
+      <div class="sub-card rounded-2xl p-6 mb-8">
+        <h3 class="text-base font-bold text-white font-heading mb-3 flex items-center gap-2">
+          <span>✍️</span> ตัวอย่างการแก้โจทย์: เปลี่ยนข้อกำหนดที่กำกวม (Vague) ให้พิสูจน์ได้ (Verifiable)
+        </h3>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs font-mono">
+          <div class="p-3.5 rounded-xl bg-red-950/30 border border-red-500/40">
+            <span class="text-rose-400 font-bold block mb-1">❌ ข้อกำหนดที่กำกวม (ไม่ผ่านเกณฑ์ Verifiability):</span>
+            <div class="text-slate-300">
+              "ระบบจะต้องค้นหาข้อมูลลูกค้าได้อย่างรวดเร็ว และหน้าจอต้องใช้งานง่าย"
+            </div>
+            <div class="text-slate-500 mt-2">
+              เหตุผลที่ไม่ผ่าน: คำว่า "รวดเร็ว" กับ "ใช้งานง่าย" เป็นความรู้สึก ไม่มีหน่วยวัด ไม่สามารถเขียน Test Case ได้
+            </div>
+          </div>
+
+          <div class="p-3.5 rounded-xl bg-emerald-950/30 border border-emerald-500/40">
+            <span class="text-emerald-400 font-bold block mb-1">✅ ปรับแก้ให้ผ่านเกณฑ์ (Verifiable & Unambiguous):</span>
+            <div class="text-slate-200">
+              "ระบบจะต้องแสดงผลลัพธ์การค้นหาลูกค้าภายในเวลาไม่เกิน 1.0 วินาที และผู้ใช้ใหม่ต้องสามารถทำรายการสำเร็จได้หลังจากผ่านการฝึกอบรมไม่เกิน 15 นาที"
+            </div>
+            <div class="text-emerald-400/80 mt-2">
+              ผ่านเกณฑ์: มีหน่วยวัดเป็นวินาทีและนาที ทดสอบแบบ Pass/Fail ได้ชัดเจน!
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Exam Summary & Trap Box for Board 5 -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div class="exam-box p-4 rounded-xl">
+          <div class="flex items-center gap-2 text-amber-400 font-bold text-sm mb-1">
+            <span>📝</span> จำไปสอบ (Board 5)
+          </div>
+          <ul class="text-xs text-slate-300 space-y-1 list-disc list-inside">
+            <li>7 เกณฑ์ตรวจสอบ: Correctness, Consistency, Completeness, Realism, Verifiability, Clarity, Traceability</li>
+            <li>3 เทคนิค: Requirement Review (Formal/Informal), Prototyping, Test-Case Generation (XP)</li>
+            <li>หากพบข้อผิดพลาด <strong>ต้องส่งกลับให้ทีมพัฒนาแก้ไขก่อนเริ่มขั้นตอนออกแบบระบบ (Design)</strong></li>
+          </ul>
+        </div>
+
+        <div class="trap-box p-4 rounded-xl">
+          <div class="flex items-center gap-2 text-rose-400 font-bold text-sm mb-1">
+            <span>⚠️</span> จุดที่ข้อสอบชอบหลอก (Exam Trap)
+          </div>
+          <p class="text-xs text-slate-300">
+            <strong>ระวัง:</strong> ข้อสอบมักถามว่า <em>"เทคนิคการสร้าง Test-Case ในสไลด์อ้างอิงแนวคิดใด?"</em> &rarr; <strong>ตอบ: Extreme Programming (XP)</strong>
+          </p>
         </div>
       </div>
 
     </article>
 
 
-    <!-- ==========================================
-         BOARD 6: กรณีศึกษาจริงและการแปลงสู่ระบบ
-         ========================================== -->
+    <!-- =========================================================================
+         BOARD 6: กรณีศึกษาและการแปลงสู่ระบบ (CASE STUDIES)
+         ========================================================================= -->
     <article id="board-6" class="board-card rounded-3xl p-6 md:p-10">
       
       <!-- Board Header -->
       <div class="flex flex-wrap items-center justify-between pb-6 mb-8 border-b border-slate-800 gap-4">
         <div>
-          <div class="flex items-center gap-3">
+          <div class="flex items-center gap-2.5">
             <span class="badge badge-cyan">BOARD 06 / 06</span>
-            <span class="text-xs text-slate-400 font-mono">CASE STUDIES • UML TRANSFORMATION</span>
+            <span class="text-xs text-slate-400 font-mono">อ้างอิงสไลด์: 44 - 53</span>
           </div>
-          <h2 class="text-2xl md:text-3xl font-bold text-white mt-1">
-            กรณีศึกษาและการแปลงความต้องการสู่การออกแบบ (Case Studies & Practical Flow)
+          <h2 class="text-2xl md:text-3xl font-bold text-white mt-1.5 font-heading">
+            กรณีศึกษาจริง 2 ระบบ: Home Security (Pressman) & ระบบลงทะเบียน (โอภาส)
           </h2>
         </div>
         <div class="text-right text-xs text-slate-400">
-          <div>สไลด์อ้างอิง: <strong>44 - 53</strong></div>
-          <div class="text-cyan-400">การนำทฤษฎีมาสร้างแบบพิมพ์เขียวจริง</div>
+          <div>หัวใจ: <strong>การเดินทางของ Requirement สู่ UML</strong></div>
+          <div class="text-cyan-400">สไลด์ 44 - 53</div>
         </div>
       </div>
 
-      <!-- Case Study 1: Home Security Pipeline -->
+      <!-- Case Study 1: SafeHome / Home Security (Slides 44 - 50) -->
       <div class="sub-card rounded-2xl p-6 mb-8">
         <div class="flex flex-wrap items-center justify-between mb-4 gap-2">
           <div>
-            <h3 class="text-base font-bold text-cyan-300 flex items-center gap-2">
-              <svg class="w-5 h-5 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path></svg>
-              กรณีศึกษา 1: การเดินทางของความต้องการระบบ "Home Security" สู่ UML Architecture
+            <h3 class="text-base font-bold text-cyan-300 font-heading flex items-center gap-2">
+              <span>🏠</span> กรณีศึกษาที่ 1: ระบบ "Home Security" (SafeHome Function)
             </h3>
-            <p class="text-xs text-slate-400 mt-0.5">
-              ตัวอย่างการสกัดจากคำพูดดิบของเจ้าของบ้าน จนถึงการแปลงเป็น Class และ Activity Diagram
-            </p>
+            <p class="text-xs text-slate-400">Pressman & Maxim (2015), Software Engineering: A Practitioner's Approach (8th Ed.)</p>
           </div>
-          <span class="badge badge-cyan">Complete Evolution Flow</span>
+          <span class="badge badge-cyan text-xs">สไลด์ 44 - 50</span>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-5 gap-3.5 text-xs mb-6">
+        <p class="text-sm text-slate-300 mb-5">
+          แสดงกระบวนการแปลงตั้งแต่การประชุมรับฟังความต้องการ จนกลายเป็นไดอะแกรม UML ชนิดต่างๆ:
+        </p>
+
+        <!-- The 5 Steps Evolution of SafeHome -->
+        <div class="space-y-4 text-xs">
           
-          <!-- Step 1 -->
-          <div class="p-4 rounded-xl bg-slate-900 border border-slate-800 flex flex-col justify-between">
-            <div>
-              <span class="text-[10px] font-mono text-cyan-400 font-bold uppercase">Step 01</span>
-              <div class="font-bold text-white mt-1 mb-1.5">Raw Requirement</div>
-              <p class="text-slate-400 text-[11px] leading-relaxed">
-                <em>"อยากให้มีระบบเตือนภัยในบ้าน ถ้ามีคนบุกรุกให้ส่งเสียงเตือน และแจ้งเตือนเข้ามือถือ"</em>
+          <!-- Step 1 & 2 -->
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div class="p-4 rounded-xl bg-slate-900 border border-slate-800">
+              <span class="text-xs font-bold text-cyan-400 font-mono block mb-1">สไลด์ 45: จัดประชุมรวบรวม Requirement</span>
+              <p class="text-slate-300">
+                ทีมวิศวกรซอฟต์แวร์จัดประชุม Facilitated Meeting ร่วมกับลูกค้า เพื่อรับฟังความต้องการระบบรักษาความปลอดภัยในบ้าน (SafeHome)
               </p>
             </div>
-            <div class="text-[10px] text-slate-500 mt-3 pt-2 border-t border-slate-800">ผลจากการสัมภาษณ์</div>
-          </div>
 
-          <!-- Step 2 -->
-          <div class="p-4 rounded-xl bg-slate-900 border border-slate-800 flex flex-col justify-between">
-            <div>
-              <span class="text-[10px] font-mono text-cyan-400 font-bold uppercase">Step 02</span>
-              <div class="font-bold text-white mt-1 mb-1.5">User Scenario</div>
-              <p class="text-slate-400 text-[11px] leading-relaxed">
-                เจ้าของบ้านเปิดระบบ (Arm) &rarr; เดินออกจากบ้าน &rarr; เซนเซอร์ตรวจพบการเปิดหน้าต่าง &rarr; ไซเรนดัง &rarr; ส่งข้อความเตือน
+            <div class="p-4 rounded-xl bg-slate-900 border border-slate-800">
+              <span class="text-xs font-bold text-cyan-400 font-mono block mb-1">สไลด์ 46: พัฒนาเป็น User Scenario ขั้นต้น</span>
+              <p class="text-slate-300">
+                นำคำบอกเล่าของผู้ใช้มาเขียนเป็นลำดับเหตุการณ์การใช้งานจำลองของเจ้าของบ้าน (Homeowner Scenario)
               </p>
             </div>
-            <div class="text-[10px] text-slate-500 mt-3 pt-2 border-t border-slate-800">จำลองสถานการณ์จริง</div>
           </div>
 
-          <!-- Step 3 -->
-          <div class="p-4 rounded-xl bg-slate-900 border border-slate-800 flex flex-col justify-between">
-            <div>
-              <span class="text-[10px] font-mono text-cyan-400 font-bold uppercase">Step 03</span>
-              <div class="font-bold text-white mt-1 mb-1.5">Use Case Specification</div>
-              <p class="text-slate-400 text-[11px] leading-relaxed">
-                • <strong>Actor:</strong> Homeowner, Sensor<br>
-                • <strong>Pre-cond:</strong> System Armed<br>
-                • <strong>Trigger:</strong> Motion Detected<br>
-                • <strong>Flow:</strong> Sound Alarm & Notify
+          <!-- Step 3: Hardware & Functional Specs (Slide 47) -->
+          <div class="p-4 rounded-xl bg-slate-900 border border-slate-800">
+            <span class="text-xs font-bold text-amber-400 font-mono block mb-2">สไลด์ 47: การพัฒนา Use Case จากการจัดเก็บ Requirement</span>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div class="p-3 rounded-lg bg-slate-800/60">
+                <strong class="text-white block mb-1">Non-Functional Requirements:</strong>
+                <div class="text-slate-300">Accuracy, Data accessibility, Security</div>
+              </div>
+              <div class="p-3 rounded-lg bg-slate-800/60">
+                <strong class="text-white block mb-1">Functional Mini-specifications (Control Panel):</strong>
+                <ul class="text-slate-300 list-disc list-inside space-y-0.5">
+                  <li>เป็นอุปกรณ์ติดผนังขนาดประมาณ 230 x 130 มม.</li>
+                  <li>เชื่อมต่อไร้สาย (Wireless) ไปยังเซนเซอร์และเครื่อง PC</li>
+                  <li>มีปุ่มกด 12 ปุ่ม (Keypad) และจอสี OLED ขนาด 75 x 75 มม.</li>
+                  <li>ซอฟต์แวร์มีข้อความโต้ตอบ (Prompts) และเสียง Echo</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- Step 4: Use Case Diagram & Scenarios + Exceptions (Slide 48) -->
+          <div class="p-4 rounded-xl bg-slate-900 border border-cyan-500/40">
+            <div class="flex items-center justify-between mb-2">
+              <span class="text-xs font-bold text-cyan-300 font-mono">สไลด์ 48: UML Use Case Diagram for SafeHome Function</span>
+              <span class="badge badge-cyan text-[10px]">Scenario & Exceptions</span>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-3">
+              <div class="p-3 rounded-lg bg-slate-800/70">
+                <strong class="text-cyan-300 block mb-1">ลำดับเหตุการณ์ปกติ (Scenario):</strong>
+                <ol class="list-decimal list-inside space-y-1 text-slate-300">
+                  <li>Homeowner: สังเกตหน้าจอ Control panel</li>
+                  <li>Homeowner: ป้อนรหัสผ่าน (Enters password)</li>
+                  <li>Homeowner: เลือกโหมด "Stay" หรือ "Away"</li>
+                  <li>Homeowner: สังเกตไฟเตือนสีแดง เพื่อยืนยันว่าระบบเปิดทำงาน (Armed)</li>
+                </ol>
+              </div>
+
+              <div class="p-3 rounded-lg bg-slate-800/70">
+                <strong class="text-rose-300 block mb-1">ข้อยกเว้นที่ต้องดักจับ (Exceptions):</strong>
+                <ol class="list-decimal list-inside space-y-1 text-slate-300 text-[11px]">
+                  <li>Control panel ไม่พร้อม: ตรวจสอบเซนเซอร์และปิดประตู/หน้าต่างที่เปิดอยู่</li>
+                  <li>รหัสผ่านผิด (มีเสียง Beep 1 ครั้ง): ให้ป้อนรหัสผ่านใหม่</li>
+                  <li>รหัสผ่านไม่รู้จัก: ติดต่อหน่วยงานตอบสนองเพื่อโปรแกรมรหัสใหม่</li>
+                  <li>เลือก Stay (Beep 2 ครั้ง + ไฟ Stay ติด): เซนเซอร์รอบนอกทำงาน</li>
+                  <li>เลือก Away (Beep 3 ครั้ง + ไฟ Away ติด): เซนเซอร์ทุกตัวทำงาน</li>
+                </ol>
+              </div>
+            </div>
+          </div>
+
+          <!-- Step 5: Activity, Class & State Diagrams (Slides 49 & 50) -->
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div class="p-3.5 rounded-xl bg-slate-900 border border-slate-800">
+              <span class="text-xs font-bold text-purple-400 font-mono block mb-1">สไลด์ 49: UML Activity Diagram</span>
+              <p class="text-slate-300">
+                แสดงการไหลของกิจกรรม (Activity Flow) ที่สกัดมาจาก Use Case แสดงสเต็ปการตรวจสอบรหัสผ่านและการเลือกโหมดอย่างเป็นลำดับ
               </p>
             </div>
-            <div class="text-[10px] text-slate-500 mt-3 pt-2 border-t border-slate-800">แบบฟอร์มสเปกฟังก์ชัน</div>
-          </div>
 
-          <!-- Step 4 -->
-          <div class="p-4 rounded-xl bg-slate-900 border border-slate-800 flex flex-col justify-between">
-            <div>
-              <span class="text-[10px] font-mono text-cyan-400 font-bold uppercase">Step 04</span>
-              <div class="font-bold text-white mt-1 mb-1.5">Use Case Diagram</div>
-              <p class="text-slate-400 text-[11px] leading-relaxed">
-                วาดไดอะแกรมระบุความสัมพันธ์: Homeowner &rarr; Arm/Disarm System, Sensor &rarr; Detect Intrusion &lt;&lt;include&gt;&gt; Trigger Alarm
+            <div class="p-3.5 rounded-xl bg-slate-900 border border-slate-800">
+              <span class="text-xs font-bold text-purple-400 font-mono block mb-1">สไลด์ 50: UML Class & State Diagrams</span>
+              <p class="text-slate-300">
+                แปลงเป็น Class Diagram ของ Sensor และ State Diagram แสดงสถานะของระบบ (Armed, Disarmed, Alarm Triggered)
               </p>
             </div>
-            <div class="text-[10px] text-slate-500 mt-3 pt-2 border-t border-slate-800">UML Visual Modeling</div>
           </div>
 
-          <!-- Step 5 -->
-          <div class="p-4 rounded-xl bg-cyan-950/60 border border-cyan-500/60 flex flex-col justify-between">
-            <div>
-              <span class="text-[10px] font-mono text-cyan-300 font-bold uppercase">Step 05 ★</span>
-              <div class="font-bold text-cyan-200 mt-1 mb-1.5">Class & Activity Diagrams</div>
-              <p class="text-slate-300 text-[11px] leading-relaxed">
-                กำหนดคลาส <code>AlarmController</code>, <code>Sensor</code>, <code>Notifier</code> พร้อมลำดับขั้นตอน Activity ให้โปรแกรมเมอร์นำไปเขียนโค้ด
-              </p>
-            </div>
-            <div class="text-[10px] text-cyan-400 mt-3 pt-2 border-t border-cyan-800/80">Architecture Blueprint</div>
-          </div>
-
-        </div>
-
-        <div class="p-3.5 rounded-xl bg-slate-950/60 border border-slate-800 text-xs text-slate-300">
-          🎯 <strong>ข้อสังเกต:</strong> จากคำพูดภาษาพูดเพียง 1 ประโยคของลูกค้า ได้ถูกแปรรูปอย่างเป็นระบบจนกลายเป็นโครงสร้างคลาสทางวิศวกรรมซอฟต์แวร์ที่วัดผลและทดสอบได้ 100%
         </div>
       </div>
 
-      <!-- Case Study 2: Professional System Requirement Specifications (Registration System) -->
-      <div class="sub-card rounded-2xl p-6">
-        <div class="flex items-center justify-between mb-4">
-          <h3 class="text-base font-bold text-amber-300 flex items-center gap-2">
-            <svg class="w-5 h-5 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"></path></svg>
-            กรณีศึกษา 2: ตัวอย่างการเขียนข้อกำหนดระบบแบบมืออาชีพ (ระบบลงทะเบียนเรียนมหาวิทยาลัย)
-          </h3>
-          <span class="badge badge-amber">RFC 2119 Professional Standard</span>
+      <!-- Case Study 2: University Registration System (Slides 51 - 53) -->
+      <div class="sub-card rounded-2xl p-6 mb-8">
+        <div class="flex flex-wrap items-center justify-between mb-4 gap-2">
+          <div>
+            <h3 class="text-base font-bold text-amber-300 font-heading flex items-center gap-2">
+              <span>🎓</span> กรณีศึกษาที่ 2: ความต้องการ "ระบบลงทะเบียนเรียน" (สไลด์ 51 - 53)
+            </h3>
+            <p class="text-xs text-slate-400">โอภาส เอี่ยมสิริวงศ์ (2566), การวิเคราะห์และออกแบบระบบ</p>
+          </div>
+          <span class="badge badge-amber text-xs">สไลด์ 51 - 53</span>
         </div>
-        <p class="text-xs text-slate-300 mb-4 leading-relaxed">
-          ตามมาตรฐานวิศวกรรมซอฟต์แวร์ การเขียนข้อกำหนด System Requirement ในเอกสาร SRS ต้องใช้คำกริยาบังคับที่ชัดเจน เช่น <strong>"ระบบจะต้อง (The system shall...)"</strong> พร้อมตัวชี้วัดที่ไม่อึมครึม:
+
+        <p class="text-sm text-slate-300 mb-4">
+          ตัวอย่างการนำฟอร์ม <strong>Standard Form: System Requirement Specification (Function Spec)</strong> มาใช้กับระบบลงทะเบียน:
         </p>
 
-        <div class="space-y-2.5 text-xs font-mono">
-          <div class="p-3 rounded-xl bg-slate-900 border border-slate-800 flex items-start gap-3">
-            <span class="text-amber-400 font-bold shrink-0">[SRS-REG-01]</span>
-            <span class="text-slate-200">ระบบจะต้องอนุญาตให้นักศึกษาลงทะเบียนรายวิชาผ่าน Web Browser ที่รองรับมาตรฐาน HTML5 ตลอด 24 ชั่วโมงในสัปดาห์ลงทะเบียน</span>
+        <!-- Complete Functional Spec Form for Registration System -->
+        <div class="p-4 rounded-xl bg-slate-900 border border-slate-800 text-xs font-mono space-y-2 text-slate-300">
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 pb-2 border-b border-slate-800">
+            <div><strong class="text-amber-400">Function:</strong> บันทึกการลงทะเบียนรายวิชา (Course Registration)</div>
+            <div><strong class="text-amber-400">Stakeholders:</strong> นักศึกษา, อาจารย์ที่ปรึกษา, เจ้าหน้าที่ทะเบียน</div>
           </div>
-          <div class="p-3 rounded-xl bg-slate-900 border border-slate-800 flex items-start gap-3">
-            <span class="text-amber-400 font-bold shrink-0">[SRS-REG-02]</span>
-            <span class="text-slate-200">ระบบจะต้องตรวจสอบเงื่อนไขรายวิชาบังคับก่อน (Prerequisite) จากฐานข้อมูลกลางโดยอัตโนมัติ และแจ้งปฏิเสธทันทีหากไม่ผ่านเกณฑ์</span>
+          <div>
+            <strong class="text-cyan-400">Brief Description:</strong> ฟังก์ชันสำหรับให้นักศึกษาเลือกรายวิชา ตรวจสอบเงื่อนไขวิชาบังคับก่อน และยืนยันการลงทะเบียนเรียนในแต่ละภาคการศึกษา
           </div>
-          <div class="p-3 rounded-xl bg-slate-900 border border-slate-800 flex items-start gap-3">
-            <span class="text-amber-400 font-bold shrink-0">[SRS-REG-03]</span>
-            <span class="text-slate-200">ระบบจะต้องประมวลผลและส่งคืนผลการบันทึกวิชาเรียนให้ผู้ใช้เห็นภายในเวลาไม่เกิน <strong>2 วินาที</strong> ในสภาวะโหลดปกติ</span>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+            <div><strong class="text-cyan-400">Input:</strong> รหัสนักศึกษา, รหัสวิชา, กลุ่มเรียน (Section)</div>
+            <div><strong class="text-cyan-400">Source:</strong> แบบฟอร์มหน้าจอลงทะเบียนเรียน</div>
           </div>
-          <div class="p-3 rounded-xl bg-slate-900 border border-slate-800 flex items-start gap-3">
-            <span class="text-amber-400 font-bold shrink-0">[SRS-REG-04]</span>
-            <span class="text-slate-200">ระบบจะต้องรองรับจำนวนผู้ใช้งานพร้อมกัน (Concurrent Users) ได้ไม่น้อยกว่า <strong>1,000 คน</strong> โดยอัตราความพร้อมใช้งานไม่ต่ำกว่า 99.9%</span>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+            <div><strong class="text-emerald-400">Output:</strong> ใบเสร็จยืนยันผลการลงทะเบียน, ตารางเรียนประจำตัว</div>
+            <div><strong class="text-emerald-400">Requires:</strong> ระบบฐานข้อมูลทะเบียนกลาง, ระบบตัดเงินออนไลน์</div>
           </div>
-          <div class="p-3 rounded-xl bg-slate-900 border border-slate-800 flex items-start gap-3">
-            <span class="text-amber-400 font-bold shrink-0">[SRS-REG-05]</span>
-            <span class="text-slate-200">ระบบจะต้องเก็บบันทึกประวัติการทำรายการ (Audit Log) ทุกครั้งที่มีการลงทะเบียนหรือยกเลิก เพื่อใช้ตรวจสอบย้อนหลังได้ไม่น้อยกว่า 5 ปี</span>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 pt-2 border-t border-slate-800">
+            <div><strong class="text-purple-400">Preconditions:</strong> นักศึกษาชำระค่าธรรมเนียมแรกเข้าแล้ว และอยู่ในช่วงเวลาลงทะเบียน</div>
+            <div><strong class="text-purple-400">Postcondition:</strong> จำนวนที่นั่งในวิชานั้นถูกตัดลดลง 1 ที่ และบันทึกประวัติการลงทะเบียน</div>
           </div>
+          <div class="pt-2 border-t border-slate-800">
+            <strong class="text-amber-400">Main Flow (ขั้นตอนการทำงานหลัก):</strong>
+            <ol class="list-decimal list-inside space-y-0.5 text-slate-300 mt-1">
+              <li>นักศึกษาล็อกอินเข้าสู่ระบบด้วยบัญชีมหาวิทยาลัย</li>
+              <li>เลือกรายวิชาและกลุ่มเรียนที่เปิดสอน</li>
+              <li>ระบบตรวจสอบเงื่อนไขวิชาบังคับก่อน (Prerequisite) และการชนกันของเวลาเรียน</li>
+              <li>ระบบตัดยอดที่นั่งและแสดงหน้าต่างยืนยันผลการลงทะเบียน</li>
+            </ol>
+          </div>
+          <div class="pt-2 border-t border-slate-800 text-rose-300">
+            <strong>Exception Conditions (เงื่อนไขข้อยกเว้น):</strong>
+            <ul class="list-disc list-inside space-y-0.5 mt-1">
+              <li>หากที่นั่งในกลุ่มเรียนเต็ม &rarr; ระบบแจ้งเตือนให้เลือกกลุ่มอื่นหรือยื่นคำร้องขอเปิดกลุ่มพิเศษ</li>
+              <li>หากไม่ผ่านวิชาบังคับก่อน &rarr; ระบบปฏิเสธการลงทะเบียนพร้อมระบุวิชาที่ต้องเรียนก่อน</li>
+              <li>หากเกิดปัญหาเครือข่ายขัดข้องระหว่างบันทึก &rarr; ระบบ Rollback ข้อมูลกลับคืนโดยไม่ตัดที่นั่ง</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Exam Summary & Trap Box for Board 6 -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div class="exam-box p-4 rounded-xl">
+          <div class="flex items-center gap-2 text-amber-400 font-bold text-sm mb-1">
+            <span>📝</span> จำไปสอบ (Board 6)
+          </div>
+          <ul class="text-xs text-slate-300 space-y-1 list-disc list-inside">
+            <li>การแปลงความต้องการต้องเริ่มจาก <strong>Scenario &rarr; Use Case &rarr; Use Case Diagram &rarr; Activity Diagram &rarr; Class & State Diagrams</strong></li>
+            <li>Use Case ต้องระบุทั้ง <strong>Main Flow (ปกติ)</strong> และ <strong>Exception Conditions (ข้อยกเว้น)</strong></li>
+          </ul>
+        </div>
+
+        <div class="trap-box p-4 rounded-xl">
+          <div class="flex items-center gap-2 text-rose-400 font-bold text-sm mb-1">
+            <span>⚠️</span> จุดที่ข้อสอบชอบหลอก (Exam Trap)
+          </div>
+          <p class="text-xs text-slate-300">
+            <strong>ระวัง:</strong> Use Case ไม่ใช่โค้ดโปรแกรม แต่เป็นคำอธิบายปฏิสัมพันธ์ระหว่างผู้ใช้ (Actor) กับระบบ เพื่อให้ทุกฝ่ายเข้าใจตรงกันก่อนเขียน Class Diagram
+          </p>
+        </div>
+      </div>
+
+    </article>
+
+
+    <!-- =========================================================================
+         BOARD 7: คลังข้อสอบและสรุปติวเข้ม (EXAM REVIEW & PRACTICE SUITE)
+         ========================================================================= -->
+    <article id="board-7" class="board-card rounded-3xl p-6 md:p-10 border-2 border-amber-500/50">
+      
+      <!-- Board Header -->
+      <div class="flex flex-wrap items-center justify-between pb-6 mb-8 border-b border-slate-800 gap-4">
+        <div>
+          <div class="flex items-center gap-2.5">
+            <span class="badge badge-amber">BOARD 07 / EXAM PREP</span>
+            <span class="text-xs text-amber-400 font-mono font-bold">คลังข้อสอบและสรุปติวเข้มก่อนสอบ</span>
+          </div>
+          <h2 class="text-2xl md:text-3xl font-bold text-white mt-1.5 font-heading">
+            สรุปหัวใจสำคัญเพื่อเตรียมสอบ & แบบฝึกหัดทบทวน (Exam Review & Practice Questions)
+          </h2>
+        </div>
+        <div class="text-right text-xs text-slate-400">
+          <div>ตรงตามแนวข้อสอบวิชา <strong>ICE460</strong></div>
+          <div class="text-amber-400">เก็งข้อสอบ + เฉลยละเอียด</div>
+        </div>
+      </div>
+
+      <!-- Quick Executive Summary of All 6 Boards -->
+      <div class="sub-card rounded-2xl p-6 mb-8">
+        <h3 class="text-base font-bold text-amber-300 font-heading mb-4 flex items-center gap-2">
+          <span>⚡</span> สรุปหัวใจสำคัญ 6 บอร์ดแบบบรรทัดเดียว (Ultra-Fast Recap)
+        </h3>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3.5 text-xs">
+          <div class="p-3 rounded-xl bg-slate-900 border border-slate-800">
+            <strong class="text-cyan-400 block font-mono">Board 1:</strong>
+            <p class="text-slate-300 mt-1">RE อยู่ในขั้นตอนที่ 3 ของ SDLC; User Req ใช้ภาษาธรรมชาติ ส่วน System Req ใช้ภาษาเทคนิค</p>
+          </div>
+          <div class="p-3 rounded-xl bg-slate-900 border border-slate-800">
+            <strong class="text-amber-400 block font-mono">Board 2:</strong>
+            <p class="text-slate-300 mt-1">สไลด์แบ่งความต้องการระบบเป็น 3 ประเภท (Functional, NFR, Business); NFR มี 3 เสาหลัก (Product, Org, External)</p>
+          </div>
+          <div class="p-3 rounded-xl bg-slate-900 border border-slate-800">
+            <strong class="text-purple-400 block font-mono">Board 3:</strong>
+            <p class="text-slate-300 mt-1">กระบวนการ 4 ขั้น: Elicitation &rarr; Analysis &rarr; Specification &rarr; Validation; มี 7 เทคนิคการสกัดข้อมูล</p>
+          </div>
+          <div class="p-3 rounded-xl bg-slate-900 border border-slate-800">
+            <strong class="text-emerald-400 block font-mono">Board 4:</strong>
+            <p class="text-slate-300 mt-1">SRS ตาม IEEE 830 มี 3 ส่วนหลัก; 8 คุณลักษณะที่ดี; ผู้ใช้ SRS มี 5 กลุ่ม รวมถึงฝ่ายบำรุงรักษา</p>
+          </div>
+          <div class="p-3 rounded-xl bg-slate-900 border border-slate-800">
+            <strong class="text-rose-400 block font-mono">Board 5:</strong>
+            <p class="text-slate-300 mt-1">7 เกณฑ์ตรวจสอบ Validation; 3 เทคนิค (Review, Prototype, Test-Case XP); แก้ช้าต้นทุนสูงขึ้นมหาศาล</p>
+          </div>
+          <div class="p-3 rounded-xl bg-slate-900 border border-slate-800">
+            <strong class="text-cyan-400 block font-mono">Board 6:</strong>
+            <p class="text-slate-300 mt-1">SafeHome แสดงการแปลงสู่ UML; ระบบลงทะเบียนแสดงการเขียนฟอร์ม Functional Specification</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Practice Questions with Interactive Expandable Answers -->
+      <div class="sub-card rounded-2xl p-6 mb-8">
+        <div class="flex items-center justify-between mb-4">
+          <h3 class="text-base font-bold text-white font-heading flex items-center gap-2">
+            <span>🎯</span> คลังข้อสอบจำลองพร้อมเฉลยและคำอธิบาย (Practice Questions & Solutions)
+          </h3>
+          <span class="badge badge-amber text-xs">คลิกที่ข้อเพื่อดูเฉลย</span>
+        </div>
+
+        <div class="space-y-4 text-sm">
+          
+          <!-- Question 1 (MCQ) -->
+          <details class="p-4 rounded-xl bg-slate-900 border border-slate-800 group">
+            <summary class="font-semibold text-slate-200 flex items-center justify-between">
+              <div>
+                <span class="text-amber-400 font-bold font-mono mr-2">[ข้อสอบ 1 - MCQ]</span>
+                ข้อใดกล่าวถึงความแตกต่างระหว่าง User Requirements และ System Requirements ได้อย่างถูกต้องที่สุด?
+              </div>
+              <span class="arrow-icon text-slate-400 ml-2 transition-transform">▶</span>
+            </summary>
+            <div class="mt-3 pt-3 border-t border-slate-800 text-xs space-y-2 text-slate-300">
+              <div class="space-y-1">
+                <div>ก. User Requirements อธิบายด้วยภาษาเทคนิค ส่วน System Requirements ใช้ภาษาธรรมชาติ</div>
+                <div class="font-bold text-emerald-400">ข. User Requirements ใช้ภาษาธรรมชาติสำหรับผู้ใช้งาน ส่วน System Requirements ใช้ภาษาเชิงเทคนิคสำหรับนักพัฒนา</div>
+                <div>ค. User Requirements จัดทำขึ้นหลังจากการพัฒนาโปรแกรมเสร็จสิ้นแล้ว</div>
+                <div>ง. User Requirements จัดทำโดยโปรแกรมเมอร์ ส่วน System Requirements จัดทำโดยลูกค้า</div>
+              </div>
+              <div class="p-2.5 rounded-lg bg-emerald-950/40 border border-emerald-500/30 text-emerald-300 mt-2">
+                <strong>เฉลย ข.</strong> ตามสไลด์หน้า 8-9 User Requirements ต้องใช้ภาษาธรรมชาติที่เข้าใจง่าย ไม่ระบุรายละเอียดทางเทคนิค เพื่อให้ผู้ใช้และผู้ว่าจ้างเข้าใจตรงกัน ส่วน System Requirements ต้องระบุรายละเอียดทางเทคนิคสำหรับทีมพัฒนา
+              </div>
+            </div>
+          </details>
+
+          <!-- Question 2 (MCQ) -->
+          <details class="p-4 rounded-xl bg-slate-900 border border-slate-800 group">
+            <summary class="font-semibold text-slate-200 flex items-center justify-between">
+              <div>
+                <span class="text-amber-400 font-bold font-mono mr-2">[ข้อสอบ 2 - MCQ]</span>
+                ข้อกำหนดที่ระบุว่า "ระบบจะต้องหลีกเลี่ยงการจัดเก็บข้อมูลที่ไม่จำเป็น และไม่ขัดกับ พรบ. คุ้มครองข้อมูลส่วนบุคคล (PDPA)" จัดเป็นข้อกำหนดประเภทใด?
+              </div>
+              <span class="arrow-icon text-slate-400 ml-2 transition-transform">▶</span>
+            </summary>
+            <div class="mt-3 pt-3 border-t border-slate-800 text-xs space-y-2 text-slate-300">
+              <div class="space-y-1">
+                <div>ก. Functional Requirement ด้านประสิทธิภาพ</div>
+                <div>ข. Non-Functional Requirement ด้านผลิตภัณฑ์ (Product Requirement)</div>
+                <div>ค. Non-Functional Requirement ด้านองค์กร (Organizational Requirement)</div>
+                <div class="font-bold text-emerald-400">ง. Non-Functional Requirement ด้านปัจจัยภายนอก (External Requirement: Legislative)</div>
+              </div>
+              <div class="p-2.5 rounded-lg bg-emerald-950/40 border border-emerald-500/30 text-emerald-300 mt-2">
+                <strong>เฉลย ง.</strong> ตามสไลด์หน้า 11 และ 15 กฎหมาย พรบ. ข้อมูลส่วนบุคคล (PDPA) เป็นข้อกำหนดทางกฎหมาย (Legislative Requirement) ซึ่งจัดอยู่ในกลุ่ม "ความต้องการปัจจัยภายนอก (External Requirement)"
+              </div>
+            </div>
+          </details>
+
+          <!-- Question 3 (MCQ) -->
+          <details class="p-4 rounded-xl bg-slate-900 border border-slate-800 group">
+            <summary class="font-semibold text-slate-200 flex items-center justify-between">
+              <div>
+                <span class="text-amber-400 font-bold font-mono mr-2">[ข้อสอบ 3 - MCQ]</span>
+                ตามสไลด์หน้า 13 คุณลักษณะ "ความง่ายในการใช้งาน (Ease of use)" มีหน่วยวัดเชิงปริมาณตามข้อใด?
+              </div>
+              <span class="arrow-icon text-slate-400 ml-2 transition-transform">▶</span>
+            </summary>
+            <div class="mt-3 pt-3 border-t border-slate-800 text-xs space-y-2 text-slate-300">
+              <div class="space-y-1">
+                <div>ก. Processed transactions/second และ User response time</div>
+                <div>ข. Mean time to failure และ Availability</div>
+                <div class="font-bold text-emerald-400">ค. ระยะเวลาที่ใช้ในการอบรม (Training time) และจำนวนของส่วนช่วยเหลือ (Number of help frames)</div>
+                <div>ง. Percentage of target dependent statement</div>
+              </div>
+              <div class="p-2.5 rounded-lg bg-emerald-950/40 border border-emerald-500/30 text-emerald-300 mt-2">
+                <strong>เฉลย ค.</strong> ในสไลด์หน้า 13 ตารางตัวชี้วัด NFR ระบุชัดเจนว่า Ease of use วัดด้วย "Training time" และ "Number of help frames"
+              </div>
+            </div>
+          </details>
+
+          <!-- Question 4 (MCQ) -->
+          <details class="p-4 rounded-xl bg-slate-900 border border-slate-800 group">
+            <summary class="font-semibold text-slate-200 flex items-center justify-between">
+              <div>
+                <span class="text-amber-400 font-bold font-mono mr-2">[ข้อสอบ 4 - MCQ]</span>
+                เทคนิคการสกัดความต้องการ (Elicitation) ในข้อใด ที่สไลด์ระบุว่า "มีค่าใช้จ่ายสูงมากกว่าวิธีการอื่น"?
+              </div>
+              <span class="arrow-icon text-slate-400 ml-2 transition-transform">▶</span>
+            </summary>
+            <div class="mt-3 pt-3 border-t border-slate-800 text-xs space-y-2 text-slate-300">
+              <div class="space-y-1">
+                <div>ก. การสัมภาษณ์ (Interview)</div>
+                <div>ข. การสร้างต้นแบบ (Prototype)</div>
+                <div class="font-bold text-emerald-400">ค. การสังเกตการณ์ (Observation)</div>
+                <div>ง. แบบสอบถาม (Questionnaire)</div>
+              </div>
+              <div class="p-2.5 rounded-lg bg-emerald-950/40 border border-emerald-500/30 text-emerald-300 mt-2">
+                <strong>เฉลย ค.</strong> สไลด์หน้า 20 ระบุในข้อ 5 ชัดเจนว่า "การสังเกต (Observation) ... วิธีการนี้มีค่าใช้จ่ายสูงมากกว่าวิธีการอื่น" เนื่องจากต้องส่งวิศวกรไปฝังตัวนั่งสังเกตหน้างานจริงเป็นเวลานาน
+              </div>
+            </div>
+          </details>
+
+          <!-- Question 5 (Scenario/Subjective) -->
+          <details class="p-4 rounded-xl bg-slate-900 border border-slate-800 group">
+            <summary class="font-semibold text-slate-200 flex items-center justify-between">
+              <div>
+                <span class="text-amber-400 font-bold font-mono mr-2">[ข้อสอบ 5 - วิเคราะห์ Scenario]</span>
+                ในการตรวจทานข้อกำหนดความต้องการ (Validation) หากพบว่าในเอกสาร SRS ระบุข้อกำหนดว่า "ระบบต้องทำงานได้อย่างรวดเร็วและไม่หน่วง" ข้อกำหนดนี้สอบตกเกณฑ์ข้อใด และควรปรับแก้อย่างไร?
+              </div>
+              <span class="arrow-icon text-slate-400 ml-2 transition-transform">▶</span>
+            </summary>
+            <div class="mt-3 pt-3 border-t border-slate-800 text-xs space-y-2 text-slate-300">
+              <div class="p-3 rounded-lg bg-emerald-950/40 border border-emerald-500/30 text-emerald-300">
+                <strong>แนวคำตอบ:</strong><br>
+                1. <strong>เกณฑ์ที่สอบตก:</strong> สอบตกเกณฑ์ <strong>Clarity (ความชัดเจน)</strong> และ <strong>Verifiability (สามารถพิสูจน์ได้)</strong> ตามสไลด์หน้า 42 เพราะคำว่า "รวดเร็วและไม่หน่วง" มีความกำกวม และไม่มีหน่วยวัดเชิงตัวเลข ทำให้ไม่สามารถสร้าง Test Case เพื่อพิสูจน์แบบ Pass/Fail ได้<br><br>
+                2. <strong>แนวทางปรับแก้:</strong> ต้องระบุเป็นตัวเลขเชิงปริมาณ เช่น <em>"ระบบจะต้องตอบสนองต่อคำสั่งค้นหาข้อมูลและแสดงผลบนหน้าจอภายในเวลาไม่เกิน 1.5 วินาที เมื่อมีผู้ใช้งานพร้อมกันไม่เกิน 1,000 คน"</em>
+              </div>
+            </div>
+          </details>
+
+        </div>
+      </div>
+
+      <!-- Final Revision Checklist Before Entering Exam -->
+      <div class="p-5 rounded-2xl bg-gradient-to-r from-amber-950/40 via-slate-900 to-slate-900 border border-amber-500/40 text-xs">
+        <h3 class="text-sm font-bold text-amber-300 font-heading mb-2 flex items-center gap-2">
+          <span>📋</span> เช็กลิสต์ความพร้อมก่อนเข้าห้องสอบ (Final Revision Checklist)
+        </h3>
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2.5 text-slate-300 mt-3">
+          <label class="flex items-center gap-2 p-2 rounded bg-slate-800/60">
+            <input type="checkbox" class="rounded accent-amber-500" checked>
+            <span>จำ SDLC 7 ขั้นตอน และตำแหน่งของ RE</span>
+          </label>
+          <label class="flex items-center gap-2 p-2 rounded bg-slate-800/60">
+            <input type="checkbox" class="rounded accent-amber-500" checked>
+            <span>แยก User Req vs System Req ออกจากกันได้</span>
+          </label>
+          <label class="flex items-center gap-2 p-2 rounded bg-slate-800/60">
+            <input type="checkbox" class="rounded accent-amber-500" checked>
+            <span>จำ 3 ประเภทความต้องการ (รวม Business Req)</span>
+          </label>
+          <label class="flex items-center gap-2 p-2 rounded bg-slate-800/60">
+            <input type="checkbox" class="rounded accent-amber-500" checked>
+            <span>จำ 3 หมวด NFR: Product, Org, External</span>
+          </label>
+          <label class="flex items-center gap-2 p-2 rounded bg-slate-800/60">
+            <input type="checkbox" class="rounded accent-amber-500" checked>
+            <span>ท่องตารางตัวชี้วัด NFR 6 ด้าน และหน่วยวัด</span>
+          </label>
+          <label class="flex items-center gap-2 p-2 rounded bg-slate-800/60">
+            <input type="checkbox" class="rounded accent-amber-500" checked>
+            <span>จำลำดับ RE 4 ขั้น: Elicit &rarr; Analyse &rarr; Spec &rarr; Valid</span>
+          </label>
+          <label class="flex items-center gap-2 p-2 rounded bg-slate-800/60">
+            <input type="checkbox" class="rounded accent-amber-500" checked>
+            <span>จำ 7 เทคนิคการสกัดข้อมูล Elicitation</span>
+          </label>
+          <label class="flex items-center gap-2 p-2 rounded bg-slate-800/60">
+            <input type="checkbox" class="rounded accent-amber-500" checked>
+            <span>จำโครงสร้าง IEEE 830 และ 8 คุณลักษณะที่ดี</span>
+          </label>
+          <label class="flex items-center gap-2 p-2 rounded bg-slate-800/60">
+            <input type="checkbox" class="rounded accent-amber-500" checked>
+            <span>จำ 7 เกณฑ์ตรวจทาน Validation และ 3 เทคนิค</span>
+          </label>
         </div>
       </div>
 
@@ -1402,11 +1901,12 @@
     </div>
   </footer>
 
-  <!-- Interactive JavaScript for Tabs & Live Search -->
+  <!-- Interactive JavaScript: Filter, Live Search, Back-To-Top -->
   <script>
+    // Tab Filter
     function filterBoard(id) {
-      const boards = [1, 2, 3, 4, 5, 6];
-      const buttons = ['all', 1, 2, 3, 4, 5, 6];
+      const boards = [1, 2, 3, 4, 5, 6, 7];
+      const buttons = ['all', 1, 2, 3, 4, 5, 6, 7];
 
       buttons.forEach(b => {
         const btn = document.getElementById(`btn-${b}`);
@@ -1437,9 +1937,10 @@
       }
     }
 
+    // Live Search
     function searchContent() {
       const input = document.getElementById('searchInput').value.toLowerCase().trim();
-      const boards = [1, 2, 3, 4, 5, 6];
+      const boards = [1, 2, 3, 4, 5, 6, 7];
 
       if (!input) {
         filterBoard('all');
@@ -1458,6 +1959,18 @@
         }
       });
     }
+
+    // Back to top floating button display
+    window.addEventListener('scroll', () => {
+      const btn = document.getElementById('backToTop');
+      if (window.scrollY > 400) {
+        btn.classList.remove('opacity-0', 'pointer-events-none');
+        btn.classList.add('opacity-100', 'pointer-events-auto');
+      } else {
+        btn.classList.remove('opacity-100', 'pointer-events-auto');
+        btn.classList.add('opacity-0', 'pointer-events-none');
+      }
+    });
   </script>
 
 </body>
